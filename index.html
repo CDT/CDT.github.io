@@ -275,7 +275,34 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><img src="/images/git.png" alt="Git"></p>
+<h2 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git ?"></a>What is Git ?</h2><p>A <strong>distributed</strong> version control system.</p>
+<h2 id="Why-Git-over-SVN"><a href="#Why-Git-over-SVN" class="headerlink" title="Why Git over SVN ?"></a>Why Git over SVN ?</h2><ol>
+<li>Github uses git. Most modern IT companies use git.</li>
+<li>Git is distributed, SVN is centralized. Git enables you to work and source control offline with your own repo.</li>
+<li>Most operations are done locally, so it’s fast.</li>
+</ol>
+<h2 id="How-Git-works"><a href="#How-Git-works" class="headerlink" title="How Git works"></a>How Git works</h2><p>Git consists of 4 areas:</p>
+<ol>
+<li>Working Directory: Current working directory.</li>
+<li>Staging Area: Tracks and saves changes ready to commit.</li>
+<li>Local Repo: Repository on the disk.</li>
+<li>Remote Repo: Repository on the server.</li>
+</ol>
+<p><img src="/images/git_areas.png" alt="Git areas"></p>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><p><strong>HEAD</strong>: Current branch.</p>
+<h2 id="How-tos"><a href="#How-tos" class="headerlink" title="How-tos"></a>How-tos</h2><ol>
+<li><p>Undo<br>undo add: <code>git reset</code><br>undo commit: <code>git reset --hard HEAD~1</code> (moves to one commit before and <code>--hard</code> resets staging and working changes)</p>
+</li>
+<li><p>Links existing directory with remote repo</p>
+</li>
+</ol>
+<ul>
+<li>In existing directory, <code>git init .</code></li>
+<li><code>git remote add origin &lt;remote repo url&gt;</code>(<code>origin</code> is a conventional name for remote repo)</li>
+<li><code>git push origin &lt;local branch name&gt;</code></li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2>
       
     </div>
     <footer class="entry-meta entry-footer">

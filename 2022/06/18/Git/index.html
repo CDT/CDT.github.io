@@ -9,16 +9,21 @@
   
   
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="What is Git ?A distributed version control system. Why Git over SVN ? Github uses git. Most modern IT companies use git. Git is distributed, SVN is centralized. Git enables you to work and source con">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Git">
 <meta property="og:url" content="https://cdt.github.io/2022/06/18/Git/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
+<meta property="og:description" content="What is Git ?A distributed version control system. Why Git over SVN ? Github uses git. Most modern IT companies use git. Git is distributed, SVN is centralized. Git enables you to work and source con">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdt.github.io/images/git.png">
+<meta property="og:image" content="https://cdt.github.io/images/git_areas.png">
 <meta property="article:published_time" content="2022-06-18T00:57:57.000Z">
-<meta property="article:modified_time" content="2022-06-18T01:04:01.941Z">
+<meta property="article:modified_time" content="2022-06-18T13:55:17.034Z">
 <meta property="article:author" content="Chendongtian">
 <meta property="article:tag" content="Chendongtian, blog">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdt.github.io/images/git.png">
   
     <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
   
@@ -134,7 +139,34 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><img src="/images/git.png" alt="Git"></p>
+<h2 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git ?"></a>What is Git ?</h2><p>A <strong>distributed</strong> version control system.</p>
+<h2 id="Why-Git-over-SVN"><a href="#Why-Git-over-SVN" class="headerlink" title="Why Git over SVN ?"></a>Why Git over SVN ?</h2><ol>
+<li>Github uses git. Most modern IT companies use git.</li>
+<li>Git is distributed, SVN is centralized. Git enables you to work and source control offline with your own repo.</li>
+<li>Most operations are done locally, so it’s fast.</li>
+</ol>
+<h2 id="How-Git-works"><a href="#How-Git-works" class="headerlink" title="How Git works"></a>How Git works</h2><p>Git consists of 4 areas:</p>
+<ol>
+<li>Working Directory: Current working directory.</li>
+<li>Staging Area: Tracks and saves changes ready to commit.</li>
+<li>Local Repo: Repository on the disk.</li>
+<li>Remote Repo: Repository on the server.</li>
+</ol>
+<p><img src="/images/git_areas.png" alt="Git areas"></p>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><p><strong>HEAD</strong>: Current branch.</p>
+<h2 id="How-tos"><a href="#How-tos" class="headerlink" title="How-tos"></a>How-tos</h2><ol>
+<li><p>Undo<br>undo add: <code>git reset</code><br>undo commit: <code>git reset --hard HEAD~1</code> (moves to one commit before and <code>--hard</code> resets staging and working changes)</p>
+</li>
+<li><p>Links existing directory with remote repo</p>
+</li>
+</ol>
+<ul>
+<li>In existing directory, <code>git init .</code></li>
+<li><code>git remote add origin &lt;remote repo url&gt;</code>(<code>origin</code> is a conventional name for remote repo)</li>
+<li><code>git push origin &lt;local branch name&gt;</code></li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -194,7 +226,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav">None</ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Git"><span class="nav-number">1.</span> <span class="nav-text">What is Git ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Git-over-SVN"><span class="nav-number">2.</span> <span class="nav-text">Why Git over SVN ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-Git-works"><span class="nav-number">3.</span> <span class="nav-text">How Git works</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concepts"><span class="nav-number">4.</span> <span class="nav-text">Concepts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-tos"><span class="nav-number">5.</span> <span class="nav-text">How-tos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-number">6.</span> <span class="nav-text">FAQ</span></a></li></ol>
     
     </div>
   </aside>
