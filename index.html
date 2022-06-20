@@ -105,6 +105,65 @@
         
           <section id="main">
   
+    <article id="post-Single-threaded-and-asynchronous-Javascript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/">Single threaded and asynchronous Javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="article-date">
+	  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">June 19, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903553795014663">A conclusion of Javascript running mechanism.</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556084924423">Detailed explanation of Javascript asynchronism</a></li>
+<li><a target="_blank" rel="noopener" href="https://felixgerschau.com/javascript-event-loop-call-stack/">JavaScript Event Loop And Call Stack Explained</a></li>
+</ol>
+<h2 id="Sinle-threaded-Javascript"><a href="#Sinle-threaded-Javascript" class="headerlink" title="Sinle-threaded Javascript"></a>Sinle-threaded Javascript</h2><p>A running chrome consists of multiple process. Each tab is an isolated process.<br><img src="/images/chrome_task_manager.png" alt="chrom task manager"><br>A tab process consisits of multiple threads. Among them the important ones includes: </p>
+<ol>
+<li>Rendering thread. Renders DOM.</li>
+<li>Javascript engine thread. Runs Javascript. Note that when Javascript engine thread <strong>runs</strong>, rendering thread <strong>hangs</strong>. Because Javascript engine thread can manipulate DOM and rendering requires a consistent DOM.</li>
+<li>Event thread. Handles event loop.</li>
+<li>Timer thread. Handles timer methods like <code>setTimeout</code>, <code>setInterval</code>. Timer thread should be stand-alone as running of other function may affect timing accuracy.</li>
+</ol>
+<h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><p>Javascript, well-known for its asynchronism.<br>Synchronous functions runs and gets result. When function is slow (e.g. has file I&#x2F;O or web request operations), it <strong>waits</strong>.<br>Asynchronous functions runs and expects result. The function does not wait for result, instead it leaves a <strong>callback</strong> function there to handle future result, and it moves on.<br>Asynchronism makes Javascript run without idle time. That’s why javascript is fast.</p>
+<h2 id="Event-loop-and-call-stack"><a href="#Event-loop-and-call-stack" class="headerlink" title="Event loop and call stack"></a>Event loop and call stack</h2><p><img src="/images/js-event-loop-explained.png" alt="Event loop and call stack"><br>Browsers gives us Web APIs to handle callbacks. Functions like <code>AJAX</code>, <code>setTimeout</code> call these APIs.<br>Web APIs push callbacks into <em>callback queue</em>. Callbacks wait to be executed in the future.<br>Event loop watches call stack and callback queue. If call stack is empty, event loop takes one callback from callback queue and javascript engines executes the callback.</p>
+<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><p>Callback queue is not only one but two queue: macrotask queue and microtask queue.<br>Everytime event loop is triggered, it takes all microtasks and one macrotask. Microtasks are executed first.<br>Macrotasks: <code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>, I&#x2F;O operations, UI rendering<br>Microtasks: <code>Promise</code>, <code>process.nextTick</code>, <code>MutationObserver</code></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-single-threaded-asynchronous-tech/" rel="tag">javascript, single-threaded, asynchronous, tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Markdown"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -240,6 +299,9 @@
     <footer class="entry-meta entry-footer">
       
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown-tech/" rel="tag">markdown, tech</a></li></ul>
+
       
     </footer>
     <hr class="entry-footer-hr">
@@ -308,6 +370,9 @@
     <footer class="entry-meta entry-footer">
       
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-tech/" rel="tag">git, tech</a></li></ul>
+
       
     </footer>
     <hr class="entry-footer-hr">
@@ -425,6 +490,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/">Single threaded and asynchronous Javascript</a></h6>
+              <span>June 19, 2022</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2022/06/18/Markdown/">Markdown</a></h6>
               <span>June 18, 2022</span>
             </div>
@@ -452,16 +529,30 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-tech/" rel="tag">git, tech</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-single-threaded-asynchronous-tech/" rel="tag">javascript, single-threaded, asynchronous, tech</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown-tech/" rel="tag">markdown, tech</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/git-tech/" style="font-size: 10px;">git, tech</a> <a href="/tags/javascript-single-threaded-asynchronous-tech/" style="font-size: 10px;">javascript, single-threaded, asynchronous, tech</a> <a href="/tags/markdown-tech/" style="font-size: 10px;">markdown, tech</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
