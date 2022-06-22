@@ -3,29 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Markdown | Chendongtian&#39;s blog</title>
+  <title>Redis | Chendongtian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="techmarkdown" />
+  <meta name="keywords" content="techredis" />
   
   
   
   
-  <meta name="description" content="What is markdown ?A lightweight markup language which formats content by its simple syntax. Why markdown ? Eveywhere, for everything.  Websites like Reddit, Github, etc. support markdown. Documents,">
+  <meta name="description" content="What is redisAn distributed in-memory key-value database.distributed: redis can scale from a single instance to a distributed system.in-memory: that’s why redis is fast and commonly serves as cache.k">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown">
-<meta property="og:url" content="https://cdt.github.io/2022/06/18/Markdown/index.html">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="https://cdt.github.io/2022/06/21/Redis/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
-<meta property="og:description" content="What is markdown ?A lightweight markup language which formats content by its simple syntax. Why markdown ? Eveywhere, for everything.  Websites like Reddit, Github, etc. support markdown. Documents,">
+<meta property="og:description" content="What is redisAn distributed in-memory key-value database.distributed: redis can scale from a single instance to a distributed system.in-memory: that’s why redis is fast and commonly serves as cache.k">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdt.github.io/images/markdown.png">
-<meta property="article:published_time" content="2022-06-18T01:04:01.000Z">
+<meta property="og:image" content="https://cdt.github.io/images/redis.png">
+<meta property="article:published_time" content="2022-06-21T02:41:55.000Z">
 <meta property="article:modified_time" content="2022-06-22T12:29:17.683Z">
 <meta property="article:author" content="Chendongtian">
 <meta property="article:tag" content="tech">
-<meta property="article:tag" content="markdown">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdt.github.io/images/markdown.png">
+<meta name="twitter:image" content="https://cdt.github.io/images/redis.png">
   
     <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
   
@@ -108,7 +108,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Markdown" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Redis" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -116,7 +116,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Markdown
+      Redis
     </h1>
   
 
@@ -124,8 +124,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/06/18/Markdown/" class="article-date">
-	  <time datetime="2022-06-18T01:04:01.000Z" itemprop="datePublished">June 18, 2022</time>
+	<a href="/2022/06/21/Redis/" class="article-date">
+	  <time datetime="2022-06-21T02:41:55.000Z" itemprop="datePublished">June 21, 2022</time>
 	</a>
 
        
@@ -137,110 +137,20 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/markdown.png" alt="Markdown"></p>
-<h2 id="What-is-markdown"><a href="#What-is-markdown" class="headerlink" title="What is markdown ?"></a>What is markdown ?</h2><p>A lightweight markup language which formats content by its simple syntax.</p>
-<h2 id="Why-markdown"><a href="#Why-markdown" class="headerlink" title="Why markdown ?"></a>Why markdown ?</h2><ol>
-<li><p>Eveywhere, for everything.<br>  Websites like Reddit, Github, etc. support markdown. Documents, notes, books, emails and so on support markdown. WYSIWYG files are mostly only supported by its own editor.</p>
-</li>
-<li><p>Human readable. Markdown files are in plain text which is human readable. WYSIWYG files are not.</p>
-</li>
-<li><p>Portable. As markdown files are written in plain text, it can be created on any device, any operating system. And almost all platforms supports rendering of markdown.</p>
-</li>
+        <p><img src="/images/redis.png" alt="redis"></p>
+<h2 id="What-is-redis"><a href="#What-is-redis" class="headerlink" title="What is redis"></a>What is redis</h2><p>An <strong>distributed in-memory key-value</strong> database.<br>distributed: redis can scale from a single instance to a distributed system.<br>in-memory: that’s why redis is fast and commonly serves as cache.<br>key-value: redis stores key-value pairs.</p>
+<h2 id="Why-redis"><a href="#Why-redis" class="headerlink" title="Why redis"></a>Why redis</h2><p>As an in-memory cache, redis is much faster than traditional RDBMS.<br>Helps reduce database workload.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Server: See offical install procedure <a target="_blank" rel="noopener" href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/">here</a>.<br>As no offical windows install file provided, tporadowski provides an <a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis/releases">unoffical install file</a>.</p>
+<p>Client: redis server ships with a cli tool <code>redis-cli</code>. For GUI client, check <a target="_blank" rel="noopener" href="https://redis.io/download/">RedisInsight</a> out.</p>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="Difference-between-redis-windows-service-conf-and-redis-windows-conf"><a href="#Difference-between-redis-windows-service-conf-and-redis-windows-conf" class="headerlink" title="Difference between redis.windows-service.conf and redis.windows.conf"></a>Difference between redis.windows-service.conf and redis.windows.conf</h3><p><code>redis.windows-service.conf</code>: Configuration file for windows service.<br><code>reids.windows.conf</code>: Configuration file for command line.</p>
+<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>Default redis requires no auth, but cannot access from machine other than localhost.<br>To enable remote access (only tested on windows):<br>In file <code>redis.windows-service.conf</code>: </p>
+<ol>
+<li>Comment <code>bind 127.0.0.1</code>(line 64). This makes redis listen to all interfaces.</li>
+<li>Change <code>procted-mode yes</code> to <code>protected-mode no</code>(line 83). All clients are now able to connect in.</li>
+<li>Uncomment <code>requirepass foobared</code>(line 503) and replace <code>foobared</code> to your own password.</li>
 </ol>
-<h2 id="Kicking-the-tires"><a href="#Kicking-the-tires" class="headerlink" title="Kicking the tires"></a>Kicking the tires</h2><p>Online editor:  <a target="_blank" rel="noopener" href="https://dillinger.io/">Dillinger</a><br>Client editor: <a target="_blank" rel="noopener" href="https://github.com/marktext/marktext">Marktext</a>, a realtime rendering editor</p>
-<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Syntax</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Heading</td>
-<td># Heading 1<br />## Heading 2<br />### Heading 3</td>
-</tr>
-<tr>
-<td>Bold</td>
-<td>**bold text**</td>
-</tr>
-<tr>
-<td>Italic</td>
-<td>*Italic*</td>
-</tr>
-<tr>
-<td>Blockquote</td>
-<td>&gt; blockquote</td>
-</tr>
-<tr>
-<td>List</td>
-<td>1. First Item<br />2. Second Item<br />3. Third Item<br />- First Item<br />- Second Item<br />- Third Item</td>
-</tr>
-<tr>
-<td>Code</td>
-<td>`code`</td>
-</tr>
-<tr>
-<td>Horizontal rule</td>
-<td>---</td>
-</tr>
-<tr>
-<td>Link</td>
-<td>[title](<a target="_blank" rel="noopener" href="https://www.example.com/">https://www.example.com</a>)</td>
-</tr>
-<tr>
-<td>Image</td>
-<td>![alt text](image.jpg)</td>
-</tr>
-</tbody></table>
-<h3 id="Extended"><a href="#Extended" class="headerlink" title="Extended"></a>Extended</h3><table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Syntax</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Table</td>
-<td>| Syntax | Description |<br />| ———– | ———– |<br />| Header | Title |<br />| Paragraph | Text |</td>
-</tr>
-<tr>
-<td>Fenced code block</td>
-<td>```{ firstname: ‘dongtian’, lastname: ‘chen’ }```</td>
-</tr>
-<tr>
-<td>Footnote</td>
-<td>Here’s a sentence with a footnote. [^1]<br />[^1]: This is the footnote.</td>
-</tr>
-<tr>
-<td>Definition List</td>
-<td>term<br />: definition</td>
-</tr>
-<tr>
-<td>Strikethrough</td>
-<td>~~The world is flat.~~</td>
-</tr>
-<tr>
-<td>Task List</td>
-<td>- [x] Write the press release<br />- [ ] Update the website<br />- [ ] Contact the media</td>
-</tr>
-<tr>
-<td>Emoji</td>
-<td>That is so funny! :joy:<br /></td>
-</tr>
-<tr>
-<td>Highlight</td>
-<td>I need to highlight these &#x3D;&#x3D;very important words&#x3D;&#x3D;.</td>
-</tr>
-<tr>
-<td>Subscript</td>
-<td>H~2~O</td>
-</tr>
-<tr>
-<td>Superscript</td>
-<td>X^2^</td>
-</tr>
-</tbody></table>
-<p><strong>Escaping</strong>: Use backslash to escape most special characters.</p>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p><code>redis-cli</code>: connects to localhost on port 6379.<br><code>redis-cli -h [host] -p [port] -a [password]</code>: connect to specified host and port. If password contains special character, wrap it in quotes.</p>
+<h2 id="node-redis"><a href="#node-redis" class="headerlink" title="node redis"></a>node redis</h2><p>Note that <code>redis</code> does not work in browser environment.</p>
 
       
     </div>
@@ -248,7 +158,7 @@
       
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
 
       
         
@@ -283,19 +193,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Single threaded and asynchronous Javascript
+          阿里巴巴入门记录
         
       </div>
     </a>
   
   
-    <a href="/2022/06/18/Git/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Git</div>
+      <div class="article-nav-title">Single threaded and asynchronous Javascript</div>
     </a>
   
 </nav>
@@ -309,7 +219,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-markdown"><span class="nav-number">1.</span> <span class="nav-text">What is markdown ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-markdown"><span class="nav-number">2.</span> <span class="nav-text">Why markdown ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kicking-the-tires"><span class="nav-number">3.</span> <span class="nav-text">Kicking the tires</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Syntax"><span class="nav-number">4.</span> <span class="nav-text">Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic"><span class="nav-number">4.1.</span> <span class="nav-text">Basic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extended"><span class="nav-number">4.2.</span> <span class="nav-text">Extended</span></a></li></ol></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-redis"><span class="nav-number">1.</span> <span class="nav-text">What is redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-redis"><span class="nav-number">2.</span> <span class="nav-text">Why redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">3.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config"><span class="nav-number">4.</span> <span class="nav-text">Config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-between-redis-windows-service-conf-and-redis-windows-conf"><span class="nav-number">4.1.</span> <span class="nav-text">Difference between redis.windows-service.conf and redis.windows.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Security"><span class="nav-number">4.2.</span> <span class="nav-text">Security</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands"><span class="nav-number">5.</span> <span class="nav-text">Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-redis"><span class="nav-number">6.</span> <span class="nav-text">node redis</span></a></li></ol>
     
     </div>
   </aside>
