@@ -11,20 +11,23 @@
   
   
   
-  <meta name="description" content="RefsVue 3 VS Vue 2Kickstart">
+  <meta name="description" content="RefsComposition API - An animated explanationVue2 to Vue3 — What’s changed?Why vite ? Vue 3 VS Vue 2 Composition API vs Options APIOptions API is function concerned.Composition API is logic concerned.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 3">
 <meta property="og:url" content="https://cdt.github.io/2022/06/27/Vue-3/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
-<meta property="og:description" content="RefsVue 3 VS Vue 2Kickstart">
+<meta property="og:description" content="RefsComposition API - An animated explanationVue2 to Vue3 — What’s changed?Why vite ? Vue 3 VS Vue 2 Composition API vs Options APIOptions API is function concerned.Composition API is logic concerned.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdt.github.io/images/composition_vs_options.png">
+<meta property="og:image" content="https://cdt.github.io/images/script_setup_SFC.PNG">
 <meta property="article:published_time" content="2022-06-27T03:52:03.000Z">
-<meta property="article:modified_time" content="2022-06-27T10:27:45.902Z">
+<meta property="article:modified_time" content="2022-07-09T13:40:00.943Z">
 <meta property="article:author" content="Chendongtian">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="vue3">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdt.github.io/images/composition_vs_options.png">
   
     <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
   
@@ -136,7 +139,23 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><h2 id="Vue-3-VS-Vue-2"><a href="#Vue-3-VS-Vue-2" class="headerlink" title="Vue 3 VS Vue 2"></a>Vue 3 VS Vue 2</h2><h2 id="Kickstart"><a href="#Kickstart" class="headerlink" title="Kickstart"></a>Kickstart</h2>
+        <h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6890545920883032071">Composition API - An animated explanation</a><br><a target="_blank" rel="noopener" href="https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.">Vue2 to Vue3 — What’s changed?</a><br><a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">Why vite ?</a></p>
+<h2 id="Vue-3-VS-Vue-2"><a href="#Vue-3-VS-Vue-2" class="headerlink" title="Vue 3 VS Vue 2"></a>Vue 3 VS Vue 2</h2><ol>
+<li><p><strong>Composition API</strong> vs <strong>Options API</strong><br><img src="/images/composition_vs_options.png" alt="Composition API vs Options API"><br>Options API is <strong>function concerned</strong>.<br>Composition API is <strong>logic concerned</strong>.<br>For complex components, code of same logic may be scattered in <code>props</code>, <code>data</code>, <code>methods</code>, <code>mounted</code>, which makes it hard to maintain. So in Vue 3, <strong>Composition API</strong> is introduced, code of same logic is put together in <code>setup</code>.<br>See <a target="_blank" rel="noopener" href="https://vuejs.org/guide/introduction.html#which-to-choose">which to choose</a>.</p>
+</li>
+<li><p>Vite<br>Vue 3’s scaffolding tool migrated from <code>vue-cli</code> to ‘create-vue’, which is based on <code>vite</code> and has a much faster building speed than <code>webpack</code>. See <a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">why vite is much faster</a></p>
+</li>
+</ol>
+<h2 id="Vue-3-features"><a href="#Vue-3-features" class="headerlink" title="Vue 3 features"></a>Vue 3 features</h2><ol>
+<li>Composition API</li>
+</ol>
+<ul>
+<li>Difference with <code>Options API</code> already explained above.</li>
+<li>Use <code>&lt;script setup&gt;</code> or <code>&lt;script&gt;setup()</code> to indicate Composition API. Difference between <code>&lt;script setup&gt;</code> and <code>&lt;script&gt;setup()</code> is that no <code>return</code> is required in <code>&lt;script setup&gt;</code> to pass objects to template.</li>
+<li>A typical <code>&lt;script setup&gt;</code> SFC(Single File Component) goes here:<br><img src="/images/script_setup_SFC.PNG" alt="script_setup_SFC"></li>
+</ul>
+<p>2. </p>
+
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -188,9 +207,9 @@
     </a>
   
   
-    <a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">阿里巴巴入门记录</div>
+      <div class="article-nav-title">阿里巴巴</div>
     </a>
   
 </nav>
@@ -204,7 +223,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs"><span class="nav-number">1.</span> <span class="nav-text">Refs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-VS-Vue-2"><span class="nav-number">2.</span> <span class="nav-text">Vue 3 VS Vue 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kickstart"><span class="nav-number">3.</span> <span class="nav-text">Kickstart</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs"><span class="nav-number">1.</span> <span class="nav-text">Refs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-VS-Vue-2"><span class="nav-number">2.</span> <span class="nav-text">Vue 3 VS Vue 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-features"><span class="nav-number">3.</span> <span class="nav-text">Vue 3 features</span></a></li></ol>
     
     </div>
   </aside>
