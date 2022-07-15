@@ -3,32 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Single threaded and asynchronous Javascript | Chendongtian&#39;s blog</title>
+  <title>Redis | Chendongtian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="javascriptsingle-threadedtechasynchronous" />
+  <meta name="keywords" content="techredis" />
   
   
   
   
-  <meta name="description" content="Reference: A conclusion of Javascript running mechanism Detailed explanation of Javascript asynchronism JavaScript Event Loop And Call Stack Explained  Sinle-threaded JavascriptA running chrome consis">
+  <meta name="description" content="What is redisAn distributed in-memory key-value database.distributed: redis can scale from a single instance to a distributed system.in-memory: that’s why redis is fast and commonly serves as cache.k">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Single threaded and asynchronous Javascript">
-<meta property="og:url" content="https://cdt.github.io/2022/06/19/Single-threaded-and-asynchronous-Javascript/index.html">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="https://cdt.github.io/2022/06/21/Redis/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
-<meta property="og:description" content="Reference: A conclusion of Javascript running mechanism Detailed explanation of Javascript asynchronism JavaScript Event Loop And Call Stack Explained  Sinle-threaded JavascriptA running chrome consis">
+<meta property="og:description" content="What is redisAn distributed in-memory key-value database.distributed: redis can scale from a single instance to a distributed system.in-memory: that’s why redis is fast and commonly serves as cache.k">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdt.github.io/images/chrome_task_manager.png">
-<meta property="og:image" content="https://cdt.github.io/images/js-event-loop-explained.png">
-<meta property="article:published_time" content="2022-06-19T12:57:20.000Z">
-<meta property="article:modified_time" content="2022-06-21T01:00:17.918Z">
+<meta property="og:image" content="https://cdt.github.io/images/redis.png">
+<meta property="article:published_time" content="2022-06-21T02:41:55.000Z">
+<meta property="article:modified_time" content="2022-06-22T04:07:56.134Z">
 <meta property="article:author" content="Chendongtian">
-<meta property="article:tag" content="javascript">
-<meta property="article:tag" content="single-threaded">
 <meta property="article:tag" content="tech">
-<meta property="article:tag" content="asynchronous">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdt.github.io/images/chrome_task_manager.png">
+<meta name="twitter:image" content="https://cdt.github.io/images/redis.png">
   
     <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
   
@@ -111,7 +108,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Single-threaded-and-asynchronous-Javascript" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Redis" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -119,7 +116,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Single threaded and asynchronous Javascript
+      Redis
     </h1>
   
 
@@ -127,8 +124,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="article-date">
-	  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">June 19, 2022</time>
+	<a href="/2022/06/21/Redis/" class="article-date">
+	  <time datetime="2022-06-21T02:41:55.000Z" itemprop="datePublished">June 21, 2022</time>
 	</a>
 
        
@@ -140,21 +137,20 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903553795014663">A conclusion of Javascript running mechanism</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556084924423">Detailed explanation of Javascript asynchronism</a></li>
-<li><a target="_blank" rel="noopener" href="https://felixgerschau.com/javascript-event-loop-call-stack/">JavaScript Event Loop And Call Stack Explained</a></li>
-</ol>
-<h2 id="Sinle-threaded-Javascript"><a href="#Sinle-threaded-Javascript" class="headerlink" title="Sinle-threaded Javascript"></a>Sinle-threaded Javascript</h2><p>A running chrome consists of multiple process. Each tab is an isolated process.<br><img src="/images/chrome_task_manager.png" alt="chrom task manager"><br>A tab process consisits of multiple threads. Among them the important ones includes: </p>
+        <p><img src="/images/redis.png" alt="redis"></p>
+<h2 id="What-is-redis"><a href="#What-is-redis" class="headerlink" title="What is redis"></a>What is redis</h2><p>An <strong>distributed in-memory key-value</strong> database.<br>distributed: redis can scale from a single instance to a distributed system.<br>in-memory: that’s why redis is fast and commonly serves as cache.<br>key-value: redis stores key-value pairs.</p>
+<h2 id="Why-redis"><a href="#Why-redis" class="headerlink" title="Why redis"></a>Why redis</h2><p>As an in-memory cache, redis is much faster than traditional RDBMS.<br>Helps reduce database workload.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Server: See offical install procedure <a target="_blank" rel="noopener" href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/">here</a>.<br>As no offical windows install file provided, tporadowski provides an <a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis/releases">unoffical install file</a>.</p>
+<p>Client: redis server ships with a cli tool <code>redis-cli</code>. For GUI client, check <a target="_blank" rel="noopener" href="https://redis.io/download/">RedisInsight</a> out.</p>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="Difference-between-redis-windows-service-conf-and-redis-windows-conf"><a href="#Difference-between-redis-windows-service-conf-and-redis-windows-conf" class="headerlink" title="Difference between redis.windows-service.conf and redis.windows.conf"></a>Difference between redis.windows-service.conf and redis.windows.conf</h3><p><code>redis.windows-service.conf</code>: Configuration file for windows service.<br><code>reids.windows.conf</code>: Configuration file for command line.</p>
+<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>Default redis requires no auth, but cannot access from machine other than localhost.<br>To enable remote access (only tested on windows):<br>In file <code>redis.windows-service.conf</code>: </p>
 <ol>
-<li>Rendering thread. Renders DOM.</li>
-<li>Javascript engine thread. Runs Javascript. Note that when Javascript engine thread <strong>runs</strong>, rendering thread <strong>hangs</strong>. Because Javascript engine thread can manipulate DOM and rendering requires a consistent DOM.</li>
-<li>Event thread. Handles event loop.</li>
-<li>Timer thread. Handles timer methods like <code>setTimeout</code>, <code>setInterval</code>. Timer thread should be stand-alone as running of other function may affect timing accuracy.</li>
+<li>Comment <code>bind 127.0.0.1</code>(line 64). This makes redis listen to all interfaces.</li>
+<li>Change <code>procted-mode yes</code> to <code>protected-mode no</code>(line 83). All clients are now able to connect in.</li>
+<li>Uncomment <code>requirepass foobared</code>(line 503) and replace <code>foobared</code> to your own password.</li>
 </ol>
-<h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><p>Javascript, well-known for its asynchronism.<br>Synchronous functions runs and gets result. When function is slow (e.g. has file I&#x2F;O or web request operations), it <strong>waits</strong>.<br>Asynchronous functions runs and expects result. The function does not wait for result, instead it leaves a <strong>callback</strong> function there to handle future result, and it moves on.<br>Asynchronism makes Javascript run without idle time. That’s why javascript is fast.</p>
-<h2 id="Event-loop-and-call-stack"><a href="#Event-loop-and-call-stack" class="headerlink" title="Event loop and call stack"></a>Event loop and call stack</h2><p><img src="/images/js-event-loop-explained.png" alt="Event loop and call stack"><br>Browsers gives us Web APIs to handle callbacks. Functions like <code>AJAX</code>, <code>setTimeout</code> call these APIs.<br>Web APIs push callbacks into <em>callback queue</em>. Callbacks wait to be executed in the future.<br>Event loop watches call stack and callback queue. If call stack is empty, event loop takes one callback from callback queue and javascript engines executes the callback.</p>
-<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><p>Callback queue is not only one but two queue: macrotask queue and microtask queue.<br>Everytime event loop is triggered, it takes all microtasks and one macrotask. Microtasks are executed first.<br>Macrotasks: <code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>, I&#x2F;O operations, UI rendering<br>Microtasks: <code>Promise</code>, <code>process.nextTick</code>, <code>MutationObserver</code></p>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p><code>redis-cli</code>: connects to localhost on port 6379.<br><code>redis-cli -h [host] -p [port] -a [password]</code>: connect to specified host and port. If password contains special character, wrap it in quotes.</p>
+<h2 id="node-redis"><a href="#node-redis" class="headerlink" title="node redis"></a>node redis</h2><p>Note that <code>redis</code> does not work in browser environment.</p>
 
       
     </div>
@@ -162,7 +158,7 @@
       
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
 
       
         
@@ -197,19 +193,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/06/21/Redis/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Redis
+          阿里巴巴
         
       </div>
     </a>
   
   
-    <a href="/2022/06/18/Markdown/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Markdown</div>
+      <div class="article-nav-title">Single threaded and asynchronous Javascript</div>
     </a>
   
 </nav>
@@ -223,7 +219,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sinle-threaded-Javascript"><span class="nav-number">2.</span> <span class="nav-text">Sinle-threaded Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asynchronism"><span class="nav-number">3.</span> <span class="nav-text">Asynchronism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-loop-and-call-stack"><span class="nav-number">4.</span> <span class="nav-text">Event loop and call stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">5.</span> <span class="nav-text">Queues</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-redis"><span class="nav-number">1.</span> <span class="nav-text">What is redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-redis"><span class="nav-number">2.</span> <span class="nav-text">Why redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">3.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Config"><span class="nav-number">4.</span> <span class="nav-text">Config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-between-redis-windows-service-conf-and-redis-windows-conf"><span class="nav-number">4.1.</span> <span class="nav-text">Difference between redis.windows-service.conf and redis.windows.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Security"><span class="nav-number">4.2.</span> <span class="nav-text">Security</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Commands"><span class="nav-number">5.</span> <span class="nav-text">Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-redis"><span class="nav-number">6.</span> <span class="nav-text">node redis</span></a></li></ol>
     
     </div>
   </aside>

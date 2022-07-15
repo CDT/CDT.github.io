@@ -3,32 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Single threaded and asynchronous Javascript | Chendongtian&#39;s blog</title>
+  <title>FineReport | Chendongtian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="javascriptsingle-threadedtechasynchronous" />
   
   
   
-  
-  <meta name="description" content="Reference: A conclusion of Javascript running mechanism Detailed explanation of Javascript asynchronism JavaScript Event Loop And Call Stack Explained  Sinle-threaded JavascriptA running chrome consis">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Single threaded and asynchronous Javascript">
-<meta property="og:url" content="https://cdt.github.io/2022/06/19/Single-threaded-and-asynchronous-Javascript/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="FineReport">
+<meta property="og:url" content="https://cdt.github.io/2022/07/09/FineReport/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
-<meta property="og:description" content="Reference: A conclusion of Javascript running mechanism Detailed explanation of Javascript asynchronism JavaScript Event Loop And Call Stack Explained  Sinle-threaded JavascriptA running chrome consis">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdt.github.io/images/chrome_task_manager.png">
-<meta property="og:image" content="https://cdt.github.io/images/js-event-loop-explained.png">
-<meta property="article:published_time" content="2022-06-19T12:57:20.000Z">
-<meta property="article:modified_time" content="2022-06-21T01:00:17.918Z">
+<meta property="article:published_time" content="2022-07-09T13:49:42.000Z">
+<meta property="article:modified_time" content="2022-07-14T09:03:07.859Z">
 <meta property="article:author" content="Chendongtian">
-<meta property="article:tag" content="javascript">
-<meta property="article:tag" content="single-threaded">
-<meta property="article:tag" content="tech">
-<meta property="article:tag" content="asynchronous">
+<meta property="article:tag" content="Chendongtian, blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdt.github.io/images/chrome_task_manager.png">
   
     <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
   
@@ -111,7 +101,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Single-threaded-and-asynchronous-Javascript" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-FineReport" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -119,7 +109,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Single threaded and asynchronous Javascript
+      FineReport
     </h1>
   
 
@@ -127,8 +117,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="article-date">
-	  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">June 19, 2022</time>
+	<a href="/2022/07/09/FineReport/" class="article-date">
+	  <time datetime="2022-07-09T13:49:42.000Z" itemprop="datePublished">July 9, 2022</time>
 	</a>
 
        
@@ -140,30 +130,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903553795014663">A conclusion of Javascript running mechanism</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556084924423">Detailed explanation of Javascript asynchronism</a></li>
-<li><a target="_blank" rel="noopener" href="https://felixgerschau.com/javascript-event-loop-call-stack/">JavaScript Event Loop And Call Stack Explained</a></li>
-</ol>
-<h2 id="Sinle-threaded-Javascript"><a href="#Sinle-threaded-Javascript" class="headerlink" title="Sinle-threaded Javascript"></a>Sinle-threaded Javascript</h2><p>A running chrome consists of multiple process. Each tab is an isolated process.<br><img src="/images/chrome_task_manager.png" alt="chrom task manager"><br>A tab process consisits of multiple threads. Among them the important ones includes: </p>
-<ol>
-<li>Rendering thread. Renders DOM.</li>
-<li>Javascript engine thread. Runs Javascript. Note that when Javascript engine thread <strong>runs</strong>, rendering thread <strong>hangs</strong>. Because Javascript engine thread can manipulate DOM and rendering requires a consistent DOM.</li>
-<li>Event thread. Handles event loop.</li>
-<li>Timer thread. Handles timer methods like <code>setTimeout</code>, <code>setInterval</code>. Timer thread should be stand-alone as running of other function may affect timing accuracy.</li>
-</ol>
-<h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><p>Javascript, well-known for its asynchronism.<br>Synchronous functions runs and gets result. When function is slow (e.g. has file I&#x2F;O or web request operations), it <strong>waits</strong>.<br>Asynchronous functions runs and expects result. The function does not wait for result, instead it leaves a <strong>callback</strong> function there to handle future result, and it moves on.<br>Asynchronism makes Javascript run without idle time. That’s why javascript is fast.</p>
-<h2 id="Event-loop-and-call-stack"><a href="#Event-loop-and-call-stack" class="headerlink" title="Event loop and call stack"></a>Event loop and call stack</h2><p><img src="/images/js-event-loop-explained.png" alt="Event loop and call stack"><br>Browsers gives us Web APIs to handle callbacks. Functions like <code>AJAX</code>, <code>setTimeout</code> call these APIs.<br>Web APIs push callbacks into <em>callback queue</em>. Callbacks wait to be executed in the future.<br>Event loop watches call stack and callback queue. If call stack is empty, event loop takes one callback from callback queue and javascript engines executes the callback.</p>
-<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><p>Callback queue is not only one but two queue: macrotask queue and microtask queue.<br>Everytime event loop is triggered, it takes all microtasks and one macrotask. Microtasks are executed first.<br>Macrotasks: <code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>, I&#x2F;O operations, UI rendering<br>Microtasks: <code>Promise</code>, <code>process.nextTick</code>, <code>MutationObserver</code></p>
-
+        
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
-
       
         
 	<div id="comment">
@@ -197,19 +169,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/06/21/Redis/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/09/SQL/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Redis
+          SQL
         
       </div>
     </a>
   
   
-    <a href="/2022/06/18/Markdown/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/07/04/Regexp/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Markdown</div>
+      <div class="article-nav-title">Regexp</div>
     </a>
   
 </nav>
@@ -223,7 +195,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sinle-threaded-Javascript"><span class="nav-number">2.</span> <span class="nav-text">Sinle-threaded Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Asynchronism"><span class="nav-number">3.</span> <span class="nav-text">Asynchronism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-loop-and-call-stack"><span class="nav-number">4.</span> <span class="nav-text">Event loop and call stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queues"><span class="nav-number">5.</span> <span class="nav-text">Queues</span></a></li></ol>
+      <ol class="nav">None</ol>
     
     </div>
   </aside>

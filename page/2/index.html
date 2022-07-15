@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Chendongtian&#39;s blog</title>
+  <title>Page 2 | Chendongtian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -11,7 +11,7 @@
   
   <meta property="og:type" content="website">
 <meta property="og:title" content="Chendongtian&#39;s blog">
-<meta property="og:url" content="https://cdt.github.io/archives/index.html">
+<meta property="og:url" content="https://cdt.github.io/page/2/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Chendongtian">
@@ -100,289 +100,291 @@
       <div id="content" class="outer">
         
           <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>There are 13 posts in total till now.</span></blockquote>
-
-
-
-
-
-	<!-- 完全显示 -->
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2022" class="archive-year">2022</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/15/Multithreading-in-Node-js/" class="archive-article-date">
-		  <time datetime="2022-07-15T02:43:46.000Z" itemprop="datePublished">Jul 15, 2022</time>
-	  </a>
-      
+  
+    <article id="post-Single-threaded-and-asynchronous-Javascript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/15/Multithreading-in-Node-js/">Multithreading in Node.js</a>
+      <a class="article-title" href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/">Single threaded and asynchronous Javascript</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/15/%E5%8C%BB%E4%BF%9D%E5%88%B6%E5%BA%A6/" class="archive-article-date">
-		  <time datetime="2022-07-14T22:22:57.000Z" itemprop="datePublished">Jul 15, 2022</time>
-	  </a>
+      </header>
+    
+    <div class="article-meta">
       
+	<a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="article-date">
+	  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">June 19, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903553795014663">A conclusion of Javascript running mechanism</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556084924423">Detailed explanation of Javascript asynchronism</a></li>
+<li><a target="_blank" rel="noopener" href="https://felixgerschau.com/javascript-event-loop-call-stack/">JavaScript Event Loop And Call Stack Explained</a></li>
+</ol>
+<h2 id="Sinle-threaded-Javascript"><a href="#Sinle-threaded-Javascript" class="headerlink" title="Sinle-threaded Javascript"></a>Sinle-threaded Javascript</h2><p>A running chrome consists of multiple process. Each tab is an isolated process.<br><img src="/images/chrome_task_manager.png" alt="chrom task manager"><br>A tab process consisits of multiple threads. Among them the important ones includes: </p>
+<ol>
+<li>Rendering thread. Renders DOM.</li>
+<li>Javascript engine thread. Runs Javascript. Note that when Javascript engine thread <strong>runs</strong>, rendering thread <strong>hangs</strong>. Because Javascript engine thread can manipulate DOM and rendering requires a consistent DOM.</li>
+<li>Event thread. Handles event loop.</li>
+<li>Timer thread. Handles timer methods like <code>setTimeout</code>, <code>setInterval</code>. Timer thread should be stand-alone as running of other function may affect timing accuracy.</li>
+</ol>
+<h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><p>Javascript, well-known for its asynchronism.<br>Synchronous functions runs and gets result. When function is slow (e.g. has file I&#x2F;O or web request operations), it <strong>waits</strong>.<br>Asynchronous functions runs and expects result. The function does not wait for result, instead it leaves a <strong>callback</strong> function there to handle future result, and it moves on.<br>Asynchronism makes Javascript run without idle time. That’s why javascript is fast.</p>
+<h2 id="Event-loop-and-call-stack"><a href="#Event-loop-and-call-stack" class="headerlink" title="Event loop and call stack"></a>Event loop and call stack</h2><p><img src="/images/js-event-loop-explained.png" alt="Event loop and call stack"><br>Browsers gives us Web APIs to handle callbacks. Functions like <code>AJAX</code>, <code>setTimeout</code> call these APIs.<br>Web APIs push callbacks into <em>callback queue</em>. Callbacks wait to be executed in the future.<br>Event loop watches call stack and callback queue. If call stack is empty, event loop takes one callback from callback queue and javascript engines executes the callback.</p>
+<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><p>Callback queue is not only one but two queue: macrotask queue and microtask queue.<br>Everytime event loop is triggered, it takes all microtasks and one macrotask. Microtasks are executed first.<br>Macrotasks: <code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>, I&#x2F;O operations, UI rendering<br>Microtasks: <code>Promise</code>, <code>process.nextTick</code>, <code>MutationObserver</code></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Markdown"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/15/%E5%8C%BB%E4%BF%9D%E5%88%B6%E5%BA%A6/">医保制度</a>
+      <a class="article-title" href="/2022/06/18/Markdown/">Markdown</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/12/Record-of-an-NJS-016-exception-for-node-oracledb/" class="archive-article-date">
-		  <time datetime="2022-07-12T01:34:13.000Z" itemprop="datePublished">Jul 12, 2022</time>
-	  </a>
+      </header>
+    
+    <div class="article-meta">
       
+	<a href="/2022/06/18/Markdown/" class="article-date">
+	  <time datetime="2022-06-18T01:04:01.000Z" itemprop="datePublished">June 18, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/markdown.png" alt="Markdown"></p>
+<h2 id="What-is-markdown"><a href="#What-is-markdown" class="headerlink" title="What is markdown ?"></a>What is markdown ?</h2><p>A lightweight markup language which formats content by its simple syntax.</p>
+<h2 id="Why-markdown"><a href="#Why-markdown" class="headerlink" title="Why markdown ?"></a>Why markdown ?</h2><ol>
+<li><p>Eveywhere, for everything.<br>  Websites like Reddit, Github, etc. support markdown. Documents, notes, books, emails and so on support markdown. WYSIWYG files are mostly only supported by its own editor.</p>
+</li>
+<li><p>Human readable. Markdown files are in plain text which is human readable. WYSIWYG files are not.</p>
+</li>
+<li><p>Portable. As markdown files are written in plain text, it can be created on any device, any operating system. And almost all platforms supports rendering of markdown.</p>
+</li>
+</ol>
+<h2 id="Kicking-the-tires"><a href="#Kicking-the-tires" class="headerlink" title="Kicking the tires"></a>Kicking the tires</h2><p>Online editor:  <a target="_blank" rel="noopener" href="https://dillinger.io/">Dillinger</a><br>Client editor: <a target="_blank" rel="noopener" href="https://github.com/marktext/marktext">Marktext</a>, a realtime rendering editor</p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Heading</td>
+<td># Heading 1<br />## Heading 2<br />### Heading 3</td>
+</tr>
+<tr>
+<td>Bold</td>
+<td>**bold text**</td>
+</tr>
+<tr>
+<td>Italic</td>
+<td>*Italic*</td>
+</tr>
+<tr>
+<td>Blockquote</td>
+<td>&gt; blockquote</td>
+</tr>
+<tr>
+<td>List</td>
+<td>1. First Item<br />2. Second Item<br />3. Third Item<br />- First Item<br />- Second Item<br />- Third Item</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>`code`</td>
+</tr>
+<tr>
+<td>Horizontal rule</td>
+<td>---</td>
+</tr>
+<tr>
+<td>Link</td>
+<td>[title](<a target="_blank" rel="noopener" href="https://www.example.com/">https://www.example.com</a>)</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>![alt text](image.jpg)</td>
+</tr>
+</tbody></table>
+<h3 id="Extended"><a href="#Extended" class="headerlink" title="Extended"></a>Extended</h3><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Table</td>
+<td>| Syntax | Description |<br />| ———– | ———– |<br />| Header | Title |<br />| Paragraph | Text | <br>Note that there must be a blank line after the table.</td>
+</tr>
+<tr>
+<td>Fenced code block</td>
+<td>```{ firstname: ‘dongtian’, lastname: ‘chen’ }```</td>
+</tr>
+<tr>
+<td>Footnote</td>
+<td>Here’s a sentence with a footnote. [^1]<br />[^1]: This is the footnote.</td>
+</tr>
+<tr>
+<td>Definition List</td>
+<td>term<br />: definition</td>
+</tr>
+<tr>
+<td>Strikethrough</td>
+<td>~~The world is flat.~~</td>
+</tr>
+<tr>
+<td>Task List</td>
+<td>- [x] Write the press release<br />- [ ] Update the website<br />- [ ] Contact the media</td>
+</tr>
+<tr>
+<td>Emoji</td>
+<td>That is so funny! :joy:<br /></td>
+</tr>
+<tr>
+<td>Highlight</td>
+<td>I need to highlight these &#x3D;&#x3D;very important words&#x3D;&#x3D;.</td>
+</tr>
+<tr>
+<td>Subscript</td>
+<td>H~2~O</td>
+</tr>
+<tr>
+<td>Superscript</td>
+<td>X^2^</td>
+</tr>
+</tbody></table>
+<p><strong>Escaping</strong>: Use backslash to escape most special characters.<br><strong>Leading spaces</strong>: Markdown does not support leading spaces before each paragraph. Use &amp;nbsp;(may have some problem with specific renderer like Hexo) or full-width space(a prettier solution) at the beginning.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Git"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
   
     <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/12/Record-of-an-NJS-016-exception-for-node-oracledb/">Record of an NJS-016 exception for node oracledb</a>
+      <a class="article-title" href="/2022/06/18/Git/">Git</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/09/SQL/" class="archive-article-date">
-		  <time datetime="2022-07-09T13:50:31.000Z" itemprop="datePublished">Jul 09, 2022</time>
-	  </a>
+      </header>
+    
+    <div class="article-meta">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/09/SQL/">SQL</a>
-    </h1>
-  
+	<a href="/2022/06/18/Git/" class="article-date">
+	  <time datetime="2022-06-18T00:57:57.000Z" itemprop="datePublished">June 18, 2022</time>
+	</a>
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/09/FineReport/" class="archive-article-date">
-		  <time datetime="2022-07-09T13:49:42.000Z" itemprop="datePublished">Jul 09, 2022</time>
-	  </a>
+       
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/09/FineReport/">FineReport</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/04/Regexp/" class="archive-article-date">
-		  <time datetime="2022-07-04T06:37:33.000Z" itemprop="datePublished">Jul 04, 2022</time>
-	  </a>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/04/Regexp/">Regexp</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/" class="archive-article-date">
-		  <time datetime="2022-07-01T10:34:47.000Z" itemprop="datePublished">Jul 01, 2022</time>
-	  </a>
+        <p><img src="/images/git.png" alt="Git"></p>
+<h2 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git ?"></a>What is Git ?</h2><p>A <strong>distributed</strong> version control system.</p>
+<h2 id="Why-Git-over-SVN"><a href="#Why-Git-over-SVN" class="headerlink" title="Why Git over SVN ?"></a>Why Git over SVN ?</h2><ol>
+<li>Github uses git. Most modern IT companies use git.</li>
+<li>Git is distributed, SVN is centralized. Git enables you to work and source control offline with your own repo.</li>
+<li>Most operations are done locally, so it’s fast.</li>
+</ol>
+<h2 id="How-Git-works"><a href="#How-Git-works" class="headerlink" title="How Git works"></a>How Git works</h2><p>Git consists of 4 areas:</p>
+<ol>
+<li>Working Directory: Current working directory.</li>
+<li>Staging Area: Tracks and saves changes ready to commit.</li>
+<li>Local Repo: Repository on the disk.</li>
+<li>Remote Repo: Repository on the server.</li>
+</ol>
+<p><img src="/images/git_areas.png" alt="Git areas"></p>
+<h2 id="Concepts"><a href="#Concepts" class="headerlink" title="Concepts"></a>Concepts</h2><p><strong>HEAD</strong>: Current branch.</p>
+<h2 id="How-tos"><a href="#How-tos" class="headerlink" title="How-tos"></a>How-tos</h2><ol>
+<li><p>Undo<br>undo add: <code>git reset</code><br>undo commit: <code>git reset --hard HEAD~1</code> (moves to one commit before and <code>--hard</code> resets staging and working changes)</p>
+</li>
+<li><p>Links existing directory with remote repo</p>
+</li>
+</ol>
+<ul>
+<li>In existing directory, <code>git init .</code></li>
+<li><code>git remote add origin &lt;remote repo url&gt;</code>(<code>origin</code> is a conventional name for remote repo)</li>
+<li><code>git push origin &lt;local branch name&gt;</code></li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/">锂电池</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/06/27/Vue-3/" class="archive-article-date">
-		  <time datetime="2022-06-27T03:52:03.000Z" itemprop="datePublished">Jun 27, 2022</time>
-	  </a>
+    </div>
+    <footer class="entry-meta entry-footer">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/06/27/Vue-3/">Vue 3</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/" class="archive-article-date">
-		  <time datetime="2022-06-22T12:38:20.000Z" itemprop="datePublished">Jun 22, 2022</time>
-	  </a>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/">阿里巴巴</a>
-    </h1>
-  
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/06/21/Redis/" class="archive-article-date">
-		  <time datetime="2022-06-21T02:41:55.000Z" itemprop="datePublished">Jun 21, 2022</time>
-	  </a>
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/06/21/Redis/">Redis</a>
-    </h1>
-  
-
-    </header>
+    </footer>
+    <hr class="entry-footer-hr">
   </div>
+  
 </article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
 
-      <a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="archive-article-date">
-		  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">Jun 19, 2022</time>
-	  </a>
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/">Single threaded and asynchronous Javascript</a>
-    </h1>
+<!-- Table of Contents -->
+
   
 
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
 
-      <a href="/2022/06/18/Markdown/" class="archive-article-date">
-		  <time datetime="2022-06-18T01:04:01.000Z" itemprop="datePublished">Jun 18, 2022</time>
-	  </a>
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/06/18/Markdown/">Markdown</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-		
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/06/18/Git/" class="archive-article-date">
-		  <time datetime="2022-06-18T00:57:57.000Z" itemprop="datePublished">Jun 18, 2022</time>
-	  </a>
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/06/18/Git/">Git</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-	
-
-	
-		</div></section>
-	
-
-
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
           <aside id="sidebar">
