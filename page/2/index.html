@@ -101,6 +101,602 @@
         
           <section id="main">
   
+    <article id="post-SQL"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/09/SQL/">SQL FAQ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/09/SQL/" class="article-date">
+	  <time datetime="2022-07-09T13:50:31.000Z" itemprop="datePublished">July 9, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/sql1.png"></p>
+<h3 id="1-Database-links"><a href="#1-Database-links" class="headerlink" title="1. Database links"></a>1. Database links</h3><h3 id="2-Triggers"><a href="#2-Triggers" class="headerlink" title="2. Triggers"></a>2. Triggers</h3><h3 id="3-Procedures"><a href="#3-Procedures" class="headerlink" title="3. Procedures"></a>3. Procedures</h3><h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><h3 id="ORA-01489-result-of-string-concatenation-is-too-long"><a href="#ORA-01489-result-of-string-concatenation-is-too-long" class="headerlink" title="ORA-01489 result of string concatenation is too long"></a>ORA-01489 result of string concatenation is too long</h3><p>Ref: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/29776035/oracle-ora-01489-result-of-string-concatenation-is-too-long">Stack Overflow ORA-01489</a></p>
+<h3 id="Update-inserted-row-with-trigger"><a href="#Update-inserted-row-with-trigger" class="headerlink" title="Update inserted row with trigger"></a>Update inserted row with trigger</h3><p>Ref: <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/45313561/update-inserted-row-with-trigger">Stack Overflow</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/" rel="tag">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Regexp"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/04/Regexp/">Regexp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/04/Regexp/" class="article-date">
+	  <time datetime="2022-07-04T06:37:33.000Z" itemprop="datePublished">July 4, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/regex.png" alt="Regex"></p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><p><a target="_blank" rel="noopener" href="https://regexper.com/">Regexper: Visulization tool for Regexp</a><br><a target="_blank" rel="noopener" href="https://regex101.com/">Regex101: Write, test and debug Regexp</a></p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><table>
+<thead>
+<tr>
+<th align="right">Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><strong>Special Characters</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="right">\n</td>
+<td>New line.</td>
+</tr>
+<tr>
+<td align="right">\f</td>
+<td>Form feed.</td>
+</tr>
+<tr>
+<td align="right">\r</td>
+<td>Return.</td>
+</tr>
+<tr>
+<td align="right">\s</td>
+<td>Space.</td>
+</tr>
+<tr>
+<td align="right">\t</td>
+<td>Tab.</td>
+</tr>
+<tr>
+<td align="right">\v</td>
+<td>Vertical tab.</td>
+</tr>
+<tr>
+<td align="right">[\b]</td>
+<td>Backspace. As <code>\b</code> refers to <code>boundary</code>(see below), <code>[]</code> is used to differentiate backspace and boundary.</td>
+</tr>
+<tr>
+<td align="right"><strong>Repeats</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="right">?</td>
+<td>Zero or one occurrence.</td>
+</tr>
+<tr>
+<td align="right">*</td>
+<td>Zero or more occurrences.</td>
+</tr>
+<tr>
+<td align="right">{x}</td>
+<td>X times.</td>
+</tr>
+<tr>
+<td align="right">{min, max}</td>
+<td>min to max times. If max not given, then it means at least min times.</td>
+</tr>
+<tr>
+<td align="right"><strong>Margins</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="right">\b</td>
+<td>Boundary. Matches a pseudo position between word character <code>\w</code> and non-word character <code>\W</code>. Often used to extract single word. Match <code>/\bcat\b/</code> in <code>The cat scattered his food</code> will not match <code>cat</code> in <code>scattered</code> as <code>cat</code> in <code>scattered</code> is surrounded by word character <code>s</code> and <code>t</code>.</td>
+</tr>
+<tr>
+<td align="right">\B</td>
+<td>Non-boundary.</td>
+</tr>
+<tr>
+<td align="right">^</td>
+<td>Start of string.</td>
+</tr>
+<tr>
+<td align="right">$</td>
+<td>End of string.</td>
+</tr>
+<tr>
+<td align="right"><strong>Modifiers</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="right">&#x2F;m</td>
+<td>Multiple line.</td>
+</tr>
+<tr>
+<td align="right">&#x2F;i</td>
+<td>Ignore case.</td>
+</tr>
+<tr>
+<td align="right">&#x2F;g</td>
+<td>Global.</td>
+</tr>
+<tr>
+<td align="right"><strong>Sub-expression</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="right">Sub-expression</td>
+<td>Expression within brackets <code>(</code> and <code>)</code> is a sub-expression.</td>
+</tr>
+<tr>
+<td align="right">Backreference</td>
+<td>Use <code>\1</code>, <code>\2</code> in the back to reference the first, second expression in the front. Example: Use <code>\b(\w+)\s\1</code> to match two continuous same words in <code>Hello what what is the first thing, and I am am Tom.</code>.</td>
+</tr>
+<tr>
+<td align="right">Non-capturing group</td>
+<td>Use <code>(?:)</code> to avoid being captured. Example: Using <code>(Chendongti)(?:an)</code> to match <code>Chendongtian</code>  will only return one group <code>Chendongti</code>, <code>an</code> is not captured.</td>
+</tr>
+<tr>
+<td align="right">Lookahead</td>
+<td>Use <code>(?=)</code>&#x2F;<code>(?!)</code> to add a must-have&#x2F;must-not-have suffix. Example: Using <code>happ(?=ily)</code> to match <code>happ happily</code> will only return <code>happ</code> in <code>happily</code>, and <code>happ(?!ily)</code> will only return <code>happ</code> in <code>happy</code>.</td>
+</tr>
+<tr>
+<td align="right">Lookbehind</td>
+<td>Use <code>(?&lt;=)</code>&#x2F;<code>(?&lt;!)</code> to add must-have&#x2F;must-not-have prefix. Example: Using <code>(?&lt;=ap)ple</code> to match <code>apple people</code> will only return <code>ple</code> in <code>apple</code>, and <code>(?&lt;!ap)ple</code> will only return <code>ple</code> in <code>people</code>.</td>
+</tr>
+<tr>
+<td align="right"><strong>Logical operators</strong></td>
+<td></td>
+</tr>
+<tr>
+<td align="right">NOT</td>
+<td><code>^</code>. <code>[^abc]</code>.</td>
+</tr>
+<tr>
+<td align="right">OR</td>
+<td><code>|</code>. <code>(a|b)</code>.</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-锂电池"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/">锂电池</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/" class="article-date">
+	  <time datetime="2022-07-01T10:34:47.000Z" itemprop="datePublished">July 1, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/Lithium_Battery.png" alt="Lithium Battery"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/401504245">【电池】30分钟，让你成为半个锂电池专家</a><br><a target="_blank" rel="noopener" href="https://www.yoojia.com/article/8075361517849643153.html">铁电池、三元锂、NCM都是啥？电动汽车电池，纯干货一文全知道！</a></p>
+<h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><p>LiFePO4: LFP, 磷酸铁锂, 用磷酸铁锂作为正极材料的锂离子电池。<br>Ternary Lithium: 正极材料使用镍钴锰酸锂（Li（NiCoMn）O2）三元正极材料的锂电池，三元复合正极材料前驱体产品，是以镍盐、钴盐、锰盐为原料。<br>Cylindrical: 圆柱电池。<br>Prismatic: 方型电池。<br>LTO: lithium-titanium-oxide&#x2F;lithium-titanate, 钛酸锂电池，一种用作锂离子电池负极材料-钛酸锂，可与锰酸锂、三元材料或磷酸铁锂等正极材料组成2.4V或1.9V的锂离子二次电池。<br>Polymer lithium: 聚合物电池。<br><img src="/images/LFPVSTL.jpg" alt="LFP_VS_TL"></p>
+<h2 id="电芯正极材料"><a href="#电芯正极材料" class="headerlink" title="电芯正极材料"></a>电芯正极材料</h2><p>　　锂电池正极材料，是锂离子电池构成材料的一部分，直接影响着锂离子电池的性能，占有较大比例（正负极材料的质量比为3: 1~4：1）。</p>
+<p>　　锂离子电池是以2种不同的能够可逆地插入及脱出锂离子的嵌锂化合物分别作为电池的正极和负极的二次电池体系。充电时，锂离子从正极材料的晶格中脱出，经过电解质后插入到负极材料的晶格中，使得负极富锂，正极贫锂；放电时锂离子从负极材料的晶格中脱出，经过电解质后插入到正极材料的晶格中，使得正极富锂，负极贫锂。这样正负极材料在插入及脱出锂离子时相对于金属锂的电位的差值，就是电池的工作电压。</p>
+<p>种类：<br>LCO: LiCoO2, Lithium Cobalt Oxide. 钴酸锂。<br>LNO: 镍酸锂。<br>LMO: LiMn2O4, Lithium Manganese Oxide. 锰酸锂。<br>NCM: 镍锰钴。<br>NCA: 镍钴铝。<br>LFP: 磷酸铁锂。</p>
+<h2 id="3-2v和3-7v区别"><a href="#3-2v和3-7v区别" class="headerlink" title="3.2v和3.7v区别"></a>3.2v和3.7v区别</h2><p>3.2V表示的是磷酸铁锂电池，其主要正极化学原材料为LiFePO4，由于其本身原材料的化学特性，决定了其生产制造出来的单颗电芯电压就是3.2V；</p>
+<p>3.7V表示的是聚合物锂电池（常见锂离子电池，如手机、无线无耳机、智能手表等的电池），主要正极化学原材料有LiCoO2、LiNiO2、LiMnO2和锰镍钴复合氧化物等，由于其本身的化学物质的特性，制造出来的电池电芯电压一般是3.7V。</p>
+<h2 id="高倍率电池"><a href="#高倍率电池" class="headerlink" title="高倍率电池"></a>高倍率电池</h2><p>一般指的放电率高，放电电流大的电池，适用于无人机、航模、电动工具等大功率产品。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Battery/" rel="tag">Battery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Vue-3"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/27/Vue-3/">Vue 3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/27/Vue-3/" class="article-date">
+	  <time datetime="2022-06-27T03:52:03.000Z" itemprop="datePublished">June 27, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6890545920883032071">Composition API - An animated explanation</a><br><a target="_blank" rel="noopener" href="https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.">Vue2 to Vue3 — What’s changed?</a><br><a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">Why vite ?</a></p>
+<h2 id="Vue-3-VS-Vue-2"><a href="#Vue-3-VS-Vue-2" class="headerlink" title="Vue 3 VS Vue 2"></a>Vue 3 VS Vue 2</h2><h3 id="Composition-API-vs-Options-API"><a href="#Composition-API-vs-Options-API" class="headerlink" title="Composition API vs Options API"></a><strong>Composition API</strong> vs <strong>Options API</strong></h3><p><img src="/images/composition_vs_options.png" alt="Composition API vs Options API"><br>Options API is <strong>function concerned</strong>.<br>Composition API is <strong>logic concerned</strong>.<br>For complex components, code of same logic may be scattered in <code>props</code>, <code>data</code>, <code>methods</code>, <code>mounted</code>, which makes it hard to maintain. So in Vue 3, <strong>Composition API</strong> is introduced, code of same logic is put together in <code>setup</code>.<br>See <a target="_blank" rel="noopener" href="https://vuejs.org/guide/introduction.html#which-to-choose">which to choose</a>.</p>
+<h3 id="Vite"><a href="#Vite" class="headerlink" title="Vite"></a>Vite</h3><p>Vue 3’s scaffolding tool migrated from <code>vue-cli</code> to ‘create-vue’, which is based on <code>vite</code> and has a much faster building speed than <code>webpack</code>. See <a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">why vite is much faster</a></p>
+<h2 id="Vue-3-features"><a href="#Vue-3-features" class="headerlink" title="Vue 3 features"></a>Vue 3 features</h2><h3 id="Composition-API"><a href="#Composition-API" class="headerlink" title="Composition API"></a>Composition API</h3><ul>
+<li>Difference with <code>Options API</code> already explained above.</li>
+<li>Use <code>&lt;script setup&gt;</code> or <code>&lt;script&gt;setup()</code> to indicate Composition API. Difference between <code>&lt;script setup&gt;</code> and <code>&lt;script&gt;setup()</code> is that no <code>return</code> is required in <code>&lt;script setup&gt;</code> to pass objects to template.</li>
+<li>A typical <code>&lt;script setup&gt;</code> SFC(Single File Component) goes here:<br><img src="/images/script_setup_SFC.PNG" alt="script_setup_SFC"></li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="ref-vs-reactive"><a href="#ref-vs-reactive" class="headerlink" title="ref() vs reactive()"></a>ref() vs reactive()</h3><ul>
+<li><p>reference:<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61452458/ref-vs-reactive-in-vue-3">ref vs reactive in Vue 3</a><br><a target="_blank" rel="noopener" href="https://vuejs.org/api/reactivity-core.html">Reactivity Core</a></p>
+</li>
+<li><p>Usage<br><strong>ref</strong>: Returns a deep reactive mutable object, point to inner value with .value. If an object assigned, reactive() is called. Use <code>shallowRef()</code> to avoid deep conversion.<br><strong>reactive</strong>: Returns a deep reactive proxy of the object.</p>
+</li>
+<li><p>Example</p>
+</li>
+</ul>
+<p><strong>ref</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">count.<span class="property">value</span>++</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>reactive</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title function_">reactive</span>(&#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line">obj.<span class="property">count</span>++</span><br></pre></td></tr></table></figure>
+
+<h4 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h4><ul>
+<li><code>reactive()</code> only takes objects, <strong>NOT</strong> JS primitives</li>
+<li><code>ref()</code> is calling <code>reactive()</code> behind the scenes, objects work for both</li>
+<li>BUT, <code>ref()</code> has a <code>.value</code> property for reassigning, <code>reactive()</code> does not have this and therefore CANNOT be reassigned</li>
+</ul>
+<h4 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h4><p><code>ref()</code> when..</p>
+<ul>
+<li>it’s a primitive</li>
+<li>it’s an object you need to later reassign (like an array - <a target="_blank" rel="noopener" href="https://github.com/vuejs/docs-next/issues/801#issuecomment-757587022">more info here</a>)</li>
+</ul>
+<p><code>reactive()</code> when..</p>
+<ul>
+<li>it’s an object you don’t need to reassign, and you want to avoid the overhead of <code>ref()</code></li>
+</ul>
+<h4 id="In-Summary"><a href="#In-Summary" class="headerlink" title="In Summary"></a>In Summary</h4><p><code>ref()</code> seems like the way to go since it supports all object types and allows reassigning with <code>.value</code>. <code>ref()</code> is a good place to start, but as you get used to the API, know that <code>reactive()</code> has less overhead, and you may find it better meets your needs.</p>
+<h4 id="ref-Use-Case"><a href="#ref-Use-Case" class="headerlink" title="ref() Use-Case"></a><code>ref()</code> Use-Case</h4><p>You’ll always use <code>ref()</code> for primitives, but <code>ref()</code> is good for objects that need to be reassigned, like an array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> blogPosts = <span class="title function_">ref</span>([]);</span><br><span class="line">    <span class="keyword">return</span> &#123; blogPosts &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getBlogPosts</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">blogPosts</span>.<span class="property">value</span> = <span class="keyword">await</span> <span class="title function_">fetchBlogPosts</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The above with <code>reactive()</code> would require reassigning a property instead of the whole object.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> blog = <span class="title function_">reactive</span>(&#123; <span class="attr">posts</span>: [] &#125;);</span><br><span class="line">    <span class="keyword">return</span> &#123; blog &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getBlogPosts</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">blog</span>.<span class="property">posts</span> = <span class="keyword">await</span> <span class="title function_">fetchBlogPosts</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="reactive-Use-Case"><a href="#reactive-Use-Case" class="headerlink" title="reactive() Use-Case"></a><code>reactive()</code> Use-Case</h4><p>A good use-case for <code>reactive()</code> is a group of primitives that belong together:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Albert&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">isNinja</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>the code above feels more logical than</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="title function_">ref</span>(<span class="string">&#x27;Albert&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> age = <span class="title function_">ref</span>(<span class="number">30</span>);</span><br><span class="line"><span class="keyword">const</span> isNinja = <span class="title function_">ref</span>(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h4><p>If you’re still lost, this simple guide helped me: <a target="_blank" rel="noopener" href="https://www.danvega.dev/blog/2020/02/12/vue3-ref-vs-reactive/">https://www.danvega.dev/blog/2020/02/12/vue3-ref-vs-reactive/</a></p>
+<p>An argument for only ever using <code>ref()</code>: <a target="_blank" rel="noopener" href="https://dev.to/ycmjason/thought-on-vue-3-composition-api-reactive-considered-harmful-j8c">https://dev.to/ycmjason/thought-on-vue-3-composition-api-reactive-considered-harmful-j8c</a></p>
+<p>The decision-making behind why <code>reactive()</code> and <code>ref()</code> exist as they do and other great information, the Vue Composition API RFC: <a target="_blank" rel="noopener" href="https://vuejs.org/guide/extras/composition-api-faq.html#why-composition-api">https://vuejs.org/guide/extras/composition-api-faq.html#why-composition-api</a></p>
+<h3 id="ref-unwrap"><a href="#ref-unwrap" class="headerlink" title="ref unwrap"></a>ref unwrap</h3><p>reference:<br><a target="_blank" rel="noopener" href="https://vuejs.org/api/reactivity-core.html">Reactivity Core</a></p>
+<h3 id="Vue-Cli-Plugins-and-Presets"><a href="#Vue-Cli-Plugins-and-Presets" class="headerlink" title="Vue Cli Plugins and Presets"></a>Vue Cli Plugins and Presets</h3><p>reference: <a target="_blank" rel="noopener" href="https://cli.vuejs.org/guide/plugins-and-presets.html">Plugins and Presets</a></p>
+<ul>
+<li>What are plugins ?<br>Plugins modify the internal webpack configuration and inject commands to vue-cli-service.</li>
+</ul>
+<p>Most of the features listed during the project creation process are implemented as plugins.</p>
+<p>If you inspect a newly created project’s package.json, you will find dependencies that start with <code>@vue/cli-plugin-</code>. These are plugins.</p>
+<ul>
+<li><p>Add a plugin to an existing project<br>Use <code>vue add [plugin name]</code> to add a plugin to an existing project.<br>For example, use <code>vue add eslint</code> to add <code>eslint</code> linter to the project.</p>
+</li>
+<li><p>What is a Vue Cli preset ?<br>A JSON object that contains pre-defined options and plugins for creating a new project.</p>
+</li>
+</ul>
+<p>Example: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;useConfigFiles&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;cssPreprocessor&quot;</span>: <span class="string">&quot;sass&quot;</span>,</span><br><span class="line">  <span class="string">&quot;plugins&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-babel&quot;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-eslint&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;config&quot;</span>: <span class="string">&quot;airbnb&quot;</span>,</span><br><span class="line">      <span class="string">&quot;lintOn&quot;</span>: [<span class="string">&quot;save&quot;</span>, <span class="string">&quot;commit&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-router&quot;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-vuex&quot;</span>: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Useful-commands"><a href="#Useful-commands" class="headerlink" title="Useful commands"></a>Useful commands</h3><ul>
+<li>Use <code>vue ui</code> to start a ui interface inside a project created by <code>vue-cli</code>.</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue3/" rel="tag">vue3</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-阿里巴巴"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/">阿里巴巴</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/" class="article-date">
+	  <time datetime="2022-06-22T12:38:20.000Z" itemprop="datePublished">June 22, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://peixun.alibaba.com/">官方课程</a><br>  <a target="_blank" rel="noopener" href="https://peixun.alibaba.com/series/detail_CSJ1791I.htm">新手必修课</a><br>  <a target="_blank" rel="noopener" href="https://peixun.alibaba.com/series/detail_CSY19YYD.htm">新手进阶课</a><br>  <a target="_blank" rel="noopener" href="https://peixun.alibaba.com/series/detail_CSF2DNR5.htm?spm=a271d.9395405.0.0.202a5b07OC1nJf">产品发布</a><br>  <a target="_blank" rel="noopener" href="https://supervideo.taobao.com/course/videoOnPlay.htm?code=PXJ31G4F&seriesCode=&channel=null&loginId=null&tripartiteVid=null&u_ticket=AONQTS">详情页</a><br>  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tp4y1W7yN?spm_id_from=333.337.search-card.all.click">阿里巴巴运营之道(推荐第一节课)</a></li>
+<li>小何在线：AI&#x2F;人工客服，可解决90%问题</li>
+<li>各地线下培训，但是要求是阿里卖家(有正式账号)</li>
+</ol>
+<h2 id="选品"><a href="#选品" class="headerlink" title="选品"></a>选品</h2><ol>
+<li>电池<br>半成品，专业性高，出单太慢，门槛高（危险性高，需要国际证书认证）<br>刘做电池的原因是她个人从事电池行业</li>
+<li>化妆品<br>成品，销量大，有市场，义乌货源多，现成渠道多</li>
+</ol>
+<h2 id="货源"><a href="#货源" class="headerlink" title="货源"></a>货源</h2><ol>
+<li>1688.com，应找工厂</li>
+</ol>
+<h2 id="发品"><a href="#发品" class="headerlink" title="发品"></a>发品</h2><h3 id="类目"><a href="#类目" class="headerlink" title="类目"></a>类目</h3><p>参考首页同行类目</p>
+<h3 id="标题及关键词"><a href="#标题及关键词" class="headerlink" title="标题及关键词"></a>标题及关键词</h3><p><img src="/images/alibaba_product_title_and_keywords.png" alt="标题及关键词规范"></p>
+<ul>
+<li><p>关键词类型：<br>Factory direct commercial wooden desk office<br>营销词&#x2F;修饰词：产品卖点、特性、风格。如<em>高级感</em>金色小雏菊耳环<br>属性词：用途&#x2F;认证&#x2F;案例。<br> <em>祛痘痘印</em>凝胶、<em>油污去污清洁</em>神器<br> <em>国际大赛铂金奖</em>、<em>某地国际珠宝展</em>红蓝宝石复古手链<br> <em>某某同款</em>粉色V领毛衣<br>核心词：产品本身<br>场景词：产品应用场景(?)</p>
+</li>
+<li><p>寻找流量词：MA-&gt;数据分析-&gt;引流关键词</p>
+</li>
+<li><p>核心词为什么放右侧：系统顺序为从右向左检测</p>
+</li>
+</ul>
+<h3 id="产品属性"><a href="#产品属性" class="headerlink" title="产品属性"></a>产品属性</h3><ul>
+<li>能填的属性都填上</li>
+</ul>
+<h3 id="素材"><a href="#素材" class="headerlink" title="素材"></a>素材</h3><ol>
+<li>图片(主图1+详情页5)<br><img src="/images/demo_product_image.PNG" alt="示例"><br>≤3M，正方形，750*750，白底，左上角logo(可有可无)</li>
+<li>视频<br>横屏，背景素色或虚化避免干扰<br>主图：20-45s，≤100M<br>详情页：≤10分钟，≤500M</li>
+<li>产品参数</li>
+<li>公司介绍文案</li>
+</ol>
+<h3 id="详情页"><a href="#详情页" class="headerlink" title="详情页"></a>详情页</h3><p><img src="/images/product_details_arrangement.png" alt="详情页排版"></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li>无必要自己拍图&#x2F;视频，可用别人图&#x2F;视频</li>
+<li></li>
+</ol>
+<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p><strong>全球旺铺</strong>：店铺官网<br><strong>拍档</strong>：阿里官方提供出口通关、退税服务的公司<br><strong>主账号和子账号</strong>：账号共分四种类型：管理员、业务经理、业务员、制作员。<br>子帐号也就是My Alibaba 操作系统的分帐号权限，包括业务员，业务经理，制作员三种权限区别，由管理员(主账号）创建。<br>产品权限：<br>业务员账号：在管理产品的后台，只能看到自己发布的产品<br>主账号&#x2F;制作员账号：可以看到全公司的产品<br>业务经理：能看到自己及其下属发布的产品<br><strong>SKU</strong>: Stock Keeping Unit, 库存量单位。对于电商，一般指单个产品。例如某裤子分为高腰&#x2F;低腰两类，每类S&#x2F;M&#x2F;L，有黑白灰三色，则有2×3×3&#x3D;18个SKU。<br><strong>询盘&#x2F;RTS</strong>: 询盘又称询价，是指买方或卖方为了购买或销售某项商品，向对方询问有关交易条件的表示。在国际贸易的实际业务中，一般多由买方主动向卖方发出询盘。可以询问价格，也可询问其他一项或几项交易条件以引起对方发盘，目的是试探对方交易的诚意和了解其对交易条件的意见。<br>相对于询盘，RTS产品无需询盘，属于可直接下单的标准产品。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/375607037">查看详情</a><br><strong>RFQ</strong>:<br><a target="_blank" rel="noopener" href="https://rfq.alibaba.com/">RFQ</a><br>RFQ：</p>
+<ul>
+<li>客服发起RFQ，会广播至全部卖家，RFQ席位只有10个，占满报价即截止</li>
+<li>客户发起RFQ价格较贵，十几美金一条；卖家RFQ报价也有次数限制(防止滥报价)，超过则收费<br>RFQ是买家委托采购，只限10个供应商报名，满额后就会关闭报价窗口。<br>和询盘的区别是RFQ是要通过阿里人工审核后，达到要求的才会发给买家，同时发送给你买家的联系方式；人工审核不过，你是无法知道买家的信息的。<br><strong>旺季</strong>: 一般每年9~11月为旺季<br><strong>优惠补贴</strong>:</li>
+<li>疫情经济下滑，新店铺有引流政策</li>
+<li>新店铺发放￥5000券，用于店铺装修等</li>
+<li>“中小开”专项补贴：中小企业开拓国际市场专项基金<br><strong>金品</strong>: Verified Supplier, 阿里巴巴线上线下认证企业。<br>、<strong>长尾词</strong>: 非目标关键词但与目标关键词相关的也可以带来搜索流量的组合型关键词。转化率比目标关键词高很多，因为其目的性强。例如关键词“服装”的长尾词：男性服装，女性服装，冬装，夏装等词；以及它的品牌拓展如：某品牌服装等。还有按照质量拓展如：棉类、皮类等。<br><strong>FOB&#x2F;CIF&#x2F;CFR</strong>:<br>FOB，离岸价。货物在指定的装运港越过船舷，卖方即完成交货。说明买方必须从这个时候开始承担货物灭失与损坏的一切风险。卖方必须办理货物出口相关手续。FOB仅适用于海运、内河运输。<br>CIF，成本+保险+运费。意思是货物的总价格，除了货物本身的价值之外，还包括保险，和至目的地港口运费。这些是要卖家出的。除了特殊约定，一切按照最低价投险。<br>CFR，Cost and Freight，成本+运费。卖方负责运输，买方购买保险。<br><strong>一件代发</strong><br>作为卖家，哪怕你只卖出一件产品，供应商也可以帮你发货。有订单了就去采购发货，没有订单也不会有囤货压货的风险。<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/381068098/answer/2261517351">什么是一件代发</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Redis"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/21/Redis/">Redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/21/Redis/" class="article-date">
+	  <time datetime="2022-06-21T02:41:55.000Z" itemprop="datePublished">June 21, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/redis.png" alt="redis"></p>
+<h2 id="What-is-redis"><a href="#What-is-redis" class="headerlink" title="What is redis"></a>What is redis</h2><p>An <strong>distributed in-memory key-value</strong> database.<br>distributed: redis can scale from a single instance to a distributed system.<br>in-memory: that’s why redis is fast and commonly serves as cache.<br>key-value: redis stores key-value pairs.</p>
+<h2 id="Why-redis"><a href="#Why-redis" class="headerlink" title="Why redis"></a>Why redis</h2><p>As an in-memory cache, redis is much faster than traditional RDBMS.<br>Helps reduce database workload.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Server: See offical install procedure <a target="_blank" rel="noopener" href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/">here</a>.<br>As no offical windows install file provided, tporadowski provides an <a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis/releases">unoffical install file</a>.</p>
+<p>Client: redis server ships with a cli tool <code>redis-cli</code>. For GUI client, check <a target="_blank" rel="noopener" href="https://redis.io/download/">RedisInsight</a> out.</p>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="Difference-between-redis-windows-service-conf-and-redis-windows-conf"><a href="#Difference-between-redis-windows-service-conf-and-redis-windows-conf" class="headerlink" title="Difference between redis.windows-service.conf and redis.windows.conf"></a>Difference between redis.windows-service.conf and redis.windows.conf</h3><p><code>redis.windows-service.conf</code>: Configuration file for windows service.<br><code>reids.windows.conf</code>: Configuration file for command line.</p>
+<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>Default redis requires no auth, but cannot access from machine other than localhost.<br>To enable remote access (only tested on windows):<br>In file <code>redis.windows-service.conf</code>: </p>
+<ol>
+<li>Comment <code>bind 127.0.0.1</code>(line 64). This makes redis listen to all interfaces.</li>
+<li>Change <code>procted-mode yes</code> to <code>protected-mode no</code>(line 83). All clients are now able to connect in.</li>
+<li>Uncomment <code>requirepass foobared</code>(line 503) and replace <code>foobared</code> to your own password.</li>
+</ol>
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p><code>redis-cli</code>: connects to localhost on port 6379.<br><code>redis-cli -h [host] -p [port] -a [password]</code>: connect to specified host and port. If password contains special character, wrap it in quotes.</p>
+<h2 id="node-redis"><a href="#node-redis" class="headerlink" title="node redis"></a>node redis</h2><p>Note that <code>redis</code> does not work in browser environment.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Single-threaded-and-asynchronous-Javascript"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/">Single threaded and asynchronous Javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="article-date">
+	  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">June 19, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903553795014663">A conclusion of Javascript running mechanism</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556084924423">Detailed explanation of Javascript asynchronism</a></li>
+<li><a target="_blank" rel="noopener" href="https://felixgerschau.com/javascript-event-loop-call-stack/">JavaScript Event Loop And Call Stack Explained</a></li>
+</ol>
+<h2 id="Sinle-threaded-Javascript"><a href="#Sinle-threaded-Javascript" class="headerlink" title="Sinle-threaded Javascript"></a>Sinle-threaded Javascript</h2><p>A running chrome consists of multiple process. Each tab is an isolated process.<br><img src="/images/chrome_task_manager.png" alt="chrom task manager"><br>A tab process consisits of multiple threads. Among them the important ones includes: </p>
+<ol>
+<li>Rendering thread. Renders DOM.</li>
+<li>Javascript engine thread. Runs Javascript. Note that when Javascript engine thread <strong>runs</strong>, rendering thread <strong>hangs</strong>. Because Javascript engine thread can manipulate DOM and rendering requires a consistent DOM.</li>
+<li>Event thread. Handles event loop.</li>
+<li>Timer thread. Handles timer methods like <code>setTimeout</code>, <code>setInterval</code>. Timer thread should be stand-alone as running of other function may affect timing accuracy.</li>
+</ol>
+<h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><p>Javascript, well-known for its asynchronism.<br>Synchronous functions runs and gets result. When function is slow (e.g. has file I&#x2F;O or web request operations), it <strong>waits</strong>.<br>Asynchronous functions runs and expects result. The function does not wait for result, instead it leaves a <strong>callback</strong> function there to handle future result, and it moves on.<br>Asynchronism makes Javascript run without idle time. That’s why javascript is fast.</p>
+<h2 id="Event-loop-and-call-stack"><a href="#Event-loop-and-call-stack" class="headerlink" title="Event loop and call stack"></a>Event loop and call stack</h2><p><img src="/images/js-event-loop-explained.png" alt="Event loop and call stack"><br>Browsers gives us Web APIs to handle callbacks. Functions like <code>AJAX</code>, <code>setTimeout</code> call these APIs.<br>Web APIs push callbacks into <em>callback queue</em>. Callbacks wait to be executed in the future.<br>Event loop watches call stack and callback queue. If call stack is empty, event loop takes one callback from callback queue and javascript engines executes the callback.</p>
+<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><p>Callback queue is not only one but two queue: macrotask queue and microtask queue.<br>Everytime event loop is triggered, it takes all microtasks and one macrotask. Microtasks are executed first.<br>Macrotasks: <code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>, I&#x2F;O operations, UI rendering<br>Microtasks: <code>Promise</code>, <code>process.nextTick</code>, <code>MutationObserver</code></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Markdown"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -190,11 +786,11 @@
 </thead>
 <tbody><tr>
 <td>Table</td>
-<td>| Syntax | Description |<br />| ———– | ———– |<br />| Header | Title |<br />| Paragraph | Text |</td>
+<td>| Syntax | Description |<br />| ———– | ———– |<br />| Header | Title |<br />| Paragraph | Text | <br>Note that there must be a blank line after the table.</td>
 </tr>
 <tr>
 <td>Fenced code block</td>
-<td>```{ firstname: ‘dongtian’, lastname: ‘chen’ }```</td>
+<td>```{ firstname: ‘dongtian’, lastname: ‘chen’ }```<br><br>Use ``` [language] to specify code block language, for example ``` js to specify javascript. <a target="_blank" rel="noopener" href="https://rdmd.readme.io/docs/code-blocks#language-support">See supported language here</a></td>
 </tr>
 <tr>
 <td>Footnote</td>
@@ -426,8 +1022,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/14/Typescript/">Typescript</a></h6>
-              <span>July 14, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/22/Typescript/">Typescript</a></h6>
+              <span>July 22, 2022</span>
             </div>
 
           </li>
@@ -438,8 +1034,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/14/Pathetique-2nd-movement/">Pathetique 2nd movement</a></h6>
-              <span>July 14, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/22/Koa-A-successor-for-Express/">Koa - A successor for Express</a></h6>
+              <span>July 22, 2022</span>
             </div>
 
           </li>
@@ -450,8 +1046,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/09/SQL/">SQL</a></h6>
-              <span>July 9, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/21/Vuetify/">Vuetify</a></h6>
+              <span>July 21, 2022</span>
             </div>
 
           </li>
@@ -462,8 +1058,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/09/FineReport/">FineReport</a></h6>
-              <span>July 9, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/19/%E6%9B%B2%E5%BC%8F/">曲式</a></h6>
+              <span>July 19, 2022</span>
             </div>
 
           </li>
@@ -474,8 +1070,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/04/Regexp/">Regexp</a></h6>
-              <span>July 4, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/18/%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E8%AF%84%E7%BA%A7-%E5%85%AD%E7%BA%A7/">电子病历评级-六级</a></h6>
+              <span>July 18, 2022</span>
             </div>
 
           </li>
@@ -486,8 +1082,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/">锂电池</a></h6>
-              <span>July 1, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/16/Pathetique-2nd-movement/">悲怆第二乐章(前16小节)</a></h6>
+              <span>July 16, 2022</span>
             </div>
 
           </li>
@@ -504,7 +1100,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIS/" rel="tag">HIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Koa/" rel="tag">Koa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backend/" rel="tag">backend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/material-design/" rel="tag">material design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine/" rel="tag">medicine</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/piano/" rel="tag">piano</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -514,7 +1110,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/alibaba/" style="font-size: 15px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a>
+      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/HIS/" style="font-size: 10px;">HIS</a> <a href="/tags/Koa/" style="font-size: 10px;">Koa</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/alibaba/" style="font-size: 13.33px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/material-design/" style="font-size: 10px;">material design</a> <a href="/tags/medical-insurance/" style="font-size: 10px;">medical insurance</a> <a href="/tags/medicine/" style="font-size: 13.33px;">medicine</a> <a href="/tags/medicine-information/" style="font-size: 10px;">medicine information</a> <a href="/tags/multiprocess/" style="font-size: 10px;">multiprocess</a> <a href="/tags/multithreading/" style="font-size: 10px;">multithreading</a> <a href="/tags/music/" style="font-size: 13.33px;">music</a> <a href="/tags/music-forms/" style="font-size: 10px;">music forms</a> <a href="/tags/music-theory/" style="font-size: 10px;">music theory</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/piano/" style="font-size: 10px;">piano</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a> <a href="/tags/vuetify/" style="font-size: 10px;">vuetify</a>
     </div>
   </div>
 
@@ -524,7 +1120,7 @@
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Chendongtian&#39;s blog</title>
+  <title>Page 1 | Chendongtian&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -109,7 +109,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/14/Typescript/">Typescript</a>
+      <a class="article-title" href="/2022/07/22/Typescript/">Typescript</a>
     </h1>
   
 
@@ -117,8 +117,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/07/14/Typescript/" class="article-date">
-	  <time datetime="2022-07-14T13:18:09.000Z" itemprop="datePublished">July 14, 2022</time>
+	<a href="/2022/07/22/Typescript/" class="article-date">
+	  <time datetime="2022-07-22T13:18:09.000Z" itemprop="datePublished">July 22, 2022</time>
 	</a>
 
        
@@ -126,12 +126,364 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><img src="/images/typescript1.png"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">Typesript</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/why-create-typescript">Why create Typescript</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/intro.html">Typescript Handbook Intro</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html">Modules .d.ts</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/modules.html">Modules</a></li>
+<li><a target="_blank" rel="noopener" href="https://thisthat.dev/d-ts-vs-ts/">.ts vs .d.ts</a></li>
+</ol>
+<h2 id="What-is-typescript"><a href="#What-is-typescript" class="headerlink" title="What is typescript ?"></a>What is typescript ?</h2><p>A strongly typed programming language that builds on JavaScript.</p>
+<h2 id="Why-typescript"><a href="#Why-typescript" class="headerlink" title="Why typescript ?"></a>Why typescript ?</h2><p><strong>Catch type errors beforehand</strong><br>TypeScript adds additional syntax to JavaScript to catch type errors - the most common errors for programmers.</p>
+<p><strong>Example</strong><br><img src="/images/tscheck1.png" alt="Not callable"><br><img src="/images/tscheck2.png" alt="Non-existent property"><br><img src="/images/tscheck3.png" alt="Non-existent property, smart notice"></p>
+<h2 id="Use-typescript"><a href="#Use-typescript" class="headerlink" title="Use typescript"></a>Use typescript</h2><h3 id="Typescript-compiler"><a href="#Typescript-compiler" class="headerlink" title="Typescript compiler"></a>Typescript compiler</h3><ol>
+<li>Install <code>npm install -g typescript</code></li>
+<li>Create <code>hello.ts</code>:<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Greets the world.</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello world!&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>Compile: <code>tsc hello.ts</code></li>
+</ol>
+<h3 id="Declare-types"><a href="#Declare-types" class="headerlink" title="Declare types"></a>Declare types</h3><ol>
+<li>Function parameter type</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params">person: string, date: <span class="built_in">Date</span></span>) &#123;</span><br><span class="line">  <span class="comment">// parameter person and date must be of type string and Date</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Hello <span class="subst">$&#123;person&#125;</span>, today is <span class="subst">$&#123;date.toDateString()&#125;</span>!`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">greet</span>(<span class="string">&#x27;Maddison&#x27;</span>, <span class="title class_">Date</span>())</span><br><span class="line"><span class="comment">// This gives error: Argument of type &#x27;string&#x27; is not assignable to parameter of type &#x27;Date&#x27;.</span></span><br><span class="line"><span class="comment">// Because Date() returns a string instead of Date.</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">greet</span>(<span class="string">&#x27;Maddison&#x27;</span>, <span class="keyword">new</span> <span class="title class_">Date</span>())</span><br><span class="line"><span class="comment">// In order to get a Date object, use new Date() instead.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h3><p>Typescript modules is analogous to Javascript modules.</p>
+<p>In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module. Conversely, a file without any top-level import or export declarations is treated as a script whose contents are available in the global scope (and therefore to modules as well).</p>
+<h3 id="d-ts-file"><a href="#d-ts-file" class="headerlink" title=".d.ts file"></a>.d.ts file</h3><ul>
+<li><p>.ts is the standard TypeScript files. The content then will be compiled to JavaScript.</p>
+</li>
+<li><p>*.d.ts is the type definition files that allow to use existing JavaScript code in TypeScript.<br>For example, we have a simple JavaScript function that calculates the sum of two numbers:</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">sum</span> = (<span class="params">a, b</span>) =&gt; a + b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> &#123; sum &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>TypeScript doesn’t have any information about the function including the name, the type of parameters. In order to use the function in a TypeScript file, we provide its definition in a d.ts file:</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// math.d.ts</span></span><br><span class="line"><span class="keyword">declare</span> <span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>): <span class="built_in">number</span>;</span><br></pre></td></tr></table></figure>
+
+<p>From now on, we can use the function in TypeScript without any compile errors.</p>
+<p>The d.ts file doesn’t contain any implementation, and isn’t compiled to JavaScript at all.</p>
+
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Koa-A-successor-for-Express"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/22/Koa-A-successor-for-Express/">Koa - A successor for Express</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/22/Koa-A-successor-for-Express/" class="article-date">
+	  <time datetime="2022-07-22T03:28:57.000Z" itemprop="datePublished">July 22, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/koa.jpeg"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="http://koajs.cn/">Koa中文文档</a></li>
+</ol>
+<h2 id="Why-Koa"><a href="#Why-Koa" class="headerlink" title="Why Koa ?"></a>Why Koa ?</h2><p>Smaller, more expressive, more robust.</p>
+<ul>
+<li><p>VS Epxress<br>The key difference between Koa and Express is how they handle middleware. Express includes routing and templates in the application framework. Koa, on the other hand, requires modules for these features, therefore making it more modular or customizable. </p>
+</li>
+<li><p>Koa application<br>A Koa application is an object containing an array of middleware functions which are composed and executed in a stack-like manner upon request.</p>
+</li>
+<li><p>Cascading</p>
+</li>
+</ul>
+<h2 id="Use-Koa"><a href="#Use-Koa" class="headerlink" title="Use Koa"></a>Use Koa</h2><h3 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">  ctx.<span class="property">body</span> = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br><span class="line"><span class="comment">// now, any request from localhost:3000 will return Hello world</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Middlewares"><a href="#Middlewares" class="headerlink" title="Middlewares"></a>Middlewares</h3><p>Middlewares can use <code>aysnc/await</code> to control execution flow.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// logger</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">next</span>();</span><br><span class="line">  <span class="keyword">const</span> rt = ctx.<span class="property">response</span>.<span class="title function_">get</span>(<span class="string">&#x27;X-Response-Time&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;ctx.method&#125;</span> <span class="subst">$&#123;ctx.url&#125;</span> - <span class="subst">$&#123;rt&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// x-response-time</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> start = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">next</span>();</span><br><span class="line">  <span class="keyword">const</span> ms = <span class="title class_">Date</span>.<span class="title function_">now</span>() - start;</span><br><span class="line">  ctx.<span class="title function_">set</span>(<span class="string">&#x27;X-Response-Time&#x27;</span>, <span class="string">`<span class="subst">$&#123;ms&#125;</span>ms`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// response</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">  ctx.<span class="property">body</span> = <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="One-Application-for-both-HTTP-and-https"><a href="#One-Application-for-both-HTTP-and-https" class="headerlink" title="One Application for both HTTP and https"></a>One Application for both HTTP and https</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> https = <span class="built_in">require</span>(<span class="string">&#x27;https&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line">http.<span class="title function_">createServer</span>(app.<span class="title function_">callback</span>()).<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br><span class="line">https.<span class="title function_">createServer</span>(app.<span class="title function_">callback</span>()).<span class="title function_">listen</span>(<span class="number">3001</span>);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Koa/" rel="tag">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Vuetify"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/21/Vuetify/">Vuetify</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/21/Vuetify/" class="article-date">
+	  <time datetime="2022-07-21T12:25:02.000Z" itemprop="datePublished">July 21, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/vuetify1.PNG"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://vuetifyjs.com/en/">Vuetify</a></li>
+</ol>
+<h2 id="What-is-Vuetify"><a href="#What-is-Vuetify" class="headerlink" title="What is Vuetify ?"></a>What is Vuetify ?</h2><p>A <a target="_blank" rel="noopener" href="https://material.io/">material-design</a> UI framework for UI.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><ul>
+<li>For <code>vue-cli</code> created project, type <code>vue add vuetify</code> in project root folder.</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/material-design/" rel="tag">material design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-曲式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/19/%E6%9B%B2%E5%BC%8F/">曲式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/19/%E6%9B%B2%E5%BC%8F/" class="article-date">
+	  <time datetime="2022-07-19T13:09:22.000Z" itemprop="datePublished">July 19, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/chorus1.jpg"></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105006862">【乐理】曲式有哪些？</a></li>
+</ol>
+<h2 id="为什么要有曲式？"><a href="#为什么要有曲式？" class="headerlink" title="为什么要有曲式？"></a>为什么要有曲式？</h2><p>写作文要有结构，作曲也要有结构，音乐作品的结构就是曲式，通常作曲家都会按照某个曲式来作曲，这样能更好的表现音乐主题。</p>
+<h2 id="曲式"><a href="#曲式" class="headerlink" title="曲式"></a>曲式</h2><h3 id="单一部曲式-Single-form"><a href="#单一部曲式-Single-form" class="headerlink" title="单一部曲式 Single form"></a>单一部曲式 Single form</h3><p><img src="/images/single_form.jpg"></p>
+<p>这种曲式结构最简单，它一般由几个乐句构成，没有明显的重复段落，没有第二主题，也没有副歌。用这种结构写出来的乐曲通常较短。</p>
+<h3 id="单二部曲式-Single-binary-form"><a href="#单二部曲式-Single-binary-form" class="headerlink" title="单二部曲式 Single binary form"></a>单二部曲式 Single binary form</h3><p><img src="/images/single_binary_form.jpg"></p>
+<p>由两个乐段构成的曲式，叫做单二部曲式，结构为A+B，通常情况下A段和B段会形成鲜明对比。</p>
+<p>再继续细分的话又分为两种情况：</p>
+<p>（1）带再现的单二部曲式，这种曲式里通常B段的前一半为对比部分，后一半为再现部分。</p>
+<p>（2）不带再现的单二部曲式，这种曲式A段和B段由完全不同的材料构成，行程鲜明对比。</p>
+<h3 id="单三部曲式-Single-ternary-form"><a href="#单三部曲式-Single-ternary-form" class="headerlink" title="单三部曲式 Single ternary form"></a>单三部曲式 Single ternary form</h3><p><img src="/images/single_ternary_form.jpg"></p>
+<p>由三个乐段构成，其中第一段和第三段是一样的材料，结构为A+B+A。这种曲式的中段B会与前后两段A形成鲜明的对比，通常在速度、力度、感情变化方面都完全不一样。有一些作品的 B段主题也可能由A段的主题变化而来。</p>
+<p>第三段为第一段的再现，有些作品完全一样，有些作品可能会产生一些微小的变化。</p>
+<h3 id="复三部曲式-Compound-ternary-form"><a href="#复三部曲式-Compound-ternary-form" class="headerlink" title="复三部曲式 Compound ternary form"></a>复三部曲式 Compound ternary form</h3><p><img src="/images/compound_ternary_form.jpg"></p>
+<p>这种曲式的大结构与单三部曲式完全一样，只是在这里的三个段落中，每个段落还包含一个独立的曲式结构，可能为单二部曲式，可能为单三部曲式。</p>
+<p>在古典作品中，中间的段落叫做“三声中部”（Trio）。</p>
+<h3 id="回旋曲式-Rondo"><a href="#回旋曲式-Rondo" class="headerlink" title="回旋曲式 Rondo"></a>回旋曲式 Rondo</h3><p><img src="/images/rondo.jpg"></p>
+<p>这种曲式由两种部分构成，为主部与副部。在段落中，第1、3、5……奇数段落为主部；第2、4、6……偶数段落为副部。主部的段落主题是一致的，而副部的主题一直在不断变化。回旋曲式主部和副部的数量可以很多。</p>
+<p>这样的曲式听起来会感觉到不断有新主题出现，然后又回到原来的主题。</p>
+<p>回旋曲式的产生源于声乐性的轮舞曲，在轮舞曲中有分节歌与副歌，分节歌通常是独唱，副歌是合唱，每次独唱完成后都会回到合唱，每次的合唱部分都是相同的。</p>
+<h3 id="变奏曲式-Variation"><a href="#变奏曲式-Variation" class="headerlink" title="变奏曲式 Variation"></a>变奏曲式 Variation</h3><p><img src="/images/variation.jpg"></p>
+<p>变奏曲一开始会有一个完整的主题段落，在后面的段落中，都是这个主题的发展变化。这个发展变化会改变其中的音型、节奏、调性、速度、音区等等，但是主题中的某些材料会保留下来，例如和声、旋律走向、句子逻辑关系等等。</p>
+<p>变奏曲式的变奏部分数量可以有很多，例如拉赫玛尼诺夫的《帕格尼尼主题狂想曲》有24个变奏，巴赫的《哥德堡变奏曲》有30个变奏。</p>
+<h3 id="奏鸣曲式-Sonata"><a href="#奏鸣曲式-Sonata" class="headerlink" title="奏鸣曲式 Sonata"></a>奏鸣曲式 Sonata</h3><p><img src="/images/sonata.jpg"></p>
+<p>奏鸣曲式在大结构上和三部曲式一样，但是其内部结构更为复杂。第一段的呈示部和第三段的再现部用相同的主题，而中间的展开部会把这个主题发展变化。</p>
+<p>呈示部中往往还包含第一主题、第二主题、第一结尾、第二结尾，这些片段之间还有一些连接段，在调性安排上，第一主题为主调，第二主题转到属调。</p>
+<p>展开部中变化较为丰富，内容可长可短，材料可以取自呈示部中的任何一个部分，这个部分通常调性变化也较多；</p>
+<p>再现部包含了呈示部中的所有部分，区别在于这里第一主题和第二主题都为主调。</p>
+<p>有很多的奏鸣曲、协奏曲、交响乐、室内乐的乐章都用到了奏鸣曲式，尤其是第一乐章用得最多，但并不是所有的作品都是用奏鸣曲式来写的，也可以用其他的结构来写。</p>
+<h3 id="主结构之外"><a href="#主结构之外" class="headerlink" title="主结构之外"></a>主结构之外</h3><p><img src="/images/out_of_main.jpg"></p>
+<p>在一些作品中，除了主结构之外，还会在作品的最开始加上引子，在作品的最后加上尾声，当然这两个部分不是必须的。</p>
+<p>有些作品的引子部分反而成为的作品的标题，例如贝多芬的《悲怆》奏鸣曲，其“悲怆”主题在引子中体现了出来，这个引子又在段落之间多次插入，而它的主结构（呈示部、展开部、再现部）中并没有悲怆的部分。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-电子病历评级-六级"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/18/%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E8%AF%84%E7%BA%A7-%E5%85%AD%E7%BA%A7/">电子病历评级-六级</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/18/%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E8%AF%84%E7%BA%A7-%E5%85%AD%E7%BA%A7/" class="article-date">
+	  <time datetime="2022-07-18T01:18:41.000Z" itemprop="datePublished">July 18, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p><a target="_blank" rel="noopener" href="http://www.gov.cn/xinwen/2018-12/09/content_5347261.htm">关于印发电子病历系统应用水平分级评价管理办法（试行）及评价标准（试行）的通知</a><br>管理办法：</p>
+
+
+	<div class="row">
+    <embed src="/assets/docs/dzblpj_glbf.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>评价标准：</p>
+
+
+	<div class="row">
+    <embed src="/assets/docs/dzblpj_pjbz.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>申报网址：<a target="_blank" rel="noopener" href="https://sjzx.niha.org.cn/">https://sjzx.niha.org.cn/</a></p>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><ol>
+<li><p>0到4级由省卫健委审核；5级以上的，由省卫健委初核，国家卫健委复核；</p>
+</li>
+<li><p>已通过5级及以上的，可直接申报更高级别(TODO 5级以下的如何处理？)</p>
+</li>
+</ol>
+<h2 id="要求（5级以上）"><a href="#要求（5级以上）" class="headerlink" title="要求（5级以上）"></a>要求（5级以上）</h2><ul>
+<li><p><strong>总体要求</strong><br>五级：统一数据管理，中级医疗决策支持。<br>六级：全流程医疗数据闭环管理，高级医疗决策支持。<br>七级：医疗安全质量管控，区域医疗信息共享。<br>八级：健康信息整合，医疗安全质量持续提升。</p>
+</li>
+<li><p><strong>局部要求</strong></p>
+</li>
+</ul>
+<p>五级：各部门能够利用全院统一的集成信息和知识库，提供临床诊疗规范、合理用药、临床路径等统一的知识库，提供临床诊疗规范、合理用药、临床路径等统一的知识库，为本部门提供集成展示、决策支持的功能。</p>
+<p>六级：各个医疗业务项目均具备过程数 据采集、记录与共享功能。能够展现全流程状态。能够依据知识库对本环节提供实时数据核查、提示与管控功能。</p>
+<p>七级：全面利用医疗信息进行本部门医疗安全与质量管控。能够共享本医疗机构外的病人医疗信息，进行诊疗联动。</p>
+<p>八级：整合跨机构的医疗、健康记录、体征检测、随访信息用于本部门医疗活动。掌握区域内与本部门相关的医疗质量信息，并用于本部门医疗安全与质量的持续改进。</p>
+<ul>
+<li><strong>整体要求</strong></li>
+</ul>
+<p>五级：（1 ）全院各系统数据能够按统一的医疗数据管理机制进行信息集成，并提供跨部门集成展示工具。（2 ）具有完备的数据采集智能化工具，支持病历、报告等的结构化、智能化书写。（3 ）基于集成的病人信息，利用知识库实现决策支持服务，并能够为医疗管理和临床科研工作提供数据挖掘功能。</p>
+<p>六级：（1 ）检查、检验、治疗、手术、输血、护理等实现全流程数据跟踪与闭环管理，并依据知识库实现全流程实时数据核查与管控。（2 ）形成全院级多维度医疗知识库体系（包括症状、体征、检查、检验、诊断、治疗、药物合理使用等相关联的医疗各阶段知识内容），能够提供高级别医疗决策支持。</p>
+<p>七级：（1 ）医疗质量与效率监控数据来自日常医疗信息系统重点包括：院感、不良事件、手术等方面安全质量指标，医疗日常运行效率指标，并具有及时的报警、通知、通报体系，能够提供智能化感知与分析工具。（2 ）能够将病人病情、检查检验、治疗等信息与外部医疗机构进行双向交换。病人识别、信息安全等问题在信息交换中已解决。能够利用院内外医疗信息进行联动诊疗活动。（3 ）病人可通过互联网查询自己的检查、检验结果，获得用药说明等信息。</p>
+<p>八级：（1 ）全面整合医疗、公共卫生、健康监测等信息，完成整合型医疗服务。（2 ）对比应用区域医疗质量指标，持续监测与管理本医疗机构的医疗安全与质量水平，不断进行改进。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>范围：10个角色，39个项目<br>公式：单个项目综合评分&#x3D;功能评分×有效应用评分×数据质量评分</p>
+<ul>
+<li>功能：根据评分表判断得分，1级得1分，2级得2分，以此类推</li>
+<li>有效应用：计算院内实际应用比例，精确到两位小数</li>
+<li>数据质量：计算质量指数(TODO 公式？)，指数为0-1之间小数，精确到两位小数</li>
+</ul>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>分为基本项和选择项，基本项要求全部实现，选择项要求加上基本项加上基本项不低于全部项目2&#x2F;3，即总数不少于39*2&#x2F;3≈26项(1、2级为25项)。</p>
+<h3 id="有效应用"><a href="#有效应用" class="headerlink" title="有效应用"></a>有效应用</h3><h3 id="数据质量"><a href="#数据质量" class="headerlink" title="数据质量"></a>数据质量</h3><p>评价本级前应先评估前级别是否符合要求，前级别数据质量指数不得低于0.5。<br>考察内容：一致性、完整性、整合性、及时性</p>
+<ol>
+<li><p>一致性：包括数据标准化与一致性，考察对应评价项目中关键数据项内容与字典数据内容的一致性。<br>以数据字典项目为基准内容值，考察实际数据记录中与基准一致内容所占的比例。<br><code>一致性系数 = 数据记录对应的项目中与字典内容一致的记录数 ÷ 数据记录项的总记录数</code></p>
+</li>
+<li><p>完整性：考察对应项目中必填项数据的完整情况、常用项数据的完整情况。必填项是记录电子病历数据。<br>必填项是记录电子病历数据时必须有的内容。常用项是电子病历记录用于临床决策支持、质量管理应用时所需要的内容。<br><code>完整性系数 = 项目内容完整（或内容效果合理字符）记录数 ÷ 项目总记录数</code></p>
+</li>
+<li><p>整合性：考察对应项目中的关键项数据与相关项目（或系统）对应项目可否对照或关联。<br>按照列出的两个对应考察项目相关的数据记录中匹配对照项的一致性或可对照性，需要从两个层次评估：是否有对照项；对照项目数据的一致性。<br><code>数据整合性系数 = 对照项可匹配数 ÷ 项目总记录数</code><br>对于结构化数据，直接用数据项目的内容进行判断；对于文件数据，可使用文件内容字符数、特定的结构化标记要求内容进行判断。</p>
+</li>
+<li><p>及时性：数据及时性：考察对应项目中时间相关项完整性、逻辑合理性。<br>根据列出时间项目清单内容进行判断，主要看时间项是否有数值，其内容是否符合时间顺序关系。<br><code>数据及时性系数 = 数据记录内容符合逻辑关系时间项数量 ÷ 考察记录时间项目总数量</code></p>
+</li>
+</ol>
+<h2 id="评分"><a href="#评分" class="headerlink" title="评分"></a>评分</h2><p>基本项：全部必须实现，有效应用范围80%以上，数据质量0.5以上<br> 例如，医疗机构电子病历系统达到第 3 级，则电子病历系统中列为第3等级的14个基本项目必须达到或超过第3级的功能，且每个基本项目的评分均必须超过 3 × 0.8 × 0.5 &#x3D; 1.2 分</p>
+<p>选择项：加上基本项不低于全部项目2&#x2F;3，有效应用范围50%以上，数据质量0.5以上<br> 例如，医疗机构电子病历系统达到第 3 级，则电子病历系统必须在第 3 等级 25 个选择项目中，至少有 12 个选择项目达到或超过 3 级，且这 12 个选择项目评分均必须超过 3 × 0.5 × 0.5&#x3D;0.75 分。</p>
+<p><img src="/images/blpj_zdyq.png" alt="基本要求"></p>
+<h2 id="分工解读-个人"><a href="#分工解读-个人" class="headerlink" title="分工解读(个人)"></a>分工解读(个人)</h2><ul>
+<li>编号含义：[角色编号].[功能编号].[等级]，例如01.01.6，表示01病房医师01病房医嘱处理6级要求。</li>
+</ul>
+<h3 id="01-01-6-病房医师-病房医嘱处理"><a href="#01-01-6-病房医师-病房医嘱处理" class="headerlink" title="01.01.6 病房医师 病房医嘱处理"></a>01.01.6 病房医师 病房医嘱处理</h3><h4 id="基本项"><a href="#基本项" class="headerlink" title="基本项"></a>基本项</h4><p>（1）对药物治疗医嘱药物的不良反应有上报处理功能<br>（2）开医嘱医师能够接收到自己处方的点评结果<br>（3）下达医嘱时能够参考药品、检查、检验、药物过敏、诊断、性别等相关内容知识库至少4项内容进行自动检查并给出提示<br>（4）能够实时掌握医嘱执行各环节的状态<br>（5）支持院内会诊的电子申请与过程追踪</p>
+<h4 id="选择项"><a href="#选择项" class="headerlink" title="选择项"></a>选择项</h4><p>无</p>
+<h4 id="数据质量-1"><a href="#数据质量-1" class="headerlink" title="数据质量"></a>数据质量</h4><p>1、医嘱记录中常用项的完整性<br>2、药疗医嘱记录与后续药疗流程相关记录时间符合逻辑关系<br>3、药疗医嘱记录与药物审核记录时间符合逻辑关系</p>
+<h3 id="03-01-6-门诊医师-处方书写"><a href="#03-01-6-门诊医师-处方书写" class="headerlink" title="03.01.6 门诊医师 处方书写"></a>03.01.6 门诊医师 处方书写</h3><h4 id="基本项-1"><a href="#基本项-1" class="headerlink" title="基本项"></a>基本项</h4><p>（1）书写处方时可跟踪既往处方执行情况<br>（2）处方数据能够自动作为门诊病历内容<br>（3）能够接收到开方医师自己处方的点评结果<br>（4）发生药物不良反应时能够有记录与上报处理功能</p>
+<h4 id="选择项-1"><a href="#选择项-1" class="headerlink" title="选择项"></a>选择项</h4><p>无</p>
+<h4 id="数据质量-2"><a href="#数据质量-2" class="headerlink" title="数据质量"></a>数据质量</h4><p>1、处方数据整合性、及时性<br>2、处方记录与处方点评记录中重要项目数据能够对照。<br>3、处方开立与药品审核、配置、发药时间符合逻辑关系</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HIS/" rel="tag">HIS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medicine/" rel="tag">medicine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a></li></ul>
+
       
     </footer>
     <hr class="entry-footer-hr">
@@ -150,7 +502,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/14/Pathetique-2nd-movement/">Pathetique 2nd movement</a>
+      <a class="article-title" href="/2022/07/16/Pathetique-2nd-movement/">悲怆第二乐章(前16小节)</a>
     </h1>
   
 
@@ -158,8 +510,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/07/14/Pathetique-2nd-movement/" class="article-date">
-	  <time datetime="2022-07-14T12:41:42.000Z" itemprop="datePublished">July 14, 2022</time>
+	<a href="/2022/07/16/Pathetique-2nd-movement/" class="article-date">
+	  <time datetime="2022-07-16T12:41:42.000Z" itemprop="datePublished">July 16, 2022</time>
 	</a>
 
        
@@ -167,14 +519,31 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <audio id="mmedia-eExJwLIyukiKzxLF" controls=true audi="audio" src="https://www.orangefreesounds.com/wp-content/uploads/2018/04/Sonata-pathetique-2nd-movement.mp3?_=1" autoplay=true ></audio>
-
+        <p><img src="/images/pathe2_title.PNG" alt="Pathetique 2nd movement"></p>
+<audio id="mmedia-RrwlpLHLyAbbeZIC" controls=true audi="audio" src="https://www.orangefreesounds.com/wp-content/uploads/2018/04/Sonata-pathetique-2nd-movement.mp3?_=1" autoplay=true ></audio>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://tonic-chord.com/beethoven-piano-sonata-no-8-in-c-minor-pathetique-analysis/#Second_Movement_Adagio_Cantabile">Beethoven: Piano Sonata No.8 in C minor “Pathetique” Analysis</a></li>
+</ol>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>　　c小调第八号钢琴奏鸣曲《悲怆》Op.13，贝多芬早期钢琴奏鸣曲之顶峰的杰作。在贝多芬的钢琴奏鸣曲中，《悲怆》是第一首由他本人亲自写上标题的作品。关于”悲怆”这个词汇，与贝多芬后半生那感人肺腑而又凄怆深刻的悲剧性生活还有相当的一段距离，因为这毕竟是他的早期作品。<br>　　在这首作于1798—1799年间的标号为Op.13的钢琴奏鸣曲初版扉页上，贝多芬写着“Grande Sonata Pathetique”（悲怆大奏鸣曲）。在他的32部钢琴奏鸣曲中，只有这一部和Op.81a“告别”是由作曲家自己加上标题的。二十八、九岁的贝多芬，正值青春年华，事业蒸蒸曰上，为什么要写上这么一个标题呢？罗曼·罗兰在他著名的《贝多芬传》中回答了我的疑问：</p>
+<blockquote>
+<p>“……然而痛苦已在叩门；它一朝住在他的身上之后就永远不再退隐。1796年至1800年间，耳聋已开始它的酷刑。”</p>
+</blockquote>
+<p>　　1801年，贝多芬在给韦该勒的信上写道：</p>
+<blockquote>
+<p>“我过着一种悲惨的生活。两年以来我躲避着一切交际，因为我不可能与人说话：我聋了。要是我干着别的职业，也许还可以，但在我的行当里，这是可怕的遭遇啊。我的敌人们又将怎么说，他们的数目又是相当可观！……在戏院里，我得坐在贴近乐队的地方，才能懂得演员的说话。……人家柔和地说话时，我勉强听到一些，人家高声叫喊时，我简直痛苦难忍……我时常诅咒我的生命……普卢塔克 教我学习隐忍。我却愿和我的命运挑战，只要可能；但有些时候，我竟是上帝最可怜的造物……隐忍！多伤心的避难所！然而这是我唯一的出路。”</p>
+</blockquote>
+<p>　　有人曾将这首奏鸣曲与莎士比亚的《罗密欧与朱丽叶》相比较，指出在这两部作品中，存在着共同的“青春的哀伤感”。 可能人们是从这个标题出发，将它和当时德国社会中普遍存在的一种情绪相对应而作出这种结论的。确实，在歌德的 《少年维特之烦恼》中，在莫扎特的g小调第40交响曲中，都弥漫着类似的情绪。但贝多芬毕竟有其独特的个性，实际上，他的作品中弥漫着的是一股蓬勃的生命力，同时也弥漫着一种对无限、对理想的渴望。他已经超越了自己的肉体上和生活中的种种痛苦、恐惧、忍让、敬畏，他感悟到了生命的升华。正如E·T·A·霍夫曼所说：“人的心在尘世之物中感悟超尘世之物。”</p>
+<h2 id="曲谱-前16小节"><a href="#曲谱-前16小节" class="headerlink" title="曲谱(前16小节)"></a>曲谱(前16小节)</h2><p><img src="/images/pathe2_first16.png"></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>基本信息：如歌的柔板(Adagio Cantabile)</p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/piano/" rel="tag">piano</a></li></ul>
+
       
     </footer>
     <hr class="entry-footer-hr">
@@ -185,7 +554,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-SQL"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-NoSQL"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -193,7 +562,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/09/SQL/">SQL</a>
+      <a class="article-title" href="/2022/07/15/NoSQL/">NoSQL</a>
     </h1>
   
 
@@ -201,49 +570,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/07/09/SQL/" class="article-date">
-	  <time datetime="2022-07-09T13:50:31.000Z" itemprop="datePublished">July 9, 2022</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-FineReport"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/09/FineReport/">FineReport</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/07/09/FineReport/" class="article-date">
-	  <time datetime="2022-07-09T13:49:42.000Z" itemprop="datePublished">July 9, 2022</time>
+	<a href="/2022/07/15/NoSQL/" class="article-date">
+	  <time datetime="2022-07-15T08:32:31.000Z" itemprop="datePublished">July 15, 2022</time>
 	</a>
 
        
@@ -267,7 +595,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Regexp"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Multithreading-and-multiprocess-in-Node-js"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -275,7 +603,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/04/Regexp/">Regexp</a>
+      <a class="article-title" href="/2022/07/15/Multithreading-and-multiprocess-in-Node-js/">Multithreading and multiprocess in Node.js</a>
     </h1>
   
 
@@ -283,8 +611,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/07/04/Regexp/" class="article-date">
-	  <time datetime="2022-07-04T06:37:33.000Z" itemprop="datePublished">July 4, 2022</time>
+	<a href="/2022/07/15/Multithreading-and-multiprocess-in-Node-js/" class="article-date">
+	  <time datetime="2022-07-15T02:43:46.000Z" itemprop="datePublished">July 15, 2022</time>
 	</a>
 
        
@@ -292,398 +620,212 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/regex.png" alt="Regex"></p>
-<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><p><a target="_blank" rel="noopener" href="https://regexper.com/">Regexper: Visulization tool for Regexp</a><br><a target="_blank" rel="noopener" href="https://regex101.com/">Regex101: Write, test and debug Regexp</a></p>
-<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><table>
+        <p><img src="/images/cpu1.PNG" alt="CPU"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/api/worker_threads.html">Node.js Worker Threads</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903908385488903">Deep dive into threads and processes in Node.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56656498/how-do-cluster-and-worker-threads-work-in-node-js">How do cluster and worker threads work in node.js</a></li>
+</ol>
+<h2 id="Multithreading-Worker-thread"><a href="#Multithreading-Worker-thread" class="headerlink" title="Multithreading: Worker thread"></a>Multithreading: Worker thread</h2><h3 id="What-and-why"><a href="#What-and-why" class="headerlink" title="What and why"></a>What and why</h3><p>A thread that enables node.js to execute JavaScript in parallel. Useful to handle CPU intensive jobs.</p>
+<h3 id="How-to"><a href="#How-to" class="headerlink" title="How-to"></a>How-to</h3><p>Create a worker file &#x3D;&gt; Make a promise in caller file &#x3D;&gt; Define on message&#x2F;error&#x2F;exit hooks<br>worker.js file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const &#123; workerData, parentPort &#125;	= require(&#x27;worker_threads&#x27;)</span><br><span class="line"></span><br><span class="line">console.log(&#x27;Technical Articles on &#x27; + workerData);</span><br><span class="line"></span><br><span class="line">parentPort.postMessage(</span><br><span class="line">	&#123; fileName: workerData, status: &#x27;Done&#x27; &#125;)</span><br></pre></td></tr></table></figure>
+<p>index.js file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const &#123; Worker &#125; = require(&#x27;worker_threads&#x27;)</span><br><span class="line"></span><br><span class="line">function runService(workerData) &#123;</span><br><span class="line">	return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">		const worker = new Worker(</span><br><span class="line">				&#x27;./worker.js&#x27;, &#123; workerData &#125;);</span><br><span class="line">		worker.on(&#x27;message&#x27;, resolve);</span><br><span class="line">		worker.on(&#x27;error&#x27;, reject);</span><br><span class="line">		worker.on(&#x27;exit&#x27;, (code) =&gt; &#123;</span><br><span class="line">			if (code !== 0)</span><br><span class="line">				reject(new Error(</span><br><span class="line">`Stopped the Worker Thread with the exit code: $&#123;code&#125;`));</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function run() &#123;</span><br><span class="line">	const result = await runService(&#x27;GeeksForGeeks&#x27;)</span><br><span class="line">	console.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run().catch(err =&gt; console.error(err))</span><br></pre></td></tr></table></figure>
+<p>Key points:</p>
+<ol>
+<li>Worker use  <code>workerData</code> to receive data from caller and <code>parentPort</code> to post data to caller.</li>
+<li>Worker use <code>parentPort.postMessage</code> to send data to caller and caller use <code>on(&#39;message&#39;)</code> to receive.</li>
+</ol>
+<h2 id="Multiprocess-Fork-and-Cluster"><a href="#Multiprocess-Fork-and-Cluster" class="headerlink" title="Multiprocess: Fork and Cluster"></a>Multiprocess: Fork and Cluster</h2><h3 id="An-example-to-address-the-problem-of-single-threaded-node-js"><a href="#An-example-to-address-the-problem-of-single-threaded-node-js" class="headerlink" title="An example to address the problem of single-threaded node.js"></a>An example to address the problem of single-threaded node.js</h3><p>Single threaded node.js will block on a time-consuming request.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const longComputation = () =&gt; &#123;</span><br><span class="line">  let sum = 0;</span><br><span class="line">  for (let i = 0; i &lt; 1e10; i++) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;;</span><br><span class="line">  return sum;</span><br><span class="line">&#125;;</span><br><span class="line">const server = http.createServer();</span><br><span class="line">server.on(&#x27;request&#x27;, (req, res) =&gt; &#123;</span><br><span class="line">  if (req.url === &#x27;/compute&#x27;) &#123;</span><br><span class="line">    console.info(&#x27;计算开始&#x27;,new Date());</span><br><span class="line">    const sum = longComputation();</span><br><span class="line">    console.info(&#x27;计算结束&#x27;,new Date());</span><br><span class="line">    return res.end(`Sum is $&#123;sum&#125;`);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.end(&#x27;Ok&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<p>Call <code>localhost:3000/compute</code> will block </p>
+<h3 id="Pros-and-cons-of-single-threaded-node-js"><a href="#Pros-and-cons-of-single-threaded-node-js" class="headerlink" title="Pros and cons of single-threaded node.js"></a>Pros and cons of single-threaded node.js</h3><p>Pros:</p>
+<ol>
+<li>Simple, no creation and switching of threads.</li>
+<li>Event loop and non-blocking asynchronous mechanism ensures high performance for high concurrency.<br>Cons:</li>
+<li>CPU intensive calculation may block entire node.js app. </li>
+<li>An error may kill the thread, thus kill entire app. A daemon thread should be considered.</li>
+<li>Single thread does not take advantage of a multi-core CPU.</li>
+</ol>
+<h3 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h3><p>Use <code>child_process.fork</code> to create new process.<br>Main.js:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const fork = require(&#x27;child_process&#x27;).fork;</span><br><span class="line"></span><br><span class="line">const server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">    if(req.url == &#x27;/compute&#x27;)&#123;</span><br><span class="line">        const compute = fork(&#x27;./compute.js&#x27;);</span><br><span class="line">        compute.send(&#x27;开启一个新的子进程&#x27;);</span><br><span class="line"></span><br><span class="line">        // 当一个子进程使用 process.send() 发送消息时会触发 &#x27;message&#x27; 事件</span><br><span class="line">        compute.on(&#x27;message&#x27;, sum =&gt; &#123;</span><br><span class="line">            res.end(`Sum is $&#123;sum&#125;`);</span><br><span class="line">            compute.kill();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 子进程监听到一些错误消息退出</span><br><span class="line">        compute.on(&#x27;close&#x27;, (code, signal) =&gt; &#123;</span><br><span class="line">            console.log(`收到close事件，子进程收到信号 $&#123;signal&#125; 而终止，退出码 $&#123;code&#125;`);</span><br><span class="line">            compute.kill();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res.end(`ok`);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000, &#x27;127.0.0.1&#x27;, () =&gt; &#123;</span><br><span class="line">    console.log(`server started at http://127.0.0.1:3000`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>compute.js:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const computation = () =&gt; &#123;</span><br><span class="line">    let sum = 0;</span><br><span class="line">    console.info(&#x27;计算开始&#x27;);</span><br><span class="line">    console.time(&#x27;计算耗时&#x27;);</span><br><span class="line"></span><br><span class="line">    for (let i = 0; i &lt; 1e10; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    console.info(&#x27;计算结束&#x27;);</span><br><span class="line">    console.timeEnd(&#x27;计算耗时&#x27;);</span><br><span class="line">    return sum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">process.on(&#x27;message&#x27;, msg =&gt; &#123;</span><br><span class="line">    console.log(msg, &#x27;process.pid&#x27;, process.pid); // 子进程id</span><br><span class="line">    const sum = computation();</span><br><span class="line"></span><br><span class="line">    // 如果Node.js进程是通过进程间通信产生的，那么，process.send()方法可以用来给父进程发送消息</span><br><span class="line">    process.send(sum);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><p><code>cluster</code> can create worker process in a single file.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const numCPUs = require(&#x27;os&#x27;).cpus().length;</span><br><span class="line">const cluster = require(&#x27;cluster&#x27;);</span><br><span class="line">if(cluster.isMaster)&#123;</span><br><span class="line">    console.log(`Master proces id is $&#123;process.pid&#125;, cpu number $&#123;numCPUs&#125;`);</span><br><span class="line">    // fork workers</span><br><span class="line">    for(let i= 0;i&lt;numCPUs;i++)&#123;</span><br><span class="line">        cluster.fork();</span><br><span class="line">    &#125;</span><br><span class="line">    cluster.on(&#x27;exit&#x27;,function(worker,code,signal)&#123;</span><br><span class="line">        console.log(&#x27;worker process died,id&#x27;,worker.process.pid)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    // Worker can share the same TCP connection</span><br><span class="line">    // It&#x27;s an http server here</span><br><span class="line">    console.log(`created worker pid $&#123;process.pid&#125;`)</span><br><span class="line">    http.createServer(function(req,res)&#123;</span><br><span class="line">        res.writeHead(200);</span><br><span class="line">        res.end(String(process.pid));</span><br><span class="line">    &#125;).listen(8000);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Running code above, we got:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Master proces id is 18428, cpu number 4</span><br><span class="line">created slave pid 16672</span><br><span class="line">created slave pid 9896</span><br><span class="line">created slave pid 14676</span><br><span class="line">created slave pid 1460</span><br></pre></td></tr></table></figure>
+<p>We can find these process in task manager:<br><img src="/images/multi_node_taskmgr.png" alt="Multiple node.js processes"><br>Now send a request in browser, and id of one of the four server process is returned:<br><img src="/images/request1460.png" alt="Request"><br>Try refresh many times and different pids may return(It depends, maybe one unlucky process shoulders all the workload).<br>Now kill one the worker <code>1460</code> in task manger and we got:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker process died,id 1460</span><br></pre></td></tr></table></figure>
+<p>Refresh the browser and result is another pid other than 1460:<br><img src="/images/request9896.png" alt="Request"><br>You see, now our server is much more robust than before. We got four worker process, killing one of them and there are still three working.</p>
+<p>Cluster calls the same <code>fork</code> method from  <code>child_process</code> module under the hood. Cluster is a master-slave model, where master manages and schedules slaves.</p>
+<p><strong>Why no <code>Error: EADDRINUSE</code> when multiple processes listens on the same port?</strong><br>The child processes aren’t listening to the same port. Incoming socket connections to the master process are being delegated to the child processes. There’s special handling for clustered process in <code>server.listen()</code>, it calls a method named <code>listenInCluster()</code> in some circumstances. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61261621/node-cluster-have-multiple-processes-listen-to-the-same-port">See explanation here</a></p>
+<h2 id="Multithreading-vs-multiprocess"><a href="#Multithreading-vs-multiprocess" class="headerlink" title="Multithreading vs multiprocess"></a>Multithreading vs multiprocess</h2><p><strong>cluster</strong></p>
+<ul>
+<li>One <em>process</em> is launched on each CPU and can communicate via IPC.</li>
+<li>Each process has its own memory with its own Node (v8) instance. Creating tons of them may create memory issues.</li>
+<li>Great for spawning many HTTP servers that share the same port b&#x2F;c the master process will multiplex the requests to the child processes.</li>
+</ul>
+<p><strong>worker threads</strong></p>
+<ul>
+<li>One <em>process</em> total</li>
+<li>Creates multiple threads with each thread having one Node instance (one event loop, one JS engine).  Most Node API’s are available to each thread except a few.  So essentially Node is embedding itself and creating a new thread.</li>
+<li>Shares memory with other threads (e.g. <code>SharedArrayBuffer</code>)</li>
+<li>Great for CPU intensive tasks like processing data or accessing the file system. Because NodeJS is single threaded, synchronous tasks can be made more efficient with workers</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-医保制度"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/15/%E5%8C%BB%E4%BF%9D%E5%88%B6%E5%BA%A6/">医保制度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/15/%E5%8C%BB%E4%BF%9D%E5%88%B6%E5%BA%A6/" class="article-date">
+	  <time datetime="2022-07-14T22:22:57.000Z" itemprop="datePublished">July 15, 2022</time>
+	</a>
+
+       
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/yibaoka.webp" alt="医保卡"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9F%BA%E6%9C%AC%E5%8C%BB%E7%96%97%E4%BF%9D%E9%99%A9%E5%88%B6%E5%BA%A6/2490244?fr=aladdin">基本医疗保险制度</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35214494">职工医保、居民医保、新农合到底哪个更划算？</a></li>
+<li><a target="_blank" rel="noopener" href="https://estv.com.cn/ss/163810.htm">湖北明年合并城镇居民医保和新农合</a></li>
+<li><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1709519699092058591&wfr=spider&for=pc">2022年度湖北城乡居民医保缴费</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.t027.com/minsheng/show-24393.html">武汉市个人医疗保障中,个人帐户每月划入金额以及比例是多少?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/39361653/answer/1453749511">医保到底保了个啥？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.163.com/dy/article/H75RSMBR0514BKDQ.html">影响武汉医保报销的因素有哪些？报销费用如何计算？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/39361653/answer/1453749511">我国的医保到底是如何报销的？生病住院到底报销百分之多少？</a></li>
+</ol>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>由政府制定、用人单位和职工共同参加的一种社会保险制度。它按照财政、用人单位和职工的承受能力来确定职工的基本医疗保障水平，具有广泛性、共济性、强制性的特点。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>基本医保类型分为职工医保、居民医保、新农合[2]。居民医保和新农合在多数地方已合并为城乡居民医保[3]。</p>
+<blockquote>
+<p>2016年国家人社部明确提出所有省(区、市)出台城镇居民医保和新型农村合作医疗的“两保合一”整合方案，在2017年开始建立统一的城乡居民医保制度。</p>
+</blockquote>
+<blockquote>
+<p>湖北省政府办公厅日前发布《湖北省整合城乡居民基本医疗保险制度工作方案》（以下简称方案），要求2017年全省城镇居民医保和新农合完成合并，实施统一的城乡居民医保制度，住院报销比例统一在75%左右。</p>
+</blockquote>
+<table>
 <thead>
 <tr>
-<th align="right">Syntax</th>
-<th>Description</th>
+<th>属性</th>
+<th>职工医保</th>
+<th>居民医保</th>
+<th>新农合</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="right"><strong>Special Characters</strong></td>
-<td></td>
+<td>全称</td>
+<td>城镇职工基本医疗保险</td>
+<td>城镇居民基本医疗保险</td>
+<td>新型农村合作医疗保险</td>
 </tr>
 <tr>
-<td align="right">\n</td>
-<td>New line.</td>
+<td>参保对象</td>
+<td>在城市有固定单位的上班族</td>
+<td>拥有城镇户籍的无业居民、大学生、未成年人</td>
+<td>有农村户籍的农村居民</td>
 </tr>
 <tr>
-<td align="right">\f</td>
-<td>Form feed.</td>
+<td>缴费标准</td>
+<td>按月缴费，按照规定的缴费基数和比例由单位和个人共同承担</td>
+<td>按年缴费，不缴费就无法享受医疗待遇，由居民和政府共同缴纳保险费</td>
+<td>按年缴费，不缴费就无法享受待遇，由居民和政府共同缴纳保险费</td>
 </tr>
 <tr>
-<td align="right">\r</td>
-<td>Return.</td>
+<td>缴费额度</td>
+<td>个人承担2%，单位承担6%~10%(武汉为8%)</td>
+<td>不定，逐年上调(2022湖北为320元，政府补助不低于580元[4])</td>
+<td>不定，逐年上调(2022湖北为320元，政府补助不低于580元[4])</td>
 </tr>
 <tr>
-<td align="right">\s</td>
-<td>Space.</td>
+<td>最低年限</td>
+<td>缴费年限达到25年或30年可以享受终生医疗待遇，缴费年限根据各地政策有不同规定，男女也有差异</td>
+<td>不设最低缴费年限</td>
+<td>不设最低缴费年限</td>
 </tr>
 <tr>
-<td align="right">\t</td>
-<td>Tab.</td>
+<td>缴纳方式</td>
+<td>通过用人单位参保缴纳</td>
+<td>通过所在地社保局办理</td>
+<td>乡、村干部上门集中收缴、村集体经济代缴、农民主动到乡镇新农合经办机构缴纳</td>
 </tr>
 <tr>
-<td align="right">\v</td>
-<td>Vertical tab.</td>
-</tr>
-<tr>
-<td align="right">[\b]</td>
-<td>Backspace. As <code>\b</code> refers to <code>boundary</code>(see below), <code>[]</code> is used to differentiate backspace and boundary.</td>
-</tr>
-<tr>
-<td align="right"><strong>Repeats</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="right">?</td>
-<td>Zero or one occurrence.</td>
-</tr>
-<tr>
-<td align="right">*</td>
-<td>Zero or more occurrences.</td>
-</tr>
-<tr>
-<td align="right">{x}</td>
-<td>X times.</td>
-</tr>
-<tr>
-<td align="right">{min, max}</td>
-<td>min to max times. If max not given, then it means at least min times.</td>
-</tr>
-<tr>
-<td align="right"><strong>Margins</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="right">\b</td>
-<td>Boundary. Matches a pseudo position between word character <code>\w</code> and non-word character <code>\W</code>. Often used to extract single word. Match <code>/\bcat\b/</code> in <code>The cat scattered his food</code> will not match <code>cat</code> in <code>scattered</code> as <code>cat</code> in <code>scattered</code> is surrounded by word character <code>s</code> and <code>t</code>.</td>
-</tr>
-<tr>
-<td align="right">\B</td>
-<td>Non-boundary.</td>
-</tr>
-<tr>
-<td align="right">^</td>
-<td>Start of string.</td>
-</tr>
-<tr>
-<td align="right">$</td>
-<td>End of string.</td>
-</tr>
-<tr>
-<td align="right"><strong>Modifiers</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="right">&#x2F;m</td>
-<td>Multiple line.</td>
-</tr>
-<tr>
-<td align="right">&#x2F;i</td>
-<td>Ignore case.</td>
-</tr>
-<tr>
-<td align="right">&#x2F;g</td>
-<td>Global.</td>
-</tr>
-<tr>
-<td align="right"><strong>Sub-expression</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="right">Sub-expression</td>
-<td>Expression within brackets <code>(</code> and <code>)</code> is a sub-expression.</td>
-</tr>
-<tr>
-<td align="right">Backreference</td>
-<td>Use <code>\1</code>, <code>\2</code> in the back to reference the first, second expression in the front. Example: Use <code>\b(\w+)\s\1</code> to match two continuous same words in <code>Hello what what is the first thing, and I am am Tom.</code>.</td>
-</tr>
-<tr>
-<td align="right">Non-capturing group</td>
-<td>Use <code>(?:)</code> to avoid being captured. Example: Using <code>(Chendongti)(?:an)</code> to match <code>Chendongtian</code>  will only return one group <code>Chendongti</code>, <code>an</code> is not captured.</td>
-</tr>
-<tr>
-<td align="right">Lookahead</td>
-<td>Use <code>(?=)</code>&#x2F;<code>(?!)</code> to add a must-have&#x2F;must-not-have suffix. Example: Using <code>happ(?=ily)</code> to match <code>happ happily</code> will only return <code>happ</code> in <code>happily</code>, and <code>happ(?!ily)</code> will only return <code>happ</code> in <code>happy</code>.</td>
-</tr>
-<tr>
-<td align="right">Lookbehind</td>
-<td>Use <code>(?&lt;=)</code>&#x2F;<code>(?&lt;!)</code> to add must-have&#x2F;must-not-have prefix. Example: Using <code>(?&lt;=ap)ple</code> to match <code>apple people</code> will only return <code>ple</code> in <code>apple</code>, and <code>(?&lt;!ap)ple</code> will only return <code>ple</code> in <code>people</code>.</td>
-</tr>
-<tr>
-<td align="right"><strong>Logical operators</strong></td>
-<td></td>
-</tr>
-<tr>
-<td align="right">NOT</td>
-<td><code>^</code>. <code>[^abc]</code>.</td>
-</tr>
-<tr>
-<td align="right">OR</td>
-<td><code>|</code>. <code>(a|b)</code>.</td>
+<td>报销比例和范围</td>
+<td>高&#x2F;大</td>
+<td>中&#x2F;中</td>
+<td>低&#x2F;小</td>
 </tr>
 </tbody></table>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/regexp/" rel="tag">regexp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-锂电池"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/">锂电池</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/" class="article-date">
-	  <time datetime="2022-07-01T10:34:47.000Z" itemprop="datePublished">July 1, 2022</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/Lithium_Battery.png" alt="Lithium Battery"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/401504245">【电池】30分钟，让你成为半个锂电池专家</a><br><a target="_blank" rel="noopener" href="https://www.yoojia.com/article/8075361517849643153.html">铁电池、三元锂、NCM都是啥？电动汽车电池，纯干货一文全知道！</a></p>
-<h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><p>LiFePO4: LFP, 磷酸铁锂, 用磷酸铁锂作为正极材料的锂离子电池。<br>Ternary Lithium: 正极材料使用镍钴锰酸锂（Li（NiCoMn）O2）三元正极材料的锂电池，三元复合正极材料前驱体产品，是以镍盐、钴盐、锰盐为原料。<br>Cylindrical: 圆柱电池。<br>Prismatic: 方型电池。<br>LTO: lithium-titanium-oxide&#x2F;lithium-titanate, 钛酸锂电池，一种用作锂离子电池负极材料-钛酸锂，可与锰酸锂、三元材料或磷酸铁锂等正极材料组成2.4V或1.9V的锂离子二次电池。<br>Polymer lithium: 聚合物电池。<br><img src="/%5Cimages%5CLFPVSTL.jpg" alt="LFP_VS_TL"></p>
-<h2 id="电芯正极材料"><a href="#电芯正极材料" class="headerlink" title="电芯正极材料"></a>电芯正极材料</h2><p>　　锂电池正极材料，是锂离子电池构成材料的一部分，直接影响着锂离子电池的性能，占有较大比例（正负极材料的质量比为3: 1~4：1）。</p>
-<p>　　锂离子电池是以2种不同的能够可逆地插入及脱出锂离子的嵌锂化合物分别作为电池的正极和负极的二次电池体系。充电时，锂离子从正极材料的晶格中脱出，经过电解质后插入到负极材料的晶格中，使得负极富锂，正极贫锂；放电时锂离子从负极材料的晶格中脱出，经过电解质后插入到正极材料的晶格中，使得正极富锂，负极贫锂。这样正负极材料在插入及脱出锂离子时相对于金属锂的电位的差值，就是电池的工作电压。</p>
-<p>种类：<br>LCO: LiCoO2, Lithium Cobalt Oxide. 钴酸锂。<br>LNO: 镍酸锂。<br>LMO: LiMn2O4, Lithium Manganese Oxide. 锰酸锂。<br>NCM: 镍锰钴。<br>NCA: 镍钴铝。<br>LFP: 磷酸铁锂。</p>
-<h2 id="3-2v和3-7v区别"><a href="#3-2v和3-7v区别" class="headerlink" title="3.2v和3.7v区别"></a>3.2v和3.7v区别</h2><p>3.2V表示的是磷酸铁锂电池，其主要正极化学原材料为LiFePO4，由于其本身原材料的化学特性，决定了其生产制造出来的单颗电芯电压就是3.2V；</p>
-<p>3.7V表示的是聚合物锂电池（常见锂离子电池，如手机、无线无耳机、智能手表等的电池），主要正极化学原材料有LiCoO2、LiNiO2、LiMnO2和锰镍钴复合氧化物等，由于其本身的化学物质的特性，制造出来的电池电芯电压一般是3.7V。</p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Battery/" rel="tag">Battery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Vue-3"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/27/Vue-3/">Vue 3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/27/Vue-3/" class="article-date">
-	  <time datetime="2022-06-27T03:52:03.000Z" itemprop="datePublished">June 27, 2022</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6890545920883032071">Composition API - An animated explanation</a><br><a target="_blank" rel="noopener" href="https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.">Vue2 to Vue3 — What’s changed?</a><br><a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">Why vite ?</a></p>
-<h2 id="Vue-3-VS-Vue-2"><a href="#Vue-3-VS-Vue-2" class="headerlink" title="Vue 3 VS Vue 2"></a>Vue 3 VS Vue 2</h2><ol>
-<li><p><strong>Composition API</strong> vs <strong>Options API</strong><br><img src="/images/composition_vs_options.png" alt="Composition API vs Options API"><br>Options API is <strong>function concerned</strong>.<br>Composition API is <strong>logic concerned</strong>.<br>For complex components, code of same logic may be scattered in <code>props</code>, <code>data</code>, <code>methods</code>, <code>mounted</code>, which makes it hard to maintain. So in Vue 3, <strong>Composition API</strong> is introduced, code of same logic is put together in <code>setup</code>.<br>See <a target="_blank" rel="noopener" href="https://vuejs.org/guide/introduction.html#which-to-choose">which to choose</a>.</p>
-</li>
-<li><p>Vite<br>Vue 3’s scaffolding tool migrated from <code>vue-cli</code> to ‘create-vue’, which is based on <code>vite</code> and has a much faster building speed than <code>webpack</code>. See <a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">why vite is much faster</a></p>
-</li>
-</ol>
-<h2 id="Vue-3-features"><a href="#Vue-3-features" class="headerlink" title="Vue 3 features"></a>Vue 3 features</h2><ol>
-<li>Composition API</li>
-</ol>
-<ul>
-<li>Difference with <code>Options API</code> already explained above.</li>
-<li>Use <code>&lt;script setup&gt;</code> or <code>&lt;script&gt;setup()</code> to indicate Composition API. Difference between <code>&lt;script setup&gt;</code> and <code>&lt;script&gt;setup()</code> is that no <code>return</code> is required in <code>&lt;script setup&gt;</code> to pass objects to template.</li>
-<li>A typical <code>&lt;script setup&gt;</code> SFC(Single File Component) goes here:<br><img src="/images/script_setup_SFC.PNG" alt="script_setup_SFC"></li>
-</ul>
-<p>2. </p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue3/" rel="tag">vue3</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-阿里巴巴"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/">阿里巴巴</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/22/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/" class="article-date">
-	  <time datetime="2022-06-22T12:38:20.000Z" itemprop="datePublished">June 22, 2022</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://peixun.alibaba.com/">官方课程</a><br>  <a target="_blank" rel="noopener" href="https://peixun.alibaba.com/series/detail_CSJ1791I.htm">新手必修课</a><br>  <a target="_blank" rel="noopener" href="https://peixun.alibaba.com/series/detail_CSY19YYD.htm">新手进阶课</a><br>  <a target="_blank" rel="noopener" href="https://peixun.alibaba.com/series/detail_CSF2DNR5.htm?spm=a271d.9395405.0.0.202a5b07OC1nJf">产品发布</a><br>  <a target="_blank" rel="noopener" href="https://supervideo.taobao.com/course/videoOnPlay.htm?code=PXJ31G4F&seriesCode=&channel=null&loginId=null&tripartiteVid=null&u_ticket=AONQTS">详情页</a><br>  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tp4y1W7yN?spm_id_from=333.337.search-card.all.click">阿里巴巴运营之道(推荐第一节课)</a></li>
-<li>小何在线：AI&#x2F;人工客服，可解决90%问题</li>
-<li>各地线下培训，但是要求是阿里卖家(有正式账号)</li>
-</ol>
-<h2 id="选品"><a href="#选品" class="headerlink" title="选品"></a>选品</h2><ol>
-<li>电池<br>半成品，专业性高，出单太慢，门槛高（危险性高，需要国际证书认证）<br>刘做电池的原因是她个人从事电池行业</li>
-<li>化妆品<br>成品，销量大，有市场，义乌货源多，现成渠道多</li>
-</ol>
-<h2 id="货源"><a href="#货源" class="headerlink" title="货源"></a>货源</h2><ol>
-<li>1688.com，应找工厂</li>
-</ol>
-<h2 id="发品"><a href="#发品" class="headerlink" title="发品"></a>发品</h2><h3 id="类目"><a href="#类目" class="headerlink" title="类目"></a>类目</h3><p>参考首页同行类目</p>
-<h3 id="标题及关键词"><a href="#标题及关键词" class="headerlink" title="标题及关键词"></a>标题及关键词</h3><p><img src="/images/alibaba_product_title_and_keywords.png" alt="标题及关键词规范"></p>
-<ul>
-<li><p>关键词类型：<br>Factory direct commercial wooden desk office<br>营销词&#x2F;修饰词：产品卖点、特性、风格。如<em>高级感</em>金色小雏菊耳环<br>属性词：用途&#x2F;认证&#x2F;案例。<br> <em>祛痘痘印</em>凝胶、<em>油污去污清洁</em>神器<br> <em>国际大赛铂金奖</em>、<em>某地国际珠宝展</em>红蓝宝石复古手链<br> <em>某某同款</em>粉色V领毛衣<br>核心词：产品本身<br>场景词：产品应用场景(?)</p>
-</li>
-<li><p>寻找流量词：MA-&gt;数据分析-&gt;引流关键词</p>
-</li>
-<li><p>核心词为什么放右侧：系统顺序为从右向左检测</p>
-</li>
-</ul>
-<h3 id="产品属性"><a href="#产品属性" class="headerlink" title="产品属性"></a>产品属性</h3><ul>
-<li>能填的属性都填上</li>
-</ul>
-<h3 id="素材"><a href="#素材" class="headerlink" title="素材"></a>素材</h3><ol>
-<li>图片(主图1+详情页5)<br><img src="/images/demo_product_image.PNG" alt="示例"><br>≤3M，正方形，750*750，白底，左上角logo(可有可无)</li>
-<li>视频<br>横屏，背景素色或虚化避免干扰<br>主图：20-45s，≤100M<br>详情页：≤10分钟，≤500M</li>
-<li>产品参数</li>
-<li>公司介绍文案</li>
-</ol>
-<h3 id="详情页"><a href="#详情页" class="headerlink" title="详情页"></a>详情页</h3><p><img src="/images/product_details_arrangement.png" alt="详情页排版"></p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
-<li>无必要自己拍图&#x2F;视频，可用别人图&#x2F;视频</li>
-<li></li>
-</ol>
-<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p><strong>全球旺铺</strong>：店铺官网<br><strong>拍档</strong>：阿里官方提供出口通关、退税服务的公司<br><strong>主账号和子账号</strong>：账号共分四种类型：管理员、业务经理、业务员、制作员。<br>子帐号也就是My Alibaba 操作系统的分帐号权限，包括业务员，业务经理，制作员三种权限区别，由管理员(主账号）创建。<br>产品权限：<br>业务员账号：在管理产品的后台，只能看到自己发布的产品<br>主账号&#x2F;制作员账号：可以看到全公司的产品<br>业务经理：能看到自己及其下属发布的产品<br><strong>SKU</strong>: Stock Keeping Unit, 库存量单位。对于电商，一般指单个产品。例如某裤子分为高腰&#x2F;低腰两类，每类S&#x2F;M&#x2F;L，有黑白灰三色，则有2×3×3&#x3D;18个SKU。<br><strong>询盘&#x2F;RTS</strong>: 询盘又称询价，是指买方或卖方为了购买或销售某项商品，向对方询问有关交易条件的表示。在国际贸易的实际业务中，一般多由买方主动向卖方发出询盘。可以询问价格，也可询问其他一项或几项交易条件以引起对方发盘，目的是试探对方交易的诚意和了解其对交易条件的意见。<br>相对于询盘，RTS产品无需询盘，属于可直接下单的标准产品。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/375607037">查看详情</a><br><strong>RFQ</strong>:<br><a target="_blank" rel="noopener" href="https://rfq.alibaba.com/">RFQ</a><br>RFQ：</p>
-<ul>
-<li>客服发起RFQ，会广播至全部卖家，RFQ席位只有10个，占满报价即截止</li>
-<li>客户发起RFQ价格较贵，十几美金一条；卖家RFQ报价也有次数限制(防止滥报价)，超过则收费<br>RFQ是买家委托采购，只限10个供应商报名，满额后就会关闭报价窗口。<br>和询盘的区别是RFQ是要通过阿里人工审核后，达到要求的才会发给买家，同时发送给你买家的联系方式；人工审核不过，你是无法知道买家的信息的。<br><strong>旺季</strong>: 一般每年9~11月为旺季<br><strong>优惠补贴</strong>:</li>
-<li>疫情经济下滑，新店铺有引流政策</li>
-<li>新店铺发放￥5000券，用于店铺装修等</li>
-<li>“中小开”专项补贴：中小企业开拓国际市场专项基金<br><strong>金品</strong>: Verified Supplier, 阿里巴巴线上线下认证企业。<br>、<strong>长尾词</strong>: 非目标关键词但与目标关键词相关的也可以带来搜索流量的组合型关键词。转化率比目标关键词高很多，因为其目的性强。例如关键词“服装”的长尾词：男性服装，女性服装，冬装，夏装等词；以及它的品牌拓展如：某品牌服装等。还有按照质量拓展如：棉类、皮类等。<br><strong>FOB&#x2F;CIF&#x2F;CFR</strong>:<br>FOB，离岸价。货物在指定的装运港越过船舷，卖方即完成交货。说明买方必须从这个时候开始承担货物灭失与损坏的一切风险。卖方必须办理货物出口相关手续。FOB仅适用于海运、内河运输。<br>CIF，成本+保险+运费。意思是货物的总价格，除了货物本身的价值之外，还包括保险，和至目的地港口运费。这些是要卖家出的。除了特殊约定，一切按照最低价投险。<br>CFR，Cost and Freight，成本+运费。卖方负责运输，买方购买保险。<br><strong>一件代发</strong><br>作为卖家，哪怕你只卖出一件产品，供应商也可以帮你发货。有订单了就去采购发货，没有订单也不会有囤货压货的风险。<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/381068098/answer/2261517351">什么是一件代发</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a></li></ul>
-
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Redis"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/21/Redis/">Redis</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/06/21/Redis/" class="article-date">
-	  <time datetime="2022-06-21T02:41:55.000Z" itemprop="datePublished">June 21, 2022</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/redis.png" alt="redis"></p>
-<h2 id="What-is-redis"><a href="#What-is-redis" class="headerlink" title="What is redis"></a>What is redis</h2><p>An <strong>distributed in-memory key-value</strong> database.<br>distributed: redis can scale from a single instance to a distributed system.<br>in-memory: that’s why redis is fast and commonly serves as cache.<br>key-value: redis stores key-value pairs.</p>
-<h2 id="Why-redis"><a href="#Why-redis" class="headerlink" title="Why redis"></a>Why redis</h2><p>As an in-memory cache, redis is much faster than traditional RDBMS.<br>Helps reduce database workload.</p>
-<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Server: See offical install procedure <a target="_blank" rel="noopener" href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/">here</a>.<br>As no offical windows install file provided, tporadowski provides an <a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis/releases">unoffical install file</a>.</p>
-<p>Client: redis server ships with a cli tool <code>redis-cli</code>. For GUI client, check <a target="_blank" rel="noopener" href="https://redis.io/download/">RedisInsight</a> out.</p>
-<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><h3 id="Difference-between-redis-windows-service-conf-and-redis-windows-conf"><a href="#Difference-between-redis-windows-service-conf-and-redis-windows-conf" class="headerlink" title="Difference between redis.windows-service.conf and redis.windows.conf"></a>Difference between redis.windows-service.conf and redis.windows.conf</h3><p><code>redis.windows-service.conf</code>: Configuration file for windows service.<br><code>reids.windows.conf</code>: Configuration file for command line.</p>
-<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>Default redis requires no auth, but cannot access from machine other than localhost.<br>To enable remote access (only tested on windows):<br>In file <code>redis.windows-service.conf</code>: </p>
+<h2 id="缴费和划拨"><a href="#缴费和划拨" class="headerlink" title="缴费和划拨"></a>缴费和划拨</h2><h3 id="账户类型"><a href="#账户类型" class="headerlink" title="账户类型"></a>账户类型</h3><p>分为个人账户和统筹账户。</p>
+<p>个人账户里的钱属于个人，在职工医保中，个人缴纳的部分和企业缴纳的一小部分费用会进入个人账户。个人账户主要覆盖的是<strong>门急诊费用</strong>、在定点药店<strong>买药</strong>、以及住院医疗费用中由个人承担的费用。</p>
+<p>统筹账户由统筹区域内的所有参保人共同所有，通常情况下，企业缴纳的费用会进入统筹账户。统筹账户主要用于看病<strong>报销</strong>，比如住院治疗、异地转诊、门诊慢性病或特殊病等医疗费用。</p>
+<h3 id="职工医保"><a href="#职工医保" class="headerlink" title="职工医保"></a>职工医保</h3><p>职工医保缴费例子：2022年7月我个人缴费基数为6024，个人缴费120.48(2%)，单位缴费481.92(8%)，划拨入个人账户186.74(2%+1.1%)。<br>用人单位缴纳的基本医疗保险费应按下列比例划入个人帐户：<br>（一）职工年龄在35岁（含35岁）以下的，按本人缴费基数的1.1％划入；<br>（二）职工年龄在35岁至45岁（含45岁）的，按本人缴费基数的1.4％划入；<br>（三）职工年龄在45岁以上的，按本人缴费基数的1.7％划入；<br>（四）退休人员年龄在70岁（含70岁）以下的，以本人上年度月平均退休费为基数，按4.8%划入；<br>（五）退休人员年龄在70岁以上的，以本人上年度月平均退休费为基数，按5.1％划入。<br>职工年龄均以上年12月31日以前的实足年龄作为当年划入个人帐户的依据。</p>
+<h3 id="城乡居民医保"><a href="#城乡居民医保" class="headerlink" title="城乡居民医保"></a>城乡居民医保</h3><p>城乡居民医保缴费全部进入统筹账户。个人账户无余额。</p>
+<h2 id="报销"><a href="#报销" class="headerlink" title="报销"></a>报销</h2><h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>住院、慢性病、重症、生育</p>
+<h3 id="起付线-amp-封顶线"><a href="#起付线-amp-封顶线" class="headerlink" title="起付线&amp;封顶线"></a>起付线&amp;封顶线</h3><p>起付标准也称“起付线”，是指参保人员在享受医疗费用报销之前需要自己先行支付的费用额度。</p>
+<p>最高支付限额也称“封顶线”，是指基本医疗保险基金支付参保人员医疗费用的上限。超出最高支付限额以上的医疗费用，基本医疗保险基金不再支付。</p>
+<h3 id="医保目录"><a href="#医保目录" class="headerlink" title="医保目录"></a>医保目录</h3><p>医保目录包括药品、诊疗项目、医疗服务设施(武汉市为材料)目录，俗称医保三大目录。<br>举例(湖北医保目录)：</p>
 <ol>
-<li>Comment <code>bind 127.0.0.1</code>(line 64). This makes redis listen to all interfaces.</li>
-<li>Change <code>procted-mode yes</code> to <code>protected-mode no</code>(line 83). All clients are now able to connect in.</li>
-<li>Uncomment <code>requirepass foobared</code>(line 503) and replace <code>foobared</code> to your own password.</li>
+<li>药品：阿莫西林胶囊(益俊)，编码XJ01CAA040E001010105821，甲类，单价2.63，规格0.25g</li>
+<li>诊疗项目：大换药，编码001206000020000-120600002，甲类，单价30</li>
+<li>材料：一次性使用无菌注射器(注射)	，编码C1601011020000407187，一类，单价0.54，规格10ml</li>
 </ol>
-<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p><code>redis-cli</code>: connects to localhost on port 6379.<br><code>redis-cli -h [host] -p [port] -a [password]</code>: connect to specified host and port. If password contains special character, wrap it in quotes.</p>
-<h2 id="node-redis"><a href="#node-redis" class="headerlink" title="node redis"></a>node redis</h2><p>Note that <code>redis</code> does not work in browser environment.</p>
+<h3 id="比例"><a href="#比例" class="headerlink" title="比例"></a>比例</h3><p>国家规定，起付标准以上、最高支付限额以下的政策范围内的费用，基本医保总体支付比例75%左右，职工医保和城乡居民医保保持合理差距，不同级别医疗机构适当拉开差距[7]。</p>
+<ol>
+<li>不同地方报销比例不同。</li>
+<li>不同级别医疗机构报销比例不同。一级医疗机构(社区医院)最高，三级医疗机构最低(目的是为了分流)。</li>
+<li>医保目录内不同分类计入报销范围的比例不同，甲类全算，乙类算部分(武汉市为90%)，丙类不算。</li>
+<li>不同参保类型的报销比例不同，职工医保最高，城乡居民医保最低。</li>
+</ol>
+<h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><ol>
+<li>计算出总医药费</li>
+<li>减去起付线，减去封顶线以外的部分</li>
+<li>减去自费项目(医保目录以外的)</li>
+<li>乘以报销比例</li>
+</ol>
+<h2 id="例子-武汉三级医院政策"><a href="#例子-武汉三级医院政策" class="headerlink" title="例子-武汉三级医院政策"></a>例子-武汉三级医院政策</h2>
+
+	<div class="row">
+    <embed src="/assets/docs/wuhanyibao.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
 
       
     </div>
@@ -691,7 +833,7 @@
       
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medicine/" rel="tag">medicine</a></li></ul>
 
       
     </footer>
@@ -703,7 +845,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Single-threaded-and-asynchronous-Javascript"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Record-of-an-NJS-016-exception-for-node-oracledb"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -711,7 +853,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/">Single threaded and asynchronous Javascript</a>
+      <a class="article-title" href="/2022/07/12/Record-of-an-NJS-016-exception-for-node-oracledb/">Record of an NJS-016 exception for node oracledb</a>
     </h1>
   
 
@@ -719,8 +861,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/06/19/Single-threaded-and-asynchronous-Javascript/" class="article-date">
-	  <time datetime="2022-06-19T12:57:20.000Z" itemprop="datePublished">June 19, 2022</time>
+	<a href="/2022/07/12/Record-of-an-NJS-016-exception-for-node-oracledb/" class="article-date">
+	  <time datetime="2022-07-12T01:34:13.000Z" itemprop="datePublished">July 12, 2022</time>
 	</a>
 
        
@@ -728,30 +870,24 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903553795014663">A conclusion of Javascript running mechanism</a></li>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903556084924423">Detailed explanation of Javascript asynchronism</a></li>
-<li><a target="_blank" rel="noopener" href="https://felixgerschau.com/javascript-event-loop-call-stack/">JavaScript Event Loop And Call Stack Explained</a></li>
+        <p><img src="/images/devo-node-js.svg" alt="Node oracledb"></p>
+<h2 id="How-it-happened"><a href="#How-it-happened" class="headerlink" title="How it happened"></a>How it happened</h2><p>  Using node <code>oracledb</code> to develop a backend api and encountered <code>NJS-016: buffer is too small for OUT binds</code> exception for a simple select query: <code>select a, b, c from tab@dblink</code><br>  <img src="/images/njs-016.png" alt="njs-016"></p>
+<h2 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h2><ol>
+<li>Googled <code>NJS-016: buffer is too small for OUT binds</code> and found little help. None of them suits my case.</li>
+<li>Maybe it has something to do with database link ? Charset for local database is <code>AMERICAN_AMERICA.AL32UTF8</code> and for remote database is <code>AMERICAN_AMERICA.ZHS16GBK</code>. Changed charset environment variable to the same as remote database, still no luck.</li>
+<li>Found that column <code>b</code> has some weired behavior: for chinese character value <code>神经阻滞</code> it only shows first two characters <code>神经</code> when environment variable is set to <code>AMERICAN_AMERICA.AL32UTF8</code>, different from database charset <code>AMERICAN_AMERICA.ZHS16GBK</code>. Column <code>b</code> definition is <code>varchar2(8)</code>. Maybe has something to do with this ?</li>
 </ol>
-<h2 id="Sinle-threaded-Javascript"><a href="#Sinle-threaded-Javascript" class="headerlink" title="Sinle-threaded Javascript"></a>Sinle-threaded Javascript</h2><p>A running chrome consists of multiple process. Each tab is an isolated process.<br><img src="/images/chrome_task_manager.png" alt="chrom task manager"><br>A tab process consisits of multiple threads. Among them the important ones includes: </p>
-<ol>
-<li>Rendering thread. Renders DOM.</li>
-<li>Javascript engine thread. Runs Javascript. Note that when Javascript engine thread <strong>runs</strong>, rendering thread <strong>hangs</strong>. Because Javascript engine thread can manipulate DOM and rendering requires a consistent DOM.</li>
-<li>Event thread. Handles event loop.</li>
-<li>Timer thread. Handles timer methods like <code>setTimeout</code>, <code>setInterval</code>. Timer thread should be stand-alone as running of other function may affect timing accuracy.</li>
+<h2 id="Reasoning"><a href="#Reasoning" class="headerlink" title="Reasoning"></a>Reasoning</h2><p>For charset <code>AMERICAN_AMERICA.ZHS16GBK</code>, each chinese character is 2 bytes wide.<br>For charset <code>AMERICAN_AMERICA.AL32UTF8</code>, each chinese character is 3 bytes wide.<br>With <code>varchar2(8)</code>, it can hold 4 characters on <code>AMERICAN_AMERICA.ZHS16GBK</code>, 2 characters on <code>AMERICAN_AMERICA.AL32UTF8</code>. That’s why it only shows 2 characters when environment variable is <code>AMERICAN_AMERICA.AL32UTF8</code>.<br><code>NJS-016</code> indicates out binds with <code>varhcar2(8)</code> cannot hold <code>神经阻滞</code> as it is 4×3&#x3D;12 bytes wide.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
+<li>Expand column width from <code>varchar2(8)</code> to a at least <code>varchar2(12)</code>(Intrusive, not recommended).</li>
+<li>Avoid using database links when charset is different on remote database. Create a distinct connection pool for remote database and execute query on a connection fetched from the pool.</li>
 </ol>
-<h2 id="Asynchronism"><a href="#Asynchronism" class="headerlink" title="Asynchronism"></a>Asynchronism</h2><p>Javascript, well-known for its asynchronism.<br>Synchronous functions runs and gets result. When function is slow (e.g. has file I&#x2F;O or web request operations), it <strong>waits</strong>.<br>Asynchronous functions runs and expects result. The function does not wait for result, instead it leaves a <strong>callback</strong> function there to handle future result, and it moves on.<br>Asynchronism makes Javascript run without idle time. That’s why javascript is fast.</p>
-<h2 id="Event-loop-and-call-stack"><a href="#Event-loop-and-call-stack" class="headerlink" title="Event loop and call stack"></a>Event loop and call stack</h2><p><img src="/images/js-event-loop-explained.png" alt="Event loop and call stack"><br>Browsers gives us Web APIs to handle callbacks. Functions like <code>AJAX</code>, <code>setTimeout</code> call these APIs.<br>Web APIs push callbacks into <em>callback queue</em>. Callbacks wait to be executed in the future.<br>Event loop watches call stack and callback queue. If call stack is empty, event loop takes one callback from callback queue and javascript engines executes the callback.</p>
-<h2 id="Queues"><a href="#Queues" class="headerlink" title="Queues"></a>Queues</h2><p>Callback queue is not only one but two queue: macrotask queue and microtask queue.<br>Everytime event loop is triggered, it takes all microtasks and one macrotask. Microtasks are executed first.<br>Macrotasks: <code>setTimeout</code>, <code>setInterval</code>, <code>setImmediate</code>, I&#x2F;O operations, UI rendering<br>Microtasks: <code>Promise</code>, <code>process.nextTick</code>, <code>MutationObserver</code></p>
 
       
     </div>
     <footer class="entry-meta entry-footer">
       
       
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
-
       
     </footer>
     <hr class="entry-footer-hr">
@@ -868,8 +1004,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/14/Typescript/">Typescript</a></h6>
-              <span>July 14, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/22/Typescript/">Typescript</a></h6>
+              <span>July 22, 2022</span>
             </div>
 
           </li>
@@ -880,8 +1016,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/14/Pathetique-2nd-movement/">Pathetique 2nd movement</a></h6>
-              <span>July 14, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/22/Koa-A-successor-for-Express/">Koa - A successor for Express</a></h6>
+              <span>July 22, 2022</span>
             </div>
 
           </li>
@@ -892,8 +1028,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/09/SQL/">SQL</a></h6>
-              <span>July 9, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/21/Vuetify/">Vuetify</a></h6>
+              <span>July 21, 2022</span>
             </div>
 
           </li>
@@ -904,8 +1040,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/09/FineReport/">FineReport</a></h6>
-              <span>July 9, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/19/%E6%9B%B2%E5%BC%8F/">曲式</a></h6>
+              <span>July 19, 2022</span>
             </div>
 
           </li>
@@ -916,8 +1052,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/04/Regexp/">Regexp</a></h6>
-              <span>July 4, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/18/%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E8%AF%84%E7%BA%A7-%E5%85%AD%E7%BA%A7/">电子病历评级-六级</a></h6>
+              <span>July 18, 2022</span>
             </div>
 
           </li>
@@ -928,8 +1064,8 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="/2022/07/01/%E9%94%82%E7%94%B5%E6%B1%A0/">锂电池</a></h6>
-              <span>July 1, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/07/16/Pathetique-2nd-movement/">悲怆第二乐章(前16小节)</a></h6>
+              <span>July 16, 2022</span>
             </div>
 
           </li>
@@ -946,7 +1082,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIS/" rel="tag">HIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Koa/" rel="tag">Koa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backend/" rel="tag">backend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/material-design/" rel="tag">material design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine/" rel="tag">medicine</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/piano/" rel="tag">piano</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -956,7 +1092,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/alibaba/" style="font-size: 15px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a>
+      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/HIS/" style="font-size: 10px;">HIS</a> <a href="/tags/Koa/" style="font-size: 10px;">Koa</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/alibaba/" style="font-size: 13.33px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/material-design/" style="font-size: 10px;">material design</a> <a href="/tags/medical-insurance/" style="font-size: 10px;">medical insurance</a> <a href="/tags/medicine/" style="font-size: 13.33px;">medicine</a> <a href="/tags/medicine-information/" style="font-size: 10px;">medicine information</a> <a href="/tags/multiprocess/" style="font-size: 10px;">multiprocess</a> <a href="/tags/multithreading/" style="font-size: 10px;">multithreading</a> <a href="/tags/music/" style="font-size: 13.33px;">music</a> <a href="/tags/music-forms/" style="font-size: 10px;">music forms</a> <a href="/tags/music-theory/" style="font-size: 10px;">music theory</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/piano/" style="font-size: 10px;">piano</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a> <a href="/tags/vuetify/" style="font-size: 10px;">vuetify</a>
     </div>
   </div>
 
@@ -966,7 +1102,7 @@
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 

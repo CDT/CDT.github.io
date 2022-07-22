@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Multithreading and multiprocess in Node.js | Chendongtian&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="nodejsmultithreadingmultiprocess" />
+  
+  
+  
+  
+  <meta name="description" content="Refs Node.js Worker Threads Deep dive into threads and processes in Node.js How do cluster and worker threads work in node.js  Multithreading: Worker threadWhat and whyA thread that enables node.js t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multithreading and multiprocess in Node.js">
+<meta property="og:url" content="https://cdt.github.io/2022/07/15/Multithreading-and-multiprocess-in-Node-js/index.html">
+<meta property="og:site_name" content="Chendongtian&#39;s blog">
+<meta property="og:description" content="Refs Node.js Worker Threads Deep dive into threads and processes in Node.js How do cluster and worker threads work in node.js  Multithreading: Worker threadWhat and whyA thread that enables node.js t">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdt.github.io/images/cpu1.PNG">
+<meta property="og:image" content="https://cdt.github.io/images/multi_node_taskmgr.png">
+<meta property="og:image" content="https://cdt.github.io/images/request1460.png">
+<meta property="og:image" content="https://cdt.github.io/images/request9896.png">
+<meta property="article:published_time" content="2022-07-15T02:43:46.000Z">
+<meta property="article:modified_time" content="2022-07-16T13:32:08.166Z">
+<meta property="article:author" content="Chendongtian">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="multithreading">
+<meta property="article:tag" content="multiprocess">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdt.github.io/images/cpu1.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/fashion.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+
+
+<header id="allheader" class="site-header" role="banner" 
+   >
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="Chendongtian&#39;s blog" rel="home"> Chendongtian&#39;s blog </a>
+            
+          </h1>
+          
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+
+            <div class="clearfix sf-menu">
+              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Multithreading-and-multiprocess-in-Node-js" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Multithreading and multiprocess in Node.js
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/15/Multithreading-and-multiprocess-in-Node-js/" class="article-date">
+	  <time datetime="2022-07-15T02:43:46.000Z" itemprop="datePublished">July 15, 2022</time>
+	</a>
+
+       
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/cpu1.PNG" alt="CPU"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/api/worker_threads.html">Node.js Worker Threads</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903908385488903">Deep dive into threads and processes in Node.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56656498/how-do-cluster-and-worker-threads-work-in-node-js">How do cluster and worker threads work in node.js</a></li>
+</ol>
+<h2 id="Multithreading-Worker-thread"><a href="#Multithreading-Worker-thread" class="headerlink" title="Multithreading: Worker thread"></a>Multithreading: Worker thread</h2><h3 id="What-and-why"><a href="#What-and-why" class="headerlink" title="What and why"></a>What and why</h3><p>A thread that enables node.js to execute JavaScript in parallel. Useful to handle CPU intensive jobs.</p>
+<h3 id="How-to"><a href="#How-to" class="headerlink" title="How-to"></a>How-to</h3><p>Create a worker file &#x3D;&gt; Make a promise in caller file &#x3D;&gt; Define on message&#x2F;error&#x2F;exit hooks<br>worker.js file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const &#123; workerData, parentPort &#125;	= require(&#x27;worker_threads&#x27;)</span><br><span class="line"></span><br><span class="line">console.log(&#x27;Technical Articles on &#x27; + workerData);</span><br><span class="line"></span><br><span class="line">parentPort.postMessage(</span><br><span class="line">	&#123; fileName: workerData, status: &#x27;Done&#x27; &#125;)</span><br></pre></td></tr></table></figure>
+<p>index.js file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const &#123; Worker &#125; = require(&#x27;worker_threads&#x27;)</span><br><span class="line"></span><br><span class="line">function runService(workerData) &#123;</span><br><span class="line">	return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">		const worker = new Worker(</span><br><span class="line">				&#x27;./worker.js&#x27;, &#123; workerData &#125;);</span><br><span class="line">		worker.on(&#x27;message&#x27;, resolve);</span><br><span class="line">		worker.on(&#x27;error&#x27;, reject);</span><br><span class="line">		worker.on(&#x27;exit&#x27;, (code) =&gt; &#123;</span><br><span class="line">			if (code !== 0)</span><br><span class="line">				reject(new Error(</span><br><span class="line">`Stopped the Worker Thread with the exit code: $&#123;code&#125;`));</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function run() &#123;</span><br><span class="line">	const result = await runService(&#x27;GeeksForGeeks&#x27;)</span><br><span class="line">	console.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run().catch(err =&gt; console.error(err))</span><br></pre></td></tr></table></figure>
+<p>Key points:</p>
+<ol>
+<li>Worker use  <code>workerData</code> to receive data from caller and <code>parentPort</code> to post data to caller.</li>
+<li>Worker use <code>parentPort.postMessage</code> to send data to caller and caller use <code>on(&#39;message&#39;)</code> to receive.</li>
+</ol>
+<h2 id="Multiprocess-Fork-and-Cluster"><a href="#Multiprocess-Fork-and-Cluster" class="headerlink" title="Multiprocess: Fork and Cluster"></a>Multiprocess: Fork and Cluster</h2><h3 id="An-example-to-address-the-problem-of-single-threaded-node-js"><a href="#An-example-to-address-the-problem-of-single-threaded-node-js" class="headerlink" title="An example to address the problem of single-threaded node.js"></a>An example to address the problem of single-threaded node.js</h3><p>Single threaded node.js will block on a time-consuming request.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const longComputation = () =&gt; &#123;</span><br><span class="line">  let sum = 0;</span><br><span class="line">  for (let i = 0; i &lt; 1e10; i++) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;;</span><br><span class="line">  return sum;</span><br><span class="line">&#125;;</span><br><span class="line">const server = http.createServer();</span><br><span class="line">server.on(&#x27;request&#x27;, (req, res) =&gt; &#123;</span><br><span class="line">  if (req.url === &#x27;/compute&#x27;) &#123;</span><br><span class="line">    console.info(&#x27;计算开始&#x27;,new Date());</span><br><span class="line">    const sum = longComputation();</span><br><span class="line">    console.info(&#x27;计算结束&#x27;,new Date());</span><br><span class="line">    return res.end(`Sum is $&#123;sum&#125;`);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.end(&#x27;Ok&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(3000);</span><br></pre></td></tr></table></figure>
+
+<p>Call <code>localhost:3000/compute</code> will block </p>
+<h3 id="Pros-and-cons-of-single-threaded-node-js"><a href="#Pros-and-cons-of-single-threaded-node-js" class="headerlink" title="Pros and cons of single-threaded node.js"></a>Pros and cons of single-threaded node.js</h3><p>Pros:</p>
+<ol>
+<li>Simple, no creation and switching of threads.</li>
+<li>Event loop and non-blocking asynchronous mechanism ensures high performance for high concurrency.<br>Cons:</li>
+<li>CPU intensive calculation may block entire node.js app. </li>
+<li>An error may kill the thread, thus kill entire app. A daemon thread should be considered.</li>
+<li>Single thread does not take advantage of a multi-core CPU.</li>
+</ol>
+<h3 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h3><p>Use <code>child_process.fork</code> to create new process.<br>Main.js:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const fork = require(&#x27;child_process&#x27;).fork;</span><br><span class="line"></span><br><span class="line">const server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">    if(req.url == &#x27;/compute&#x27;)&#123;</span><br><span class="line">        const compute = fork(&#x27;./compute.js&#x27;);</span><br><span class="line">        compute.send(&#x27;开启一个新的子进程&#x27;);</span><br><span class="line"></span><br><span class="line">        // 当一个子进程使用 process.send() 发送消息时会触发 &#x27;message&#x27; 事件</span><br><span class="line">        compute.on(&#x27;message&#x27;, sum =&gt; &#123;</span><br><span class="line">            res.end(`Sum is $&#123;sum&#125;`);</span><br><span class="line">            compute.kill();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 子进程监听到一些错误消息退出</span><br><span class="line">        compute.on(&#x27;close&#x27;, (code, signal) =&gt; &#123;</span><br><span class="line">            console.log(`收到close事件，子进程收到信号 $&#123;signal&#125; 而终止，退出码 $&#123;code&#125;`);</span><br><span class="line">            compute.kill();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res.end(`ok`);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000, &#x27;127.0.0.1&#x27;, () =&gt; &#123;</span><br><span class="line">    console.log(`server started at http://127.0.0.1:3000`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>compute.js:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const computation = () =&gt; &#123;</span><br><span class="line">    let sum = 0;</span><br><span class="line">    console.info(&#x27;计算开始&#x27;);</span><br><span class="line">    console.time(&#x27;计算耗时&#x27;);</span><br><span class="line"></span><br><span class="line">    for (let i = 0; i &lt; 1e10; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    console.info(&#x27;计算结束&#x27;);</span><br><span class="line">    console.timeEnd(&#x27;计算耗时&#x27;);</span><br><span class="line">    return sum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">process.on(&#x27;message&#x27;, msg =&gt; &#123;</span><br><span class="line">    console.log(msg, &#x27;process.pid&#x27;, process.pid); // 子进程id</span><br><span class="line">    const sum = computation();</span><br><span class="line"></span><br><span class="line">    // 如果Node.js进程是通过进程间通信产生的，那么，process.send()方法可以用来给父进程发送消息</span><br><span class="line">    process.send(sum);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><p><code>cluster</code> can create worker process in a single file.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const numCPUs = require(&#x27;os&#x27;).cpus().length;</span><br><span class="line">const cluster = require(&#x27;cluster&#x27;);</span><br><span class="line">if(cluster.isMaster)&#123;</span><br><span class="line">    console.log(`Master proces id is $&#123;process.pid&#125;, cpu number $&#123;numCPUs&#125;`);</span><br><span class="line">    // fork workers</span><br><span class="line">    for(let i= 0;i&lt;numCPUs;i++)&#123;</span><br><span class="line">        cluster.fork();</span><br><span class="line">    &#125;</span><br><span class="line">    cluster.on(&#x27;exit&#x27;,function(worker,code,signal)&#123;</span><br><span class="line">        console.log(&#x27;worker process died,id&#x27;,worker.process.pid)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    // Worker can share the same TCP connection</span><br><span class="line">    // It&#x27;s an http server here</span><br><span class="line">    console.log(`created worker pid $&#123;process.pid&#125;`)</span><br><span class="line">    http.createServer(function(req,res)&#123;</span><br><span class="line">        res.writeHead(200);</span><br><span class="line">        res.end(String(process.pid));</span><br><span class="line">    &#125;).listen(8000);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Running code above, we got:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Master proces id is 18428, cpu number 4</span><br><span class="line">created slave pid 16672</span><br><span class="line">created slave pid 9896</span><br><span class="line">created slave pid 14676</span><br><span class="line">created slave pid 1460</span><br></pre></td></tr></table></figure>
+<p>We can find these process in task manager:<br><img src="/images/multi_node_taskmgr.png" alt="Multiple node.js processes"><br>Now send a request in browser, and id of one of the four server process is returned:<br><img src="/images/request1460.png" alt="Request"><br>Try refresh many times and different pids may return(It depends, maybe one unlucky process shoulders all the workload).<br>Now kill one the worker <code>1460</code> in task manger and we got:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker process died,id 1460</span><br></pre></td></tr></table></figure>
+<p>Refresh the browser and result is another pid other than 1460:<br><img src="/images/request9896.png" alt="Request"><br>You see, now our server is much more robust than before. We got four worker process, killing one of them and there are still three working.</p>
+<p>Cluster calls the same <code>fork</code> method from  <code>child_process</code> module under the hood. Cluster is a master-slave model, where master manages and schedules slaves.</p>
+<p><strong>Why no <code>Error: EADDRINUSE</code> when multiple processes listens on the same port?</strong><br>The child processes aren’t listening to the same port. Incoming socket connections to the master process are being delegated to the child processes. There’s special handling for clustered process in <code>server.listen()</code>, it calls a method named <code>listenInCluster()</code> in some circumstances. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61261621/node-cluster-have-multiple-processes-listen-to-the-same-port">See explanation here</a></p>
+<h2 id="Multithreading-vs-multiprocess"><a href="#Multithreading-vs-multiprocess" class="headerlink" title="Multithreading vs multiprocess"></a>Multithreading vs multiprocess</h2><p><strong>cluster</strong></p>
+<ul>
+<li>One <em>process</em> is launched on each CPU and can communicate via IPC.</li>
+<li>Each process has its own memory with its own Node (v8) instance. Creating tons of them may create memory issues.</li>
+<li>Great for spawning many HTTP servers that share the same port b&#x2F;c the master process will multiplex the requests to the child processes.</li>
+</ul>
+<p><strong>worker threads</strong></p>
+<ul>
+<li>One <em>process</em> total</li>
+<li>Creates multiple threads with each thread having one Node instance (one event loop, one JS engine).  Most Node API’s are available to each thread except a few.  So essentially Node is embedding itself and creating a new thread.</li>
+<li>Shares memory with other threads (e.g. <code>SharedArrayBuffer</code>)</li>
+<li>Great for CPU intensive tasks like processing data or accessing the file system. Because NodeJS is single threaded, synchronous tasks can be made more efficient with workers</li>
+</ul>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
+
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/07/15/NoSQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          NoSQL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/07/15/%E5%8C%BB%E4%BF%9D%E5%88%B6%E5%BA%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">医保制度</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs"><span class="nav-number">1.</span> <span class="nav-text">Refs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multithreading-Worker-thread"><span class="nav-number">2.</span> <span class="nav-text">Multithreading: Worker thread</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#What-and-why"><span class="nav-number">2.1.</span> <span class="nav-text">What and why</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to"><span class="nav-number">2.2.</span> <span class="nav-text">How-to</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiprocess-Fork-and-Cluster"><span class="nav-number">3.</span> <span class="nav-text">Multiprocess: Fork and Cluster</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#An-example-to-address-the-problem-of-single-threaded-node-js"><span class="nav-number">3.1.</span> <span class="nav-text">An example to address the problem of single-threaded node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pros-and-cons-of-single-threaded-node-js"><span class="nav-number">3.2.</span> <span class="nav-text">Pros and cons of single-threaded node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fork"><span class="nav-number">3.3.</span> <span class="nav-text">Fork</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cluster"><span class="nav-number">3.4.</span> <span class="nav-text">Cluster</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multithreading-vs-multiprocess"><span class="nav-number">4.</span> <span class="nav-text">Multithreading vs multiprocess</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2022 Chendongtian&#39;s blog All Rights Reserved.
+        
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+
+
+    <!-- headerblur min height -->
+    
+    
+</script>
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/bootstrap.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

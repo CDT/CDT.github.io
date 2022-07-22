@@ -11,17 +11,17 @@
   
   
   
-  <meta name="description" content="RefsComposition API - An animated explanationVue2 to Vue3 — What’s changed?Why vite ? Vue 3 VS Vue 2 Composition API vs Options APIOptions API is function concerned.Composition API is logic concerned.">
+  <meta name="description" content="RefsComposition API - An animated explanationVue2 to Vue3 — What’s changed?Why vite ? Vue 3 VS Vue 2Composition API vs Options APIOptions API is function concerned.Composition API is logic concerned.F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 3">
 <meta property="og:url" content="https://cdt.github.io/2022/06/27/Vue-3/index.html">
 <meta property="og:site_name" content="Chendongtian&#39;s blog">
-<meta property="og:description" content="RefsComposition API - An animated explanationVue2 to Vue3 — What’s changed?Why vite ? Vue 3 VS Vue 2 Composition API vs Options APIOptions API is function concerned.Composition API is logic concerned.">
+<meta property="og:description" content="RefsComposition API - An animated explanationVue2 to Vue3 — What’s changed?Why vite ? Vue 3 VS Vue 2Composition API vs Options APIOptions API is function concerned.Composition API is logic concerned.F">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdt.github.io/images/composition_vs_options.png">
 <meta property="og:image" content="https://cdt.github.io/images/script_setup_SFC.PNG">
 <meta property="article:published_time" content="2022-06-27T03:52:03.000Z">
-<meta property="article:modified_time" content="2022-07-09T13:40:00.943Z">
+<meta property="article:modified_time" content="2022-07-21T12:58:12.052Z">
 <meta property="article:author" content="Chendongtian">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="vue">
@@ -140,21 +140,74 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6890545920883032071">Composition API - An animated explanation</a><br><a target="_blank" rel="noopener" href="https://medium.com/emblatech/vue2-to-vue3-whats-changed-5572514da20d#:~:text=Vue3%20was%20officially%20release%20in,and%20Vue3%20are%20very%20similar.">Vue2 to Vue3 — What’s changed?</a><br><a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">Why vite ?</a></p>
-<h2 id="Vue-3-VS-Vue-2"><a href="#Vue-3-VS-Vue-2" class="headerlink" title="Vue 3 VS Vue 2"></a>Vue 3 VS Vue 2</h2><ol>
-<li><p><strong>Composition API</strong> vs <strong>Options API</strong><br><img src="/images/composition_vs_options.png" alt="Composition API vs Options API"><br>Options API is <strong>function concerned</strong>.<br>Composition API is <strong>logic concerned</strong>.<br>For complex components, code of same logic may be scattered in <code>props</code>, <code>data</code>, <code>methods</code>, <code>mounted</code>, which makes it hard to maintain. So in Vue 3, <strong>Composition API</strong> is introduced, code of same logic is put together in <code>setup</code>.<br>See <a target="_blank" rel="noopener" href="https://vuejs.org/guide/introduction.html#which-to-choose">which to choose</a>.</p>
-</li>
-<li><p>Vite<br>Vue 3’s scaffolding tool migrated from <code>vue-cli</code> to ‘create-vue’, which is based on <code>vite</code> and has a much faster building speed than <code>webpack</code>. See <a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">why vite is much faster</a></p>
-</li>
-</ol>
-<h2 id="Vue-3-features"><a href="#Vue-3-features" class="headerlink" title="Vue 3 features"></a>Vue 3 features</h2><ol>
-<li>Composition API</li>
-</ol>
-<ul>
+<h2 id="Vue-3-VS-Vue-2"><a href="#Vue-3-VS-Vue-2" class="headerlink" title="Vue 3 VS Vue 2"></a>Vue 3 VS Vue 2</h2><h3 id="Composition-API-vs-Options-API"><a href="#Composition-API-vs-Options-API" class="headerlink" title="Composition API vs Options API"></a><strong>Composition API</strong> vs <strong>Options API</strong></h3><p><img src="/images/composition_vs_options.png" alt="Composition API vs Options API"><br>Options API is <strong>function concerned</strong>.<br>Composition API is <strong>logic concerned</strong>.<br>For complex components, code of same logic may be scattered in <code>props</code>, <code>data</code>, <code>methods</code>, <code>mounted</code>, which makes it hard to maintain. So in Vue 3, <strong>Composition API</strong> is introduced, code of same logic is put together in <code>setup</code>.<br>See <a target="_blank" rel="noopener" href="https://vuejs.org/guide/introduction.html#which-to-choose">which to choose</a>.</p>
+<h3 id="Vite"><a href="#Vite" class="headerlink" title="Vite"></a>Vite</h3><p>Vue 3’s scaffolding tool migrated from <code>vue-cli</code> to ‘create-vue’, which is based on <code>vite</code> and has a much faster building speed than <code>webpack</code>. See <a target="_blank" rel="noopener" href="https://vitejs.dev/guide/why.html">why vite is much faster</a></p>
+<h2 id="Vue-3-features"><a href="#Vue-3-features" class="headerlink" title="Vue 3 features"></a>Vue 3 features</h2><h3 id="Composition-API"><a href="#Composition-API" class="headerlink" title="Composition API"></a>Composition API</h3><ul>
 <li>Difference with <code>Options API</code> already explained above.</li>
 <li>Use <code>&lt;script setup&gt;</code> or <code>&lt;script&gt;setup()</code> to indicate Composition API. Difference between <code>&lt;script setup&gt;</code> and <code>&lt;script&gt;setup()</code> is that no <code>return</code> is required in <code>&lt;script setup&gt;</code> to pass objects to template.</li>
 <li>A typical <code>&lt;script setup&gt;</code> SFC(Single File Component) goes here:<br><img src="/images/script_setup_SFC.PNG" alt="script_setup_SFC"></li>
 </ul>
-<p>2. </p>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="ref-vs-reactive"><a href="#ref-vs-reactive" class="headerlink" title="ref() vs reactive()"></a>ref() vs reactive()</h3><ul>
+<li><p>reference:<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61452458/ref-vs-reactive-in-vue-3">ref vs reactive in Vue 3</a><br><a target="_blank" rel="noopener" href="https://vuejs.org/api/reactivity-core.html">Reactivity Core</a></p>
+</li>
+<li><p>Usage<br><strong>ref</strong>: Returns a deep reactive mutable object, point to inner value with .value. If an object assigned, reactive() is called. Use <code>shallowRef()</code> to avoid deep conversion.<br><strong>reactive</strong>: Returns a deep reactive proxy of the object.</p>
+</li>
+<li><p>Example</p>
+</li>
+</ul>
+<p><strong>ref</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">count.<span class="property">value</span>++</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(count.<span class="property">value</span>) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>reactive</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = <span class="title function_">reactive</span>(&#123; <span class="attr">count</span>: <span class="number">0</span> &#125;)</span><br><span class="line">obj.<span class="property">count</span>++</span><br></pre></td></tr></table></figure>
+
+<h4 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h4><ul>
+<li><code>reactive()</code> only takes objects, <strong>NOT</strong> JS primitives</li>
+<li><code>ref()</code> is calling <code>reactive()</code> behind the scenes, objects work for both</li>
+<li>BUT, <code>ref()</code> has a <code>.value</code> property for reassigning, <code>reactive()</code> does not have this and therefore CANNOT be reassigned</li>
+</ul>
+<h4 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h4><p><code>ref()</code> when..</p>
+<ul>
+<li>it’s a primitive</li>
+<li>it’s an object you need to later reassign (like an array - <a target="_blank" rel="noopener" href="https://github.com/vuejs/docs-next/issues/801#issuecomment-757587022">more info here</a>)</li>
+</ul>
+<p><code>reactive()</code> when..</p>
+<ul>
+<li>it’s an object you don’t need to reassign, and you want to avoid the overhead of <code>ref()</code></li>
+</ul>
+<h4 id="In-Summary"><a href="#In-Summary" class="headerlink" title="In Summary"></a>In Summary</h4><p><code>ref()</code> seems like the way to go since it supports all object types and allows reassigning with <code>.value</code>. <code>ref()</code> is a good place to start, but as you get used to the API, know that <code>reactive()</code> has less overhead, and you may find it better meets your needs.</p>
+<h4 id="ref-Use-Case"><a href="#ref-Use-Case" class="headerlink" title="ref() Use-Case"></a><code>ref()</code> Use-Case</h4><p>You’ll always use <code>ref()</code> for primitives, but <code>ref()</code> is good for objects that need to be reassigned, like an array.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> blogPosts = <span class="title function_">ref</span>([]);</span><br><span class="line">    <span class="keyword">return</span> &#123; blogPosts &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getBlogPosts</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">blogPosts</span>.<span class="property">value</span> = <span class="keyword">await</span> <span class="title function_">fetchBlogPosts</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The above with <code>reactive()</code> would require reassigning a property instead of the whole object.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> blog = <span class="title function_">reactive</span>(&#123; <span class="attr">posts</span>: [] &#125;);</span><br><span class="line">    <span class="keyword">return</span> &#123; blog &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getBlogPosts</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">blog</span>.<span class="property">posts</span> = <span class="keyword">await</span> <span class="title function_">fetchBlogPosts</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="reactive-Use-Case"><a href="#reactive-Use-Case" class="headerlink" title="reactive() Use-Case"></a><code>reactive()</code> Use-Case</h4><p>A good use-case for <code>reactive()</code> is a group of primitives that belong together:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Albert&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="attr">isNinja</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>the code above feels more logical than</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="title function_">ref</span>(<span class="string">&#x27;Albert&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> age = <span class="title function_">ref</span>(<span class="number">30</span>);</span><br><span class="line"><span class="keyword">const</span> isNinja = <span class="title function_">ref</span>(<span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h4><p>If you’re still lost, this simple guide helped me: <a target="_blank" rel="noopener" href="https://www.danvega.dev/blog/2020/02/12/vue3-ref-vs-reactive/">https://www.danvega.dev/blog/2020/02/12/vue3-ref-vs-reactive/</a></p>
+<p>An argument for only ever using <code>ref()</code>: <a target="_blank" rel="noopener" href="https://dev.to/ycmjason/thought-on-vue-3-composition-api-reactive-considered-harmful-j8c">https://dev.to/ycmjason/thought-on-vue-3-composition-api-reactive-considered-harmful-j8c</a></p>
+<p>The decision-making behind why <code>reactive()</code> and <code>ref()</code> exist as they do and other great information, the Vue Composition API RFC: <a target="_blank" rel="noopener" href="https://vuejs.org/guide/extras/composition-api-faq.html#why-composition-api">https://vuejs.org/guide/extras/composition-api-faq.html#why-composition-api</a></p>
+<h3 id="ref-unwrap"><a href="#ref-unwrap" class="headerlink" title="ref unwrap"></a>ref unwrap</h3><p>reference:<br><a target="_blank" rel="noopener" href="https://vuejs.org/api/reactivity-core.html">Reactivity Core</a></p>
+<h3 id="Vue-Cli-Plugins-and-Presets"><a href="#Vue-Cli-Plugins-and-Presets" class="headerlink" title="Vue Cli Plugins and Presets"></a>Vue Cli Plugins and Presets</h3><p>reference: <a target="_blank" rel="noopener" href="https://cli.vuejs.org/guide/plugins-and-presets.html">Plugins and Presets</a></p>
+<ul>
+<li>What are plugins ?<br>Plugins modify the internal webpack configuration and inject commands to vue-cli-service.</li>
+</ul>
+<p>Most of the features listed during the project creation process are implemented as plugins.</p>
+<p>If you inspect a newly created project’s package.json, you will find dependencies that start with <code>@vue/cli-plugin-</code>. These are plugins.</p>
+<ul>
+<li><p>Add a plugin to an existing project<br>Use <code>vue add [plugin name]</code> to add a plugin to an existing project.<br>For example, use <code>vue add eslint</code> to add <code>eslint</code> linter to the project.</p>
+</li>
+<li><p>What is a Vue Cli preset ?<br>A JSON object that contains pre-defined options and plugins for creating a new project.</p>
+</li>
+</ul>
+<p>Example: </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;useConfigFiles&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;cssPreprocessor&quot;</span>: <span class="string">&quot;sass&quot;</span>,</span><br><span class="line">  <span class="string">&quot;plugins&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-babel&quot;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-eslint&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;config&quot;</span>: <span class="string">&quot;airbnb&quot;</span>,</span><br><span class="line">      <span class="string">&quot;lintOn&quot;</span>: [<span class="string">&quot;save&quot;</span>, <span class="string">&quot;commit&quot;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-router&quot;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&quot;@vue/cli-plugin-vuex&quot;</span>: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Useful-commands"><a href="#Useful-commands" class="headerlink" title="Useful commands"></a>Useful commands</h3><ul>
+<li>Use <code>vue ui</code> to start a ui interface inside a project created by <code>vue-cli</code>.</li>
+</ul>
 
       
     </div>
@@ -223,7 +276,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs"><span class="nav-number">1.</span> <span class="nav-text">Refs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-VS-Vue-2"><span class="nav-number">2.</span> <span class="nav-text">Vue 3 VS Vue 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-features"><span class="nav-number">3.</span> <span class="nav-text">Vue 3 features</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Refs"><span class="nav-number">1.</span> <span class="nav-text">Refs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-VS-Vue-2"><span class="nav-number">2.</span> <span class="nav-text">Vue 3 VS Vue 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition-API-vs-Options-API"><span class="nav-number">2.1.</span> <span class="nav-text">Composition API vs Options API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vite"><span class="nav-number">2.2.</span> <span class="nav-text">Vite</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-3-features"><span class="nav-number">3.</span> <span class="nav-text">Vue 3 features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Composition-API"><span class="nav-number">3.1.</span> <span class="nav-text">Composition API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-number">4.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ref-vs-reactive"><span class="nav-number">4.1.</span> <span class="nav-text">ref() vs reactive()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Key-Points"><span class="nav-number">4.1.1.</span> <span class="nav-text">Key Points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Use"><span class="nav-number">4.1.2.</span> <span class="nav-text">Use</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#In-Summary"><span class="nav-number">4.1.3.</span> <span class="nav-text">In Summary</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ref-Use-Case"><span class="nav-number">4.1.4.</span> <span class="nav-text">ref() Use-Case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reactive-Use-Case"><span class="nav-number">4.1.5.</span> <span class="nav-text">reactive() Use-Case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Useful-Links"><span class="nav-number">4.1.6.</span> <span class="nav-text">Useful Links</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref-unwrap"><span class="nav-number">4.2.</span> <span class="nav-text">ref unwrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-Cli-Plugins-and-Presets"><span class="nav-number">4.3.</span> <span class="nav-text">Vue Cli Plugins and Presets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Useful-commands"><span class="nav-number">4.4.</span> <span class="nav-text">Useful commands</span></a></li></ol></li></ol>
     
     </div>
   </aside>
