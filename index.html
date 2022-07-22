@@ -83,6 +83,10 @@
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
                     
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
+                    
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">About</a> </li>
                     
               </ul>
@@ -100,6 +104,71 @@
       <div id="content" class="outer">
         
           <section id="main">
+  
+    <article id="post-Memory-leak"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/07/23/Memory-leak/">Memory leak in Javascript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/07/23/Memory-leak/" class="article-date">
+	  <time datetime="2022-07-23T03:50:41.000Z" itemprop="datePublished">July 23, 2022</time>
+	</a>
+
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+ 
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>(BLOG STILL IN PROGRESS)</strong></p>
+<p><img src="/images/memory_leak1.jpg"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.appsignal.com/authors/deepu-k-sasidharan">Avoiding Memory Leaks in Node.js: Best Practices for Performance</a></li>
+</ol>
+<h2 id="What-is-a-memory-leak"><a href="#What-is-a-memory-leak" class="headerlink" title="What is a memory leak ?"></a>What is a memory leak ?</h2><p>Memory allocated but not freed.</p>
+<h2 id="What-causes-memory-leak-and-how-to-resolve"><a href="#What-causes-memory-leak-and-how-to-resolve" class="headerlink" title="What causes memory leak and how to resolve"></a>What causes memory leak and how to resolve</h2><h3 id="Accidental-global-variable"><a href="#Accidental-global-variable" class="headerlink" title="Accidental global variable"></a>Accidental global variable</h3><p>Global variable is referenced by the root node(<code>window</code> or global <code>this</code>), they never gets garbage collected. This applies to all its relatives - variable&#x2F;objects referenced by this global variable, and relatives of these variable&#x2F;objects as well. This may construct a large graph.</p>
+<p>Example:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// This will be hoisted as a global variable</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params"></span>) &#123;</span><br><span class="line">  foo = <span class="string">&quot;Message&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// This will also become a global variable as global functions have</span></span><br><span class="line"><span class="comment">// global `this` as the contextual `this` in non strict mode</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">foo</span> = <span class="string">&quot;Message&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// This will also become a global variable as arrow functions</span></span><br><span class="line"><span class="comment">// do not have a contextual `this` and instead use a lexical `this`</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">hello</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">foo</span> = <span class="string">&#x27;Message&quot;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Multiple-references"><a href="#Multiple-references" class="headerlink" title="Multiple references"></a>Multiple references</h3><p>One object referenced by multiple objects but one of the references never gets revoked.</p>
+<h3 id="Closures"><a href="#Closures" class="headerlink" title="Closures"></a>Closures</h3><p>When a closure holds a reference to a large object in heap, it keeps the object in memory as long as the closure is in use.</p>
+<h3 id="Timers-and-events"><a href="#Timers-and-events" class="headerlink" title="Timers and events"></a>Timers and events</h3><p>The use of setTimeout, setInterval, Observers and event listeners can cause memory leaks when heavy object references are kept in their callbacks without proper handling.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory-leak/" rel="tag">memory leak</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
+
+      
+    </footer>
+    <hr class="entry-footer-hr">
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
     <article id="post-Typescript"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
@@ -121,12 +190,16 @@
 	  <time datetime="2022-07-22T13:18:09.000Z" itemprop="datePublished">July 22, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/typescript1.png"></p>
+        <p><strong>(BLOG IN PROGRESS)</strong></p>
+<p><img src="/images/typescript1.png"></p>
 <h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">Typesript</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/why-create-typescript">Why create Typescript</a></li>
@@ -170,6 +243,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
@@ -204,7 +280,10 @@
 	  <time datetime="2022-07-22T03:28:57.000Z" itemprop="datePublished">July 22, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -234,6 +313,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Koa/" rel="tag">Koa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backend/" rel="tag">backend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tech/" rel="tag">tech</a></li></ul>
@@ -268,7 +350,10 @@
 	  <time datetime="2022-07-21T12:25:02.000Z" itemprop="datePublished">July 21, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -286,6 +371,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/material-design/" rel="tag">material design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/" rel="tag">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a></li></ul>
@@ -320,7 +408,10 @@
 	  <time datetime="2022-07-19T13:09:22.000Z" itemprop="datePublished">July 19, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/music/">music</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -364,6 +455,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/music/">music</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a></li></ul>
@@ -398,7 +492,10 @@
 	  <time datetime="2022-07-18T01:18:41.000Z" itemprop="datePublished">July 18, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/medical-business/">medical business</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -480,6 +577,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/medical-business/">medical business</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EMR/" rel="tag">EMR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HIS/" rel="tag">HIS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medicine/" rel="tag">medicine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a></li></ul>
@@ -514,13 +614,16 @@
 	  <time datetime="2022-07-16T12:41:42.000Z" itemprop="datePublished">July 16, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/music/">music</a>, <a class="article-category-link" href="/categories/music/underwork/">underwork</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/images/pathe2_title.PNG" alt="Pathetique 2nd movement"></p>
-<audio id="mmedia-RrwlpLHLyAbbeZIC" controls=true audi="audio" src="https://www.orangefreesounds.com/wp-content/uploads/2018/04/Sonata-pathetique-2nd-movement.mp3?_=1" autoplay=true ></audio>
+<audio id="mmedia-zgpAYOMOQHjHWiGm" controls=true audi="audio" src="https://www.orangefreesounds.com/wp-content/uploads/2018/04/Sonata-pathetique-2nd-movement.mp3?_=1" autoplay=true ></audio>
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://tonic-chord.com/beethoven-piano-sonata-no-8-in-c-minor-pathetique-analysis/#Second_Movement_Adagio_Cantabile">Beethoven: Piano Sonata No.8 in C minor “Pathetique” Analysis</a></li>
 </ol>
@@ -540,6 +643,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/music/">music</a>, <a class="article-category-link" href="/categories/music/underwork/">underwork</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/piano/" rel="tag">piano</a></li></ul>
@@ -574,7 +680,10 @@
 	  <time datetime="2022-07-15T08:32:31.000Z" itemprop="datePublished">July 15, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -584,6 +693,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>, <a class="article-category-link" href="/categories/tech/underwork/">underwork</a>
+
       
       
     </footer>
@@ -615,7 +727,10 @@
 	  <time datetime="2022-07-15T02:43:46.000Z" itemprop="datePublished">July 15, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -681,6 +796,9 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/tech/">tech</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
@@ -715,7 +833,10 @@
 	  <time datetime="2022-07-14T22:22:57.000Z" itemprop="datePublished">July 15, 2022</time>
 	</a>
 
-       
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/medical-business/">medical business</a>
+ 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
@@ -831,63 +952,13 @@
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/medical-business/">medical business</a>
+
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/medicine/" rel="tag">medicine</a></li></ul>
 
-      
-    </footer>
-    <hr class="entry-footer-hr">
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Record-of-an-NJS-016-exception-for-node-oracledb"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/07/12/Record-of-an-NJS-016-exception-for-node-oracledb/">Record of an NJS-016 exception for node oracledb</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/07/12/Record-of-an-NJS-016-exception-for-node-oracledb/" class="article-date">
-	  <time datetime="2022-07-12T01:34:13.000Z" itemprop="datePublished">July 12, 2022</time>
-	</a>
-
-       
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/images/devo-node-js.svg" alt="Node oracledb"></p>
-<h2 id="How-it-happened"><a href="#How-it-happened" class="headerlink" title="How it happened"></a>How it happened</h2><p>  Using node <code>oracledb</code> to develop a backend api and encountered <code>NJS-016: buffer is too small for OUT binds</code> exception for a simple select query: <code>select a, b, c from tab@dblink</code><br>  <img src="/images/njs-016.png" alt="njs-016"></p>
-<h2 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h2><ol>
-<li>Googled <code>NJS-016: buffer is too small for OUT binds</code> and found little help. None of them suits my case.</li>
-<li>Maybe it has something to do with database link ? Charset for local database is <code>AMERICAN_AMERICA.AL32UTF8</code> and for remote database is <code>AMERICAN_AMERICA.ZHS16GBK</code>. Changed charset environment variable to the same as remote database, still no luck.</li>
-<li>Found that column <code>b</code> has some weired behavior: for chinese character value <code>神经阻滞</code> it only shows first two characters <code>神经</code> when environment variable is set to <code>AMERICAN_AMERICA.AL32UTF8</code>, different from database charset <code>AMERICAN_AMERICA.ZHS16GBK</code>. Column <code>b</code> definition is <code>varchar2(8)</code>. Maybe has something to do with this ?</li>
-</ol>
-<h2 id="Reasoning"><a href="#Reasoning" class="headerlink" title="Reasoning"></a>Reasoning</h2><p>For charset <code>AMERICAN_AMERICA.ZHS16GBK</code>, each chinese character is 2 bytes wide.<br>For charset <code>AMERICAN_AMERICA.AL32UTF8</code>, each chinese character is 3 bytes wide.<br>With <code>varchar2(8)</code>, it can hold 4 characters on <code>AMERICAN_AMERICA.ZHS16GBK</code>, 2 characters on <code>AMERICAN_AMERICA.AL32UTF8</code>. That’s why it only shows 2 characters when environment variable is <code>AMERICAN_AMERICA.AL32UTF8</code>.<br><code>NJS-016</code> indicates out binds with <code>varhcar2(8)</code> cannot hold <code>神经阻滞</code> as it is 4×3&#x3D;12 bytes wide.</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ol>
-<li>Expand column width from <code>varchar2(8)</code> to a at least <code>varchar2(12)</code>(Intrusive, not recommended).</li>
-<li>Avoid using database links when charset is different on remote database. Create a distinct connection pool for remote database and execute query on a connection fetched from the pool.</li>
-</ol>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
       
     </footer>
     <hr class="entry-footer-hr">
@@ -1004,6 +1075,18 @@
               <div class="widget-entry-summary" style="margin: 0;">
             
 
+              <h6 style="margin: 0;"><a href="/2022/07/23/Memory-leak/">Memory leak in Javascript</a></h6>
+              <span>July 23, 2022</span>
+            </div>
+
+          </li>
+        
+          <li class="clearfix">
+
+            
+              <div class="widget-entry-summary" style="margin: 0;">
+            
+
               <h6 style="margin: 0;"><a href="/2022/07/22/Typescript/">Typescript</a></h6>
               <span>July 22, 2022</span>
             </div>
@@ -1058,31 +1141,26 @@
 
           </li>
         
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/16/Pathetique-2nd-movement/">悲怆第二乐章(前16小节)</a></h6>
-              <span>July 16, 2022</span>
-            </div>
-
-          </li>
-        
       </ul>
     </div>
   </div>
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/exploration/">exploration</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/medical-business/">medical business</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/music/">music</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/music/underwork/">underwork</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">tech</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tech/underwork/">underwork</a><span class="category-list-count">7</span></li></ul></li></ul>
+    </div>
+  </div>
+
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIS/" rel="tag">HIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Koa/" rel="tag">Koa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backend/" rel="tag">backend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/material-design/" rel="tag">material design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine/" rel="tag">medicine</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/piano/" rel="tag">piano</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIS/" rel="tag">HIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Koa/" rel="tag">Koa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backend/" rel="tag">backend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/material-design/" rel="tag">material design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine/" rel="tag">medicine</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory-leak/" rel="tag">memory leak</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/piano/" rel="tag">piano</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1092,7 +1170,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/HIS/" style="font-size: 10px;">HIS</a> <a href="/tags/Koa/" style="font-size: 10px;">Koa</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/alibaba/" style="font-size: 13.33px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 13.33px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/material-design/" style="font-size: 10px;">material design</a> <a href="/tags/medical-insurance/" style="font-size: 10px;">medical insurance</a> <a href="/tags/medicine/" style="font-size: 13.33px;">medicine</a> <a href="/tags/medicine-information/" style="font-size: 10px;">medicine information</a> <a href="/tags/multiprocess/" style="font-size: 10px;">multiprocess</a> <a href="/tags/multithreading/" style="font-size: 10px;">multithreading</a> <a href="/tags/music/" style="font-size: 13.33px;">music</a> <a href="/tags/music-forms/" style="font-size: 10px;">music forms</a> <a href="/tags/music-theory/" style="font-size: 10px;">music theory</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/piano/" style="font-size: 10px;">piano</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a> <a href="/tags/vuetify/" style="font-size: 10px;">vuetify</a>
+      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/HIS/" style="font-size: 10px;">HIS</a> <a href="/tags/Koa/" style="font-size: 10px;">Koa</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/alibaba/" style="font-size: 12.5px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/material-design/" style="font-size: 10px;">material design</a> <a href="/tags/medical-insurance/" style="font-size: 10px;">medical insurance</a> <a href="/tags/medicine/" style="font-size: 12.5px;">medicine</a> <a href="/tags/medicine-information/" style="font-size: 10px;">medicine information</a> <a href="/tags/memory-leak/" style="font-size: 10px;">memory leak</a> <a href="/tags/multiprocess/" style="font-size: 10px;">multiprocess</a> <a href="/tags/multithreading/" style="font-size: 10px;">multithreading</a> <a href="/tags/music/" style="font-size: 12.5px;">music</a> <a href="/tags/music-forms/" style="font-size: 10px;">music forms</a> <a href="/tags/music-theory/" style="font-size: 10px;">music theory</a> <a href="/tags/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tags/piano/" style="font-size: 10px;">piano</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a> <a href="/tags/vuetify/" style="font-size: 10px;">vuetify</a>
     </div>
   </div>
 
@@ -1102,7 +1180,7 @@
     <h3 class="widget-title">Archives</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -1118,6 +1196,10 @@
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
     <a href="/about" class="mobile-nav-link">About</a>
   
