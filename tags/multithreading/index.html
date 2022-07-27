@@ -1,485 +1,130 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Tag: multithreading | Chendongtian&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  
-  
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Chendongtian&#39;s blog">
-<meta property="og:url" content="https://cdt.github.io/tags/multithreading/index.html">
-<meta property="og:site_name" content="Chendongtian&#39;s blog">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Chendongtian">
-<meta property="article:tag" content="Chendongtian, blog">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Chendongtian&#39;s blog" type="application/atom+xml">
-  
-  <link rel="icon" href="/css/images/favicon.ico">
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-  <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
-    
-  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
-
-  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Oswald%3A300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
-<script src="/js/jquery-3.1.1.min.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
-  <link rel="stylesheet" href="/css/fashion.css" >
-  <link rel="stylesheet" href="/css/glyphs.css" >
-
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-
-
-  <body>
-
-
-  
-
-
-<header id="allheader" class="site-header" role="banner" 
-   >
-  <div class="clearfix container">
-      <div class="site-branding">
-
-          <h1 class="site-title">
-            
-              <a href="/" title="Chendongtian&#39;s blog" rel="home"> Chendongtian&#39;s blog </a>
-            
-          </h1>
-          
-          
-            
-          <nav id="main-navigation" class="main-navigation" role="navigation">
-            <a class="nav-open">Menu</a>
-            <a class="nav-close">Close</a>
-
-            <div class="clearfix sf-menu">
-              <ul id="main-nav" class="menu sf-js-enabled sf-arrows"  style="touch-action: pan-y;">
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="/"> <a class="" href="/">Home</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="archives"> <a class="" href="/archives">Archives</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="categories"> <a class="" href="/categories">Categories</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="tags"> <a class="" href="/tags">Tags</a> </li>
-                    
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663" linktext="about"> <a class="" href="/about">About</a> </li>
-                    
-              </ul>
-            </div>
-          </nav>
-
-      </div>
-  </div>
-</header>
-
-
-  <div id="container">
-    <div id="wrap">
-            
-      <div id="content" class="outer">
-        
-          <section id="main">
-  
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2022" class="archive-year">2022</a></h1>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-
-      <a href="/2022/07/15/Multithreading-and-multiprocess-in-Node-js/" class="archive-article-date">
-		  <time datetime="2022-07-15T02:43:46.000Z" itemprop="datePublished">Jul 15, 2022</time>
-	  </a>
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/07/15/Multithreading-and-multiprocess-in-Node-js/">Multithreading and multiprocess in Node.js</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-</section>
-          <aside id="sidebar">
-  
-    <div style="margin: 20px 0;">
-	<div id="search-form-wrap">
-
-    <form class="search-form">
-        <label style="width: 72%;">
-            <span class="screen-reader-text">Search for:</span>
-            <input type="search" class="search-field" style="height: 36px; width: 100%;" placeholder=" Search…" value="" name="s" title="Search for:">
-        </label>
-        <input type="submit" class="search-form-submit" value="Search">
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-</div>
-</div>
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Connect With Us</h3>
-    <div class="widget widget_athemes_social_icons">
-
-    	<ul class="clearfix widget-social-icons">   
-    	
-   			<li><a target="_blank" rel="noopener" href="https://github.com/CDT" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a target="_blank" rel="noopener" href="https://www.linkedin.cn/incareer/in/%E6%B4%9E%E5%A4%A9-%E9%99%88-214711242" title="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a href="" title="Weixin"><i class="fa fa-weixin" aria-hidden="true"></i></a></li> 
-
-   		
-   			<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/users/1553886/cdt" title="Stack-Overflow"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a></li> 
-
-   		
-   		</ul>
-
-
-   		<!--
-   		<ul class="clearfix widget-social-icons">   		
-   		<li class="widget-si-twitter"><a target="_blank" rel="noopener" href="http://twitter.com" title="Twitter"><i class="ico-twitter"></i></a></li> 
-		<li class="widget-si-facebook"><a target="_blank" rel="noopener" href="http://facebook.com" title="Facebook"><i class="ico-facebook"></i></a></li>
-			<li class="widget-si-gplus"><a target="_blank" rel="noopener" href="http://plus.google.com" title="Google+"><i class="ico-gplus"></i></a></li>
-			<li class="widget-si-pinterest"><a target="_blank" rel="noopener" href="http://pinterest.com" title="Pinterest"><i class="ico-pinterest"></i></a></li>
-			<li class="widget-si-flickr"><a target="_blank" rel="noopener" href="http://flickr.com" title="Flickr"><i class="ico-flickr"></i></a></li>
-			<li class="widget-si-instagram"><a target="_blank" rel="noopener" href="http://instagram.com" title="Instagram"><i class="ico-instagram"></i></a></li>
-		</ul> -->
-
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget_athemes_tabs">
-    <ul id="widget-tab" class="clearfix widget-tab-nav">
-      <li class="active"><a>Recent Posts</a></li>
-    </ul>
-    <div class="widget">
-      <ul>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/23/Memory-leak/">Memory leak in Javascript</a></h6>
-              <span>July 23, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/22/Typescript/">Typescript</a></h6>
-              <span>July 22, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/22/Koa-A-successor-for-Express/">Koa - A successor for Express</a></h6>
-              <span>July 22, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/21/Vuetify/">Vuetify</a></h6>
-              <span>July 21, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/19/%E6%9B%B2%E5%BC%8F/">曲式</a></h6>
-              <span>July 19, 2022</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="/2022/07/18/%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E8%AF%84%E7%BA%A7-%E5%85%AD%E7%BA%A7/">电子病历评级-六级</a></h6>
-              <span>July 18, 2022</span>
-            </div>
-
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/exploration/">exploration</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/medical-business/">medical business</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/music/">music</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/music/underwork/">underwork</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">tech</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tech/underwork/">underwork</a><span class="category-list-count">7</span></li></ul></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Battery/" rel="tag">Battery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EMR/" rel="tag">EMR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HIS/" rel="tag">HIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Koa/" rel="tag">Koa</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/alibaba/" rel="tag">alibaba</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/asynchronous/" rel="tag">asynchronous</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backend/" rel="tag">backend</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database/" rel="tag">database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/material-design/" rel="tag">material design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medical-insurance/" rel="tag">medical insurance</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine/" rel="tag">medicine</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/medicine-information/" rel="tag">medicine information</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory-leak/" rel="tag">memory leak</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multiprocess/" rel="tag">multiprocess</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multithreading/" rel="tag">multithreading</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-forms/" rel="tag">music forms</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music-theory/" rel="tag">music theory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/piano/" rel="tag">piano</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/regexp/" rel="tag">regexp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/single-threaded/" rel="tag">single-threaded</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tech/" rel="tag">tech</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue3/" rel="tag">vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuetify/" rel="tag">vuetify</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Battery/" style="font-size: 10px;">Battery</a> <a href="/tags/EMR/" style="font-size: 10px;">EMR</a> <a href="/tags/HIS/" style="font-size: 10px;">HIS</a> <a href="/tags/Koa/" style="font-size: 10px;">Koa</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/alibaba/" style="font-size: 12.5px;">alibaba</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/database/" style="font-size: 10px;">database</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/material-design/" style="font-size: 10px;">material design</a> <a href="/tags/medical-insurance/" style="font-size: 10px;">medical insurance</a> <a href="/tags/medicine/" style="font-size: 12.5px;">medicine</a> <a href="/tags/medicine-information/" style="font-size: 10px;">medicine information</a> <a href="/tags/memory-leak/" style="font-size: 10px;">memory leak</a> <a href="/tags/multiprocess/" style="font-size: 10px;">multiprocess</a> <a href="/tags/multithreading/" style="font-size: 10px;">multithreading</a> <a href="/tags/music/" style="font-size: 12.5px;">music</a> <a href="/tags/music-forms/" style="font-size: 10px;">music forms</a> <a href="/tags/music-theory/" style="font-size: 10px;">music theory</a> <a href="/tags/nodejs/" style="font-size: 17.5px;">nodejs</a> <a href="/tags/piano/" style="font-size: 10px;">piano</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/regexp/" style="font-size: 10px;">regexp</a> <a href="/tags/single-threaded/" style="font-size: 10px;">single-threaded</a> <a href="/tags/tech/" style="font-size: 20px;">tech</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vue3/" style="font-size: 10px;">vue3</a> <a href="/tags/vuetify/" style="font-size: 10px;">vuetify</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">6</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
-        
-      </div>
-
-    </div>
-    <!-- <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/categories" class="mobile-nav-link">Categories</a>
-  
-    <a href="/tags" class="mobile-nav-link">Tags</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav> -->
-    <footer id="footer" class="site-footer">
-  
-
-  <div class="clearfix container">
-      <div class="site-info">
-	      &copy; 2022 Chendongtian&#39;s blog All Rights Reserved.
-        
-            <span id="busuanzi_container_site_uv">
-              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
-              本站总访问量<span id="busuanzi_value_site_pv"></span>次
-            </span>
-          
-      </div>
-      <div class="site-credit">
-        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hipaper" target="_blank">hipaper</a>
-      </div>
-  </div>
-</footer>
-
-
-<!-- min height -->
-
-<script>
-    var wrapdiv = document.getElementById("wrap");
-    var contentdiv = document.getElementById("content");
-
-    wrapdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
-    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
-
-
-    <!-- headerblur min height -->
-    
-    
-</script>
-    
-<div style="display: none;">
-  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-</div>
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Tag: multithreading - Chendongtian&#039;s blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Chendongtian&#039;s blog"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Chendongtian&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Chendongtian&#039;s blog"><meta property="og:url" content="https://cdt.github.io/"><meta property="og:site_name" content="Chendongtian&#039;s blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdt.github.io/img/og_image.png"><meta property="article:author" content="Chendongtian"><meta property="article:tag" content="Chendongtian, blog"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdt.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cdt.github.io"},"headline":"Chendongtian's blog","image":["https://cdt.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Chendongtian"},"publisher":{"@type":"Organization","name":"Chendongtian's blog","logo":{"@type":"ImageObject","url":{"text":"Chendongtian's Blog"}}},"description":""}</script><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
       }
-    });
-</script>
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Chendongtian&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/CDT"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">multithreading</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-15T02:43:46.000Z" title="2022/7/15 上午10:43:46">2022-07-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-25T01:24:16.870Z" title="2022/7/25 上午9:24:16">2022-07-25</time></span><span class="level-item"><a class="link-muted" href="/categories/tech/">tech</a></span><span class="level-item">7 minutes read (About 1078 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/15/Multithreading-and-multiprocess-in-Node-js/">Multithreading and multiprocess in Node.js</a></h1><div class="content"><p><img src="/images/cpu1.PNG" alt="CPU"></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/api/worker_threads.html">Node.js Worker Threads</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903908385488903">Deep dive into threads and processes in Node.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56656498/how-do-cluster-and-worker-threads-work-in-node-js">How do cluster and worker threads work in node.js</a></li>
+</ol>
+<h2 id="Multithreading-Worker-thread"><a href="#Multithreading-Worker-thread" class="headerlink" title="Multithreading: Worker thread"></a>Multithreading: Worker thread</h2><h3 id="What-and-why"><a href="#What-and-why" class="headerlink" title="What and why"></a>What and why</h3><p>A thread that enables node.js to execute JavaScript in parallel. Useful to handle CPU intensive jobs.</p>
+<h3 id="How-to"><a href="#How-to" class="headerlink" title="How-to"></a>How-to</h3><p>Create a worker file &#x3D;&gt; Make a promise in caller file &#x3D;&gt; Define on message&#x2F;error&#x2F;exit hooks<br>worker.js file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const &#123; workerData, parentPort &#125;	= require(&#x27;worker_threads&#x27;)</span><br><span class="line"></span><br><span class="line">console.log(&#x27;Technical Articles on &#x27; + workerData);</span><br><span class="line"></span><br><span class="line">parentPort.postMessage(</span><br><span class="line">	&#123; fileName: workerData, status: &#x27;Done&#x27; &#125;)</span><br></pre></td></tr></table></figure>
+<p>index.js file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const &#123; Worker &#125; = require(&#x27;worker_threads&#x27;)</span><br><span class="line"></span><br><span class="line">function runService(workerData) &#123;</span><br><span class="line">	return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">		const worker = new Worker(</span><br><span class="line">				&#x27;./worker.js&#x27;, &#123; workerData &#125;);</span><br><span class="line">		worker.on(&#x27;message&#x27;, resolve);</span><br><span class="line">		worker.on(&#x27;error&#x27;, reject);</span><br><span class="line">		worker.on(&#x27;exit&#x27;, (code) =&gt; &#123;</span><br><span class="line">			if (code !== 0)</span><br><span class="line">				reject(new Error(</span><br><span class="line">`Stopped the Worker Thread with the exit code: $&#123;code&#125;`));</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function run() &#123;</span><br><span class="line">	const result = await runService(&#x27;GeeksForGeeks&#x27;)</span><br><span class="line">	console.log(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run().catch(err =&gt; console.error(err))</span><br></pre></td></tr></table></figure>
+<p>Key points:</p>
+<ol>
+<li>Worker use  <code>workerData</code> to receive data from caller and <code>parentPort</code> to post data to caller.</li>
+<li>Worker use <code>parentPort.postMessage</code> to send data to caller and caller use <code>on(&#39;message&#39;)</code> to receive.</li>
+</ol>
+<h2 id="Multiprocess-Fork-and-Cluster"><a href="#Multiprocess-Fork-and-Cluster" class="headerlink" title="Multiprocess: Fork and Cluster"></a>Multiprocess: Fork and Cluster</h2><h3 id="An-example-to-address-the-problem-of-single-threaded-node-js"><a href="#An-example-to-address-the-problem-of-single-threaded-node-js" class="headerlink" title="An example to address the problem of single-threaded node.js"></a>An example to address the problem of single-threaded node.js</h3><p>Single threaded node.js will block on a time-consuming request.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const longComputation = () =&gt; &#123;</span><br><span class="line">  let sum = 0;</span><br><span class="line">  for (let i = 0; i &lt; 1e10; i++) &#123;</span><br><span class="line">    sum += i;</span><br><span class="line">  &#125;;</span><br><span class="line">  return sum;</span><br><span class="line">&#125;;</span><br><span class="line">const server = http.createServer();</span><br><span class="line">server.on(&#x27;request&#x27;, (req, res) =&gt; &#123;</span><br><span class="line">  if (req.url === &#x27;/compute&#x27;) &#123;</span><br><span class="line">    console.info(&#x27;计算开始&#x27;,new Date());</span><br><span class="line">    const sum = longComputation();</span><br><span class="line">    console.info(&#x27;计算结束&#x27;,new Date());</span><br><span class="line">    return res.end(`Sum is $&#123;sum&#125;`);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    res.end(&#x27;Ok&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(3000);</span><br></pre></td></tr></table></figure>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
+<p>Call <code>localhost:3000/compute</code> will block </p>
+<h3 id="Pros-and-cons-of-single-threaded-node-js"><a href="#Pros-and-cons-of-single-threaded-node-js" class="headerlink" title="Pros and cons of single-threaded node.js"></a>Pros and cons of single-threaded node.js</h3><p>Pros:</p>
+<ol>
+<li>Simple, no creation and switching of threads.</li>
+<li>Event loop and non-blocking asynchronous mechanism ensures high performance for high concurrency.<br>Cons:</li>
+<li>CPU intensive calculation may block entire node.js app. </li>
+<li>An error may kill the thread, thus kill entire app. A daemon thread should be considered.</li>
+<li>Single thread does not take advantage of a multi-core CPU.</li>
+</ol>
+<h3 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h3><p>Use <code>child_process.fork</code> to create new process.<br>Main.js:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const fork = require(&#x27;child_process&#x27;).fork;</span><br><span class="line"></span><br><span class="line">const server = http.createServer((req, res) =&gt; &#123;</span><br><span class="line">    if(req.url == &#x27;/compute&#x27;)&#123;</span><br><span class="line">        const compute = fork(&#x27;./compute.js&#x27;);</span><br><span class="line">        compute.send(&#x27;开启一个新的子进程&#x27;);</span><br><span class="line"></span><br><span class="line">        // 当一个子进程使用 process.send() 发送消息时会触发 &#x27;message&#x27; 事件</span><br><span class="line">        compute.on(&#x27;message&#x27;, sum =&gt; &#123;</span><br><span class="line">            res.end(`Sum is $&#123;sum&#125;`);</span><br><span class="line">            compute.kill();</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        // 子进程监听到一些错误消息退出</span><br><span class="line">        compute.on(&#x27;close&#x27;, (code, signal) =&gt; &#123;</span><br><span class="line">            console.log(`收到close事件，子进程收到信号 $&#123;signal&#125; 而终止，退出码 $&#123;code&#125;`);</span><br><span class="line">            compute.kill();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        res.end(`ok`);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">server.listen(3000, &#x27;127.0.0.1&#x27;, () =&gt; &#123;</span><br><span class="line">    console.log(`server started at http://127.0.0.1:3000`);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>compute.js:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const computation = () =&gt; &#123;</span><br><span class="line">    let sum = 0;</span><br><span class="line">    console.info(&#x27;计算开始&#x27;);</span><br><span class="line">    console.time(&#x27;计算耗时&#x27;);</span><br><span class="line"></span><br><span class="line">    for (let i = 0; i &lt; 1e10; i++) &#123;</span><br><span class="line">        sum += i</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    console.info(&#x27;计算结束&#x27;);</span><br><span class="line">    console.timeEnd(&#x27;计算耗时&#x27;);</span><br><span class="line">    return sum;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">process.on(&#x27;message&#x27;, msg =&gt; &#123;</span><br><span class="line">    console.log(msg, &#x27;process.pid&#x27;, process.pid); // 子进程id</span><br><span class="line">    const sum = computation();</span><br><span class="line"></span><br><span class="line">    // 如果Node.js进程是通过进程间通信产生的，那么，process.send()方法可以用来给父进程发送消息</span><br><span class="line">    process.send(sum);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><p><code>cluster</code> can create worker process in a single file.<br>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br><span class="line">const numCPUs = require(&#x27;os&#x27;).cpus().length;</span><br><span class="line">const cluster = require(&#x27;cluster&#x27;);</span><br><span class="line">if(cluster.isMaster)&#123;</span><br><span class="line">    console.log(`Master proces id is $&#123;process.pid&#125;, cpu number $&#123;numCPUs&#125;`);</span><br><span class="line">    // fork workers</span><br><span class="line">    for(let i= 0;i&lt;numCPUs;i++)&#123;</span><br><span class="line">        cluster.fork();</span><br><span class="line">    &#125;</span><br><span class="line">    cluster.on(&#x27;exit&#x27;,function(worker,code,signal)&#123;</span><br><span class="line">        console.log(&#x27;worker process died,id&#x27;,worker.process.pid)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    // Worker can share the same TCP connection</span><br><span class="line">    // It&#x27;s an http server here</span><br><span class="line">    console.log(`created worker pid $&#123;process.pid&#125;`)</span><br><span class="line">    http.createServer(function(req,res)&#123;</span><br><span class="line">        res.writeHead(200);</span><br><span class="line">        res.end(String(process.pid));</span><br><span class="line">    &#125;).listen(8000);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-<script src="/js/bootstrap.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-
-
-  <div style="display: none;">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
-  </div>
-
-
-
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-	</script>
-
-
-
-
-
-
-  </div>
-
-  <a id="rocket" href="#top" class=""></a>
-  <script type="text/javascript" src="/js/totop.js" async=""></script>
-</body>
-</html>
+<p>Running code above, we got:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Master proces id is 18428, cpu number 4</span><br><span class="line">created slave pid 16672</span><br><span class="line">created slave pid 9896</span><br><span class="line">created slave pid 14676</span><br><span class="line">created slave pid 1460</span><br></pre></td></tr></table></figure>
+<p>We can find these process in task manager:<br><img src="/images/multi_node_taskmgr.png" alt="Multiple node.js processes"><br>Now send a request in browser, and id of one of the four server process is returned:<br><img src="/images/request1460.png" alt="Request"><br>Try refresh many times and different pids may return(It depends, maybe one unlucky process shoulders all the workload).<br>Now kill one the worker <code>1460</code> in task manger and we got:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker process died,id 1460</span><br></pre></td></tr></table></figure>
+<p>Refresh the browser and result is another pid other than 1460:<br><img src="/images/request9896.png" alt="Request"><br>You see, now our server is much more robust than before. We got four worker process, killing one of them and there are still three working.</p>
+<p>Cluster calls the same <code>fork</code> method from  <code>child_process</code> module under the hood. Cluster is a master-slave model, where master manages and schedules slaves.</p>
+<p><strong>Why no <code>Error: EADDRINUSE</code> when multiple processes listens on the same port?</strong><br>The child processes aren’t listening to the same port. Incoming socket connections to the master process are being delegated to the child processes. There’s special handling for clustered process in <code>server.listen()</code>, it calls a method named <code>listenInCluster()</code> in some circumstances. <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/61261621/node-cluster-have-multiple-processes-listen-to-the-same-port">See explanation here</a></p>
+<h2 id="Multithreading-vs-multiprocess"><a href="#Multithreading-vs-multiprocess" class="headerlink" title="Multithreading vs multiprocess"></a>Multithreading vs multiprocess</h2><p><strong>cluster</strong></p>
+<ul>
+<li>One <em>process</em> is launched on each CPU and can communicate via IPC.</li>
+<li>Each process has its own memory with its own Node (v8) instance. Creating tons of them may create memory issues.</li>
+<li>Great for spawning many HTTP servers that share the same port b&#x2F;c the master process will multiplex the requests to the child processes.</li>
+</ul>
+<p><strong>worker threads</strong></p>
+<ul>
+<li>One <em>process</em> total</li>
+<li>Creates multiple threads with each thread having one Node instance (one event loop, one JS engine).  Most Node API’s are available to each thread except a few.  So essentially Node is embedding itself and creating a new thread.</li>
+<li>Shares memory with other threads (e.g. <code>SharedArrayBuffer</code>)</li>
+<li>Great for CPU intensive tasks like processing data or accessing the file system. Because NodeJS is single threaded, synchronous tasks can be made more efficient with workers</li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/favicon.ico" alt="Chendongtian"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Chendongtian</p><p class="is-size-6 is-block">Code, reading, music</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Wuhan, China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">22</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">34</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/CDT" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/CDT"><i class="fab fa-github"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="http://reorx.com/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Reorx&#039;s Forge(Close Friend)</span></span><span class="level-right"><span class="level-item tag">reorx.com</span></span></a></li><li><a class="level is-mobile" href="https://hcai.me" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">James Cai(Junior school deskmate)</span></span><span class="level-right"><span class="level-item tag">hcai.me</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/exploration/"><span class="level-start"><span class="level-item">exploration</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/medical-business/"><span class="level-start"><span class="level-item">medical business</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/music/"><span class="level-start"><span class="level-item">music</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/tech/"><span class="level-start"><span class="level-item">tech</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><figure class="media-left"><a class="image" href="/2022/07/25/OAuth2-0/"><img src="/images/oauth2.jpeg" alt="OAuth2.0"></a></figure><div class="media-content"><p class="date"><time dateTime="2022-07-25T08:51:15.000Z">2022-07-25</time></p><p class="title"><a href="/2022/07/25/OAuth2-0/">OAuth2.0</a></p><p class="categories"><a href="/categories/tech/">tech</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-23T15:24:05.000Z">2022-07-23</time></p><p class="title"><a href="/2022/07/23/Should-I-accept-all-cookies/">Should I accept all cookies ?</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-23T03:50:41.000Z">2022-07-23</time></p><p class="title"><a href="/2022/07/23/Memory-leak/">Memory leak in Javascript</a></p><p class="categories"><a href="/categories/tech/">tech</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-22T13:18:09.000Z">2022-07-22</time></p><p class="title"><a href="/2022/07/22/Typescript/">Typescript</a></p><p class="categories"><a href="/categories/tech/">tech</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-22T03:28:57.000Z">2022-07-22</time></p><p class="title"><a href="/2022/07/22/Koa-A-successor-for-Express/">Koa - A successor for Express</a></p><p class="categories"><a href="/categories/tech/">tech</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Battery/"><span class="tag">Battery</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/EMR/"><span class="tag">EMR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HIS/"><span class="tag">HIS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Koa/"><span class="tag">Koa</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OAuth2/"><span class="tag">OAuth2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SQL/"><span class="tag">SQL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/alibaba/"><span class="tag">alibaba</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/asynchronous/"><span class="tag">asynchronous</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/authorization/"><span class="tag">authorization</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/backend/"><span class="tag">backend</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/database/"><span class="tag">database</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/javascript/"><span class="tag">javascript</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/markdown/"><span class="tag">markdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/material-design/"><span class="tag">material design</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/medical-insurance/"><span class="tag">medical insurance</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/medicine/"><span class="tag">medicine</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/medicine-information/"><span class="tag">medicine information</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/memory-leak/"><span class="tag">memory leak</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/multiprocess/"><span class="tag">multiprocess</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/multithreading/"><span class="tag">multithreading</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/music/"><span class="tag">music</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/music-forms/"><span class="tag">music forms</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/music-theory/"><span class="tag">music theory</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/nodejs/"><span class="tag">nodejs</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/piano/"><span class="tag">piano</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/redis/"><span class="tag">redis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/regexp/"><span class="tag">regexp</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/single-threaded/"><span class="tag">single-threaded</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tech/"><span class="tag">tech</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/typescript/"><span class="tag">typescript</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue/"><span class="tag">vue</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vue3/"><span class="tag">vue3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/vuetify/"><span class="tag">vuetify</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Chendongtian&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 Chendongtian</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

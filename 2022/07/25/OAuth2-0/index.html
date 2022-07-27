@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>OAuth2.0 - Chendongtian&#039;s blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Chendongtian&#039;s blog"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Chendongtian&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="(BLOG STILL IN PROGRESS) Refs OAuth2.0 What is OAuth2.0?  JSON Web Tokens OAuth2.0原理图解：第三方网站为什么可以使用微信登录  What is OAuth 2.0 ?The industry-standard protocol for authorization.This specification and its"><meta property="og:type" content="blog"><meta property="og:title" content="OAuth2.0"><meta property="og:url" content="https://cdt.github.io/2022/07/25/OAuth2-0/"><meta property="og:site_name" content="Chendongtian&#039;s blog"><meta property="og:description" content="(BLOG STILL IN PROGRESS) Refs OAuth2.0 What is OAuth2.0?  JSON Web Tokens OAuth2.0原理图解：第三方网站为什么可以使用微信登录  What is OAuth 2.0 ?The industry-standard protocol for authorization.This specification and its"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdt.github.io/images/oauth2.jpeg"><meta property="article:published_time" content="2022-07-25T08:51:15.000Z"><meta property="article:modified_time" content="2022-07-27T03:37:31.623Z"><meta property="article:author" content="Chendongtian"><meta property="article:tag" content="tech"><meta property="article:tag" content="OAuth2"><meta property="article:tag" content="authorization"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdt.github.io/images/oauth2.jpeg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cdt.github.io/2022/07/25/OAuth2-0/"},"headline":"OAuth2.0","image":[],"datePublished":"2022-07-25T08:51:15.000Z","dateModified":"2022-07-27T03:37:31.623Z","author":{"@type":"Person","name":"Chendongtian"},"publisher":{"@type":"Organization","name":"Chendongtian's blog","logo":{"@type":"ImageObject","url":{"text":"Chendongtian's Blog"}}},"description":"(BLOG STILL IN PROGRESS) Refs OAuth2.0 What is OAuth2.0?  JSON Web Tokens OAuth2.0原理图解：第三方网站为什么可以使用微信登录  What is OAuth 2.0 ?The industry-standard protocol for authorization.This specification and its"}</script><link rel="canonical" href="https://cdt.github.io/2022/07/25/OAuth2-0/"><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;600&amp;family=Roboto+Mono"><link rel="stylesheet" href="/css/cyberpunk.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Chendongtian&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/CDT"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/oauth2.jpeg" alt="OAuth2.0"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-25T08:51:15.000Z" title="2022/7/25 下午4:51:15">2022-07-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-27T03:37:31.623Z" title="2022/7/27 上午11:37:31">2022-07-27</time></span><span class="level-item"><a class="link-muted" href="/categories/tech/">tech</a></span><span class="level-item">4 minutes read (About 557 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">OAuth2.0</h1><div class="content"><p><strong>(BLOG STILL IN PROGRESS)</strong></p>
+<h2 id="Refs"><a href="#Refs" class="headerlink" title="Refs"></a>Refs</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://oauth.net/2/">OAuth2.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://auth0.com/intro-to-iam/what-is-oauth-2/">What is OAuth2.0?</a> </li>
+<li><a target="_blank" rel="noopener" href="https://jwt.io/">JSON Web Tokens</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7066716559808397343">OAuth2.0原理图解：第三方网站为什么可以使用微信登录</a></li>
+</ol>
+<h2 id="What-is-OAuth-2-0"><a href="#What-is-OAuth-2-0" class="headerlink" title="What is OAuth 2.0 ?"></a>What is OAuth 2.0 ?</h2><p>The industry-standard protocol for authorization.<br>This specification and its extensions are being developed within the <a target="_blank" rel="noopener" href="https://www.ietf.org/mailman/listinfo/oauth">IETF OAuth Working Group</a>.</p>
+<span id="more"></span>
+
+<h2 id="Authentication-vs-Authorization"><a href="#Authentication-vs-Authorization" class="headerlink" title="Authentication vs Authorization"></a>Authentication vs Authorization</h2><p>Authentication verifies the identity of a user or service, and authorization determines their access rights. OAuth2.0 standards for Open <strong>Authorization</strong>.</p>
+<h2 id="Access-token"><a href="#Access-token" class="headerlink" title="Access token"></a>Access token</h2><p>An Access Token is a piece of data that represents the authorization to access resources on behalf of the end-user. </p>
+<p>OAuth 2.0 doesn’t define a specific format for Access Tokens. However, in some contexts, the JSON Web Token (JWT) format is often used. </p>
+<h3 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h3><p>An open, industry standard <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> method for representing claims securely between two parties.</p>
+<p>You can decode, verify and generate JWT.</p>
+<p>Includes:</p>
+<ul>
+<li>Header: Algorithm and token type</li>
+<li>Payload: Data</li>
+<li>Signature: verifies data</li>
+</ul>
+<p><img src="/images/jwt1.png"></p>
+<h2 id="Work-modes"><a href="#Work-modes" class="headerlink" title="Work modes"></a>Work modes</h2><p>OAuth2.0 defines four work modes:</p>
+<ul>
+<li>Authorization code</li>
+<li>Implicit</li>
+<li>Password</li>
+<li>Client credentials<br>Authorization code is the most commonly used. We’ll introduce authorization code mode here.</li>
+</ul>
+<h2 id="Work-flow"><a href="#Work-flow" class="headerlink" title="Work flow"></a>Work flow</h2><h3 id="Example-based-on-Taobao"><a href="#Example-based-on-Taobao" class="headerlink" title="Example based on Taobao"></a>Example based on Taobao</h3><p>Take Taobao as an example, if website A supports login with Taobao account, the process is follow:</p>
+<ol>
+<li><strong>Registration</strong>. Website A registers itself on Taobao Open Platform, and Taobao Open Platform gives website A a <code>client_id</code> as its unique identifier.</li>
+<li><strong>Authorization</strong>. When user login on website A with Taobao account, they are redirected to a URL concatenated by Taobao authorization page and website A’s address. User inputs their user name and password on the login page and gets redirected to website A after successful validation.</li>
+<li><strong>Get token</strong>. Taobao Open platform gives website A a code, website A gets a token from Taobao Open platform with the code.</li>
+<li><strong>Get user data</strong>. Website A gets user data from Taobao User Center with the token.</li>
+</ol>
+<p><img src="/images/taobao_oauth2.webp" alt="Taobao Open Platform work flow"></p>
+<h3 id="Work-flow-1"><a href="#Work-flow-1" class="headerlink" title="Work flow"></a>Work flow</h3><p><img src="/images/oauth2fourroles.png" alt="Work flow"><br>There are four roles in the work flow:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Role</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Resource Owner</td>
+<td>Owner of resource, grants access to them.</td>
+</tr>
+<tr>
+<td align="center">Client</td>
+<td>Requires access to resource, holds token.</td>
+</tr>
+<tr>
+<td align="center">Authorization Server</td>
+<td>Receives requests from the Client for Access Tokens and issues them upon successful authentication and consent by the Resource Owner.</td>
+</tr>
+<tr>
+<td align="center">Resource Server</td>
+<td>Accepts and validates an Access Token from the Client and returns the appropriate resources to it.</td>
+</tr>
+</tbody></table>
+<p>The work flow is as below: </p>
+<ol>
+<li><p>The Client requests authorization (authorization request) from the Authorization server, supplying the client id and secret to as identification; it also provides the scopes and an endpoint URI (redirect URI) to send the Access Token or the Authorization Code to.</p>
+</li>
+<li><p>The Authorization server authenticates the Client and verifies that the requested scopes are permitted. </p>
+</li>
+<li><p>The Resource owner interacts with the Authorization server to grant access.</p>
+</li>
+<li><p>The Authorization server redirects back to the Client with either an Authorization Code or Access Token, depending on the grant type, as it will be explained in the next section. A Refresh Token may also be returned.</p>
+</li>
+<li><p>With the Access Token, the Client requests access to the resource from the Resource server.</p>
+</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>OAuth2.0</p><p><a href="https://cdt.github.io/2022/07/25/OAuth2-0/">https://cdt.github.io/2022/07/25/OAuth2-0/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Chendongtian</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-07-25</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-07-27</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/tech/">tech</a><a class="link-muted mr-2" rel="tag" href="/tags/OAuth2/">OAuth2</a><a class="link-muted mr-2" rel="tag" href="/tags/authorization/">authorization</a></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/07/23/Should-I-accept-all-cookies/"><span class="level-item">Should I accept all cookies ?</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><!--!--><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Chendongtian&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 Chendongtian</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
