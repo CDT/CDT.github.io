@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>HL7 - Chendongtian&#039;s blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Chendongtian&#039;s blog"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Chendongtian&#039;s blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="(THIS BLOG IS STILL UNDERWORK) Ref Health Level 7 Here’s What You Should Know about HL7 Messages and its Types Overview of OIDs used in European HL7 artefacts  What and why HL7(Health Level 7) refers"><meta property="og:type" content="blog"><meta property="og:title" content="HL7"><meta property="og:url" content="https://cdt.github.io/2022/07/30/HL7/"><meta property="og:site_name" content="Chendongtian&#039;s blog"><meta property="og:description" content="(THIS BLOG IS STILL UNDERWORK) Ref Health Level 7 Here’s What You Should Know about HL7 Messages and its Types Overview of OIDs used in European HL7 artefacts  What and why HL7(Health Level 7) refers"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdt.github.io/images/HL7.png"><meta property="article:published_time" content="2022-07-30T03:01:48.000Z"><meta property="article:modified_time" content="2022-08-01T01:03:09.943Z"><meta property="article:author" content="Chendongtian"><meta property="article:tag" content="underwork"><meta property="article:tag" content="tecj"><meta property="article:tag" content="HL7"><meta property="article:tag" content="HIT"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdt.github.io/images/HL7.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://cdt.github.io/2022/07/30/HL7/"},"headline":"HL7","image":["https://cdt.github.io/images/HL7.png"],"datePublished":"2022-07-30T03:01:48.000Z","dateModified":"2022-08-01T01:03:09.943Z","author":{"@type":"Person","name":"Chendongtian"},"publisher":{"@type":"Organization","name":"Chendongtian's blog","logo":{"@type":"ImageObject","url":{"text":"Chendongtian's Blog"}}},"description":"(THIS BLOG IS STILL UNDERWORK) Ref Health Level 7 Here’s What You Should Know about HL7 Messages and its Types Overview of OIDs used in European HL7 artefacts  What and why HL7(Health Level 7) refers"}</script><link rel="canonical" href="https://cdt.github.io/2022/07/30/HL7/"><link rel="icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-1-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Chendongtian&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/categories/tech">Tech</a><a class="navbar-item" href="/categories/HIT">HIT</a><a class="navbar-item" href="/categories/music">Music</a><a class="navbar-item" href="/categories/citations">Citations</a><a class="navbar-item" href="/categories/misc">Misc</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Source for this blog" href="https://github.com/CDT/blog"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-12"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/HL7.png" alt="HL7"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-30T03:01:48.000Z" title="2022/7/30 上午11:01:48">2022-07-30</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-08-01T01:03:09.943Z" title="2022/8/1 上午9:03:09">2022-08-01</time></span><span class="level-item"><a class="link-muted" href="/categories/HIT/">HIT</a></span><span class="level-item">4 minutes read (About 625 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">HL7</h1><div class="content"><p><strong>(THIS BLOG IS STILL UNDERWORK)</strong></p>
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Health_Level_7">Health Level 7</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.covetus.com/blog/heres-what-you-should-know-about-hl7-messages-and-its-types">Here’s What You Should Know about HL7 Messages and its Types</a></li>
+<li><a target="_blank" rel="noopener" href="http://ringholm.com/docs/00900_en.htm">Overview of OIDs used in European HL7 artefacts</a></li>
+</ol>
+<h2 id="What-and-why"><a href="#What-and-why" class="headerlink" title="What and why"></a>What and why</h2><ul>
+<li>HL7(Health Level 7) refers to a set of international standards for transfer of clinical and administrative data between software applications used by various healthcare providers.</li>
+<li>It focuses on application layer, which is ‘layer 7’ in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a>.</li>
+<li>Healthcare softwares need to talk with each other in the same language. HL7 tries to be that language.<span id="more"></span></li>
+</ul>
+<h2 id="HL7-components"><a href="#HL7-components" class="headerlink" title="HL7 components"></a>HL7 components</h2><table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">V2</td>
+<td align="center">Version 2.x Messaging Standard, an interoperability specification for health and medical transactions</td>
+</tr>
+<tr>
+<td align="center">V3</td>
+<td align="center">Version 3 Messaging Standard, an interoperability specification for health and medical transactions</td>
+</tr>
+<tr>
+<td align="center">CDA</td>
+<td align="center">Clinical Document Structure, an exchange model for clinical documents, based on HL7 Version 3</td>
+</tr>
+<tr>
+<td align="center">FHIR</td>
+<td align="center">Fast Healthcare Interoperability Resources, a standard for the exchange of resources</td>
+</tr>
+</tbody></table>
+<p>Other components:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CCD</td>
+<td align="center">Continuity of Care Document, a US specification for the exchange of medical summaries, based on CDA</td>
+</tr>
+<tr>
+<td align="center">SPL</td>
+<td align="center">Structured Product Labeling, the published information that accompanies a medicine, based on HL7 Version 3</td>
+</tr>
+<tr>
+<td align="center">CCOW</td>
+<td align="center">Clinical Context Object Workgroup, an interoperability specification for the visual integration of user applications</td>
+</tr>
+<tr>
+<td align="center">Arden Syntax</td>
+<td align="center">A grammar for representing medical conditions and recommendations as a Medical Logic Module (MLM)</td>
+</tr>
+<tr>
+<td align="center">Claims Attachments</td>
+<td align="center">A Standard Healthcare Attachment to augment another healthcare transaction</td>
+</tr>
+<tr>
+<td align="center">Functional Specification of EHR&#x2F;PHR</td>
+<td align="center">A standardized description of health and medical functions sought for or available in such software applications</td>
+</tr>
+<tr>
+<td align="center">GELLO</td>
+<td align="center">A standard expression language used for clinical decision support</td>
+</tr>
+</tbody></table>
+<h2 id="HL7-V2"><a href="#HL7-V2" class="headerlink" title="HL7 V2"></a>HL7 V2</h2><h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><ul>
+<li>Originally created in 1989, quite a few years from now. Now its got versions 2.1, 2.2, 2.3, 2.3.1, 2.4, 2.5, 2.5.1, 2.6, 2.7, 2.7.1, 2.8, 2.8.1 and 2.8.2. V2 standards are backward compatible.</li>
+<li>Read complete specification <a target="_blank" rel="noopener" href="http://www.hl7.eu/HL7v2x/v282/std282/hl7.html">here</a>(based on 2.8.2)</li>
+</ul>
+<h3 id="Message-types-and-trigger-events"><a href="#Message-types-and-trigger-events" class="headerlink" title="Message types and trigger events"></a>Message types and trigger events</h3><p>Message type and trigger event are interchangable in most cases.</p>
+<p>A trigger event is a real-world event that initiates communication and the sending of a message. </p>
+<p><code>MSH-9</code>(9th field of the <code>MSH</code> segment) contains message type and trigger event. Message type and trigger event together specifies the type of a HL7 v2 message. For example, <code>ADT-A01</code> is a typical <code>MSH-9</code> segment value, <code>ADT</code>(<code>ADT</code> means Admit, Discharge, Transfer) is the message type and <code>A01</code> is the trigger event(<code>A01</code> means admitted, while <code>A02</code> means transferred and <code>A03</code> means discharged).</p>
+<p>See full list of message type&#x2F;trigger event <a target="_blank" rel="noopener" href="https://hl7-definition.caristix.com/v2/HL7v2.5.1/TriggerEvents">here</a>(based on v2.5.1).</p>
+<h3 id="Message-Structure"><a href="#Message-Structure" class="headerlink" title="Message Structure"></a>Message Structure</h3><ul>
+<li><strong>Message</strong></li>
+<li>&#x3D;&gt; <strong>Segment</strong>: Each line is a segment, a carriage return <code>\r</code> separates one from another. </li>
+<li>&#x3D;&#x3D;&#x3D;&gt; <strong>Field&#x2F;Composite</strong>: A pipe <code>|</code> separates one from another. Fields may contain sub-fields separated by caret <code>^</code>.</li>
+</ul>
+<p>Example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MSH|^~\&amp;|MegaReg|XYZHospC|SuperOE|XYZImgCtr|20060529090131-0500||ADT^A01^ADT_A01|01052901|P|2.5</span><br><span class="line">EVN||200605290901||||</span><br><span class="line">PID|||56782445^^^UAReg^PI||KLEINSAMPLE^BARRY^Q^JR||19620910|M||2028-9^^HL70005^RA99113^^XYZ|260 GOODWIN CREST DRIVE^^BIRMINGHAM^AL^35209^^M~NICKELL’S PICKLES^10000 W 100TH AVE^BIRMINGHAM^AL^35200^^O|||||||0105I30001^^^99DEF^AN</span><br><span class="line">PV1||I|W^389^1^UABH^^^^3||||12345^MORGAN^REX^J^^^MD^0010^UAMC^L||67890^GRAINGER^LUCY^X^^^MD^0010^UAMC^L|MED|||||A0||13579^POTTER^SHERMAN^T^^^MD^0010^UAMC^L|||||||||||||||||||||||||||200605290900</span><br><span class="line">OBX|1|NM|^Body Height||1.80|m^Meter^ISO+|||||F</span><br><span class="line">OBX|2|NM|^Body Weight||79|kg^Kilogram^ISO+|||||F</span><br><span class="line">AL1|1||^ASPIRIN</span><br><span class="line">DG1|1||786.50^CHEST PAIN, UNSPECIFIED^I9|||A</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>A great search table for HL7 v2 components: <a target="_blank" rel="noopener" href="https://hl7-definition.caristix.com/v2/">Caristix</a> (Search box at top right)<br>For example, search <code>ADT_A01</code>(trigger event), <code>MSH</code>(segment), <code>MSH.9</code>(Field).</p>
+</blockquote>
+<h3 id="OID"><a href="#OID" class="headerlink" title="OID"></a>OID</h3><p>HL7 Version 3 artefacts use OIDs (unique Object IDentifiers, an ISO standard) to identify coding schemes and identifier namespaces.<br>See OID Registry table <a target="_blank" rel="noopener" href="https://www.hl7.org/oid/">here</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>HL7</p><p><a href="https://cdt.github.io/2022/07/30/HL7/">https://cdt.github.io/2022/07/30/HL7/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Chendongtian</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-07-30</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-08-01</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/underwork/">underwork</a><a class="link-muted mr-2" rel="tag" href="/tags/tecj/">tecj</a><a class="link-muted mr-2" rel="tag" href="/tags/HL7/">HL7</a><a class="link-muted mr-2" rel="tag" href="/tags/HIT/">HIT</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=62e33f2e987470001990b838&amp;product=sop" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="https://afdian.net/@chendongtian/plan" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/images/alipay_shouqian.jpg" alt="Alipay"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/images/qq_shouqian.jpg" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/08/02/HRP/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">HRP</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/07/29/Javascript-Modules/"><span class="level-item">Javascript Modules</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://cdt.github.io/2022/07/30/HL7/';
+            this.page.identifier = '2022/07/30/HL7/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'personal-blog-wx403pf6sj' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><!--!--><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Chendongtian&#039;s Blog</a><p class="is-size-7"><span>&copy; 2022 Chendongtian</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
