@@ -1,64 +1,102 @@
-# Chen Dongtian - Online Resume
+# Chen Dongtian
+**Software Developer**
 
-A simple and professional online resume built with GitHub Pages.
+📍 Yulong Bay 3-2-301, Wuhan, Hubei, China  
+📞 (+86) 189 8614 5582  
+📧 cdt86915998@gmail.com
 
-## 🌐 Live Website
+---
 
-Visit the live resume at: `https://[your-username].github.io/CDT.github.io`
+## 🚀 Experience
 
-## 📁 Project Structure
+### **Tongji Hospital of Huazhong University of Science and Technology** | Wuhan, Hubei, China
+**Senior Software Developer** | *Jan 2024 - Present*  
+**Software Developer** | *July 2016 - Dec 2023*
+- Responsible for system maintenance and demand research of electronic medical record systems
+- Writing data statistical reports and developing third-party systems
+- Leading technical improvements to meet healthcare information standards
 
-```
-CDT.github.io/
-├── index.html          # Main resume page
-├── style.css           # Styling and responsive design
-├── files/              # Resume files in different formats
-│   ├── Resume.md      
-│   ├── Resume.pdf     
-│   ├── Resume.docx    
-│   └── Resume.txt     
-└── README.md          # This file
-```
+### **China Southern Asset Management Co., Ltd.** | Shenzhen, Guangdong, China
+**Software Developer Intern** | *July 2015 - Aug 2015*
+- Built an API management system with REST API backend based on Spring Web MVC + Hibernate + Hadoop
+- Developed frontend interface using Bootstrap + jQuery
 
-## 🚀 GitHub Pages Setup
+### **Wuhan Rural Commercial Bank** | Wuhan, Hubei, China
+**Test Engineer** | *Sept 2013 - Aug 2014*
+- Conducted performance tests on banking information systems and wrote comprehensive test reports
+- Developed transactions for banking business systems
 
-1. **Repository Settings**: Go to your repository settings on GitHub
-2. **Pages Section**: Navigate to "Pages" in the left sidebar
-3. **Source**: Select "Deploy from a branch"
-4. **Branch**: Choose "main" branch and "/ (root)" folder
-5. **Save**: Click save and wait for deployment
+---
 
-## 🎨 Features
+## 🎓 Education
 
-- **Professional Design**: Clean, modern layout with gradient header
-- **Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Accessible**: Semantic HTML structure and proper contrast ratios
-- **Print-Friendly**: Optimized for PDF generation and printing
-- **Fast Loading**: Lightweight CSS with Google Fonts integration
+### **Wuhan University** | Wuhan, Hubei, China
+**Master of Engineering** in Computer Technology | *Sept 2014 - June 2016*
 
-## 🛠️ Customization
+**Bachelor of Engineering** in Computer Science and Technology | *Sept 2009 - June 2013*
 
-To customize this resume for yourself:
+---
 
-1. **Update Content**: Edit the content in `index.html`
-2. **Modify Styling**: Adjust colors and layout in `style.css`
-3. **Replace Files**: Update the resume files in the `files/` directory
-4. **Change Colors**: Modify the gradient and color scheme in CSS variables
+## 💼 Key Projects
 
-## 📱 Mobile Responsive
+### **Hospital Smart Service Grading Evaluation** | *2022*
+**Project Manager** | Computer Center, Tongji Hospital of Huazhong University of Science and Technology
+- Interpreted evaluation standards and led technical team
+- Improved hospital information systems to meet high rating standards
 
-The resume automatically adapts to different screen sizes:
-- **Desktop**: Full layout with side-by-side information
-- **Tablet**: Adjusted spacing and flexible layouts
-- **Mobile**: Stacked layout with optimized typography
+### **Standardized Maturity Evaluation of Hospital Information Interconnection** | *2021*
+**Backend Developer** | Institute of Information Medicine, Huazhong University of Science and Technology
+- Refactored backend code using Spring + Hibernate framework
+- Developed China National Health Commission's platform for inter-hospital communication evaluation
 
-## 🔧 Development
+### **Evaluation of Application of Electronic Medical Record System** | *2020*
+**Project Manager** | Computer Center, Tongji Hospital of Huazhong University of Science and Technology
+- Interpreted evaluation standards and led technical team
+- Enhanced electronic medical record system to meet high-level requirements
 
-To run locally:
-1. Clone this repository
-2. Open `index.html` in your web browser
-3. Make changes and refresh to see updates
+### **"Baidu Unlimited" Information Search Competition Website** | *2015*
+**Backend Developer** | "Baidu Unlimited" National University Information Search Competition
+- Built online test system with random question selection from Baidu's question bank
 
-## 📄 License
+### **Evaluation System for Undergraduate Teaching Work** | *2014-2015*
+**Backend Developer** | Wuhan University
+- Developed system to display and manage university undergraduate teaching evaluation information
+- Generated evaluation reports for Ministry of Education assessment
 
-This project is open source and available under the [MIT License](LICENSE). 
+### **Hospital Wireless Calling System** | *2013*
+**Backend Developer** | Shiyan Taihe Hospital
+- Developed calling system with PC host and multiple Android terminals
+- Enabled patient queries, calling functionality, and multimedia messaging
+
+---
+
+## 🛠️ Technical Skills
+
+- **Web Development**
+- **SQL**
+- **Java**
+- **C++**
+- **Spring Framework** (Spring MVC, Spring Boot)
+- **Hibernate**
+- **Hadoop**
+- **Bootstrap**
+- **jQuery**
+
+---
+
+## 🌐 Languages
+
+- **Chinese** - Native
+- **English** - Proficient (IELTS Academic 7.5, Duolingo 145)
+- **Japanese** - Proficient (JLPT N1)
+
+---
+
+## 🏆 Awards & Certifications
+
+- **2022** - Second-level Construction Engineer Qualification
+- **2021** - Japanese Language Proficiency Test N1
+- **2015** - Wuhan University Master's Degree Scholarship Second-class Academic Scholarship
+- **2014** - Banking Qualification Certificate
+- **2014** - Wuhan University Master's Degree Scholarship First-class Academic Scholarship
+- **2010** - National College English Contest Second Prize
