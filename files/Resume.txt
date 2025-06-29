@@ -1,0 +1,63 @@
+﻿Chen Dongtian
+Software Developer
+	Yulong Bay 3-2-301
+Wuhan, Hubei, China
+(+86) 189 8614 5582
+cdt86915998@gmail.com
+	EXPERIENCE
+Tongji Hospital of Huazhong University of Science and Technology, Wuhan, Hubei, China — Software Developer
+Jan 2024  - Present, Senior  Software Developer
+July 2016 - Dec 2023, Software Developer
+Responsible for the system maintenance and demand research of the electronic medical record system, writing data statistical reports, and developing third-party systems.
+China Southern Asset Management Co., Ltd., LoShenzhen, Guangdong, China — Software Developer Intern
+July 2015 - Aug 2015
+Building an API management system with a REST API backend based on Spring Web MVC + Hibernate + Hadoop and a frontend based on Bootstrap + JQuery.
+Wuhan Rural Commercial Bank, Wuhan, Hubei, China— Test Engineer
+Sept 2013 - Aug 2014
+Carrying out performance tests on banking information systems and writing test reports; developing transactions on banking business systems.
+EDUCATION
+Wuhan University, Wuhan, Hubei, China — Master of Engineering
+Sept 2014 - June 2016
+Computer Technology
+Wuhan University, Wuhan, Hubei, China — Bachelor of Engineering
+Sept 2009 - June 2013
+Computer Science and Technology
+PROJECTS
+2022 - Hospital Smart Service Grading Evaluation — Project Manager
+Computer Center,  Tongji Hospital of Huazhong University of Science and Technology
+Interpreting the evaluation standards and leading the technical team to improve the hospital information systems to meet the high rating standards.
+2021 - Standardized Maturity Evaluation of Hospital Information Interconnection — Backend Developer 
+Institute of Information Medicine, Huazhong University of Science and Technology
+Refactoring the backend code (based on Spring + Hibernate) of China National Health Commission’s platform for  Standardized Maturity Evaluation of Hospital Information Interconnection,  which is an evaluation tool for inter-hospital communication.
+
+
+2020 - Evaluation of Application of Electronic Medical Record System — Project Manager
+Computer Center,  Tongji Hospital of Huazhong University of Science and Technology
+Interpreting the evaluation standards and leading the technical team to improve the electronic medical record system to meet the high level requirements.
+
+
+2015 - “Baidu Unlimited” Information Search Competition Website — Backend Developer
+"Baidu Unlimited" National University Information Search Competition
+Building an online test system which  randomly picks questions from the question bank provided by Baidu.
+2014~2015 - Evaluation System for Undergraduate Teaching Work — Backend Developer
+Wuhan University
+The system’s purpose is to display and manage the evaluation information of the university's undergraduate teaching work (course opening, land use, graduate employment, etc.), and generate evaluation reports for the Ministry of Education to assess the teaching work of Wuhan University.
+2013 - Hospital Wireless Calling System — Backend Developer
+Shiyan Taihe Hospital
+Developing a calling system with one PC host and many Android terminals. The host can manage hospital information and receive terminal requests. Patients can query hospital information through the Android tablet terminal and call the duty room phone or the duty staff's Android phone. Hospitals can push reminders and promotional messages to patients in multimedia format.
+	SKILLS
+* Web Development
+* SQL
+* Java
+* C++
+LANGUAGES
+Chinese(Native)
+English(Proficient, IELTS Academic 7.5, Duolingo 145)
+Japanese(Proficient, JLPT N1)
+AWARDS & Certificate
+2022 Second-level Construction Engineer Qualification
+2021 Japanese Language Proficiency Test N1
+2014 Banking Qualification Certificate
+2015 Wuhan University Master's Degree Scholarship Second-class Academic Scholarship
+2014 Wuhan University Master's Degree Scholarship First-class Academic Scholarship
+2010 National College English Contest Second Prize
