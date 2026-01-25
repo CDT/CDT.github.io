@@ -1,7 +1,7 @@
 # Chen Dongtian
 **Software Developer**
 
-📍 Yulong Bay 3-2-301, Wuhan, Hubei, China  
+📍 Wuhan, Hubei, China  
 📞 (+86) 189 8614 5582  
 📧 cdt86915998@gmail.com
 
