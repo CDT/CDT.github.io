@@ -4,20 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chen Dongtian | Projects</title>
+    <script>
+        (() => {
+            const storedTheme = localStorage.getItem("theme-preference");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme =
+                storedTheme === "light" || storedTheme === "dark"
+                    ? storedTheme
+                    : prefersDark
+                        ? "dark"
+                        : "light";
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
+    <script src="theme.js" defer></script>
 </head>
 <body>
     <div class="page">
         <nav class="site-nav" aria-label="Site views">
             <a aria-current="page" href="index.html">Projects</a>
             <a href="resume.html">Resume</a>
+            <button aria-label="Switch to dark theme" aria-pressed="false" class="theme-toggle" data-theme-toggle title="Switch to dark theme" type="button">
+                <span aria-hidden="true" class="theme-toggle__icon theme-toggle__icon--moon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 14.2A8 8 0 0 1 9.8 4 9 9 0 1 0 20 14.2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+                    </svg>
+                </span>
+                <span aria-hidden="true" class="theme-toggle__icon theme-toggle__icon--sun">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" fill="none" r="4" stroke="currentColor" stroke-width="1.8"/>
+                        <path d="M12 2.5V5.5M12 18.5V21.5M21.5 12H18.5M5.5 12H2.5M18.7 5.3 16.6 7.4M7.4 16.6 5.3 18.7M18.7 18.7 16.6 16.6M7.4 7.4 5.3 5.3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+                    </svg>
+                </span>
+            </button>
         </nav>
 
         <header class="hero">
             <p class="eyebrow">Chen Dongtian</p>
             <h1>Projects</h1>
             <p class="intro">
-                This page is organized into formal projects and hobby projects.
+                This page separates formal work from personal projects and experiments.
             </p>
         </header>
 
@@ -55,28 +81,35 @@
                 <div class="project-group">
                     <div class="group-heading">
                         <h3>Hobby Projects</h3>
-                        <p>Personal experiments, demos, and side projects.</p>
+                        <p>Personal tools, reading projects, and experimental work.</p>
                     </div>
                     <div class="card-grid">
-                        <a class="card card-link" href="https://example.com">
-                            <p class="card-year">Hobby 01</p>
-                            <h3>Project Placeholder</h3>
-                            <p class="card-role">Coming soon</p>
-                            <p>A future hobby project card can live here.</p>
+                        <a class="card card-link" href="https://newsbot-f3a.pages.dev/" rel="noreferrer" target="_blank">
+                            <p class="card-year">Automation</p>
+                            <h3>Newsbot</h3>
+                            <p class="card-role">News Digest Tool</p>
+                            <p>Collects news from the web, compiles it into a digest, and sends it to selected email addresses.</p>
                         </a>
 
-                        <a class="card card-link" href="https://example.com">
-                            <p class="card-year">Hobby 02</p>
-                            <h3>Project Placeholder</h3>
-                            <p class="card-role">Coming soon</p>
-                            <p>A future hobby project card can live here.</p>
+                        <a class="card card-link" href="https://cdt-fictions.pages.dev/" rel="noreferrer" target="_blank">
+                            <p class="card-year">Reading</p>
+                            <h3>My Bookshelf</h3>
+                            <p class="card-role">Reading Log</p>
+                            <p>A personal bookshelf that records and organizes the books I have read.</p>
                         </a>
 
-                        <a class="card card-link" href="https://example.com">
-                            <p class="card-year">Hobby 03</p>
-                            <h3>Project Placeholder</h3>
-                            <p class="card-role">Coming soon</p>
-                            <p>A future hobby project card can live here.</p>
+                        <a class="card card-link" href="https://wx-web.pages.dev/" rel="noreferrer" target="_blank">
+                            <p class="card-year">Digitization</p>
+                            <h3>今古传奇：武侠</h3>
+                            <p class="card-role">Scanned Archive</p>
+                            <p>A digitized collection based on the monthly series 今古传奇：武侠, automatically generated from scanned PDFs and still containing OCR errors.</p>
+                        </a>
+
+                        <a class="card card-link" href="https://timeline-commander.vercel.app/" rel="noreferrer" target="_blank">
+                            <p class="card-year">AI Experiment</p>
+                            <h3>Timeline Commander</h3>
+                            <p class="card-role">History Text Game</p>
+                            <p>An AI-generated history text game built around branching narrative and simulated historical progression.</p>
                         </a>
                     </div>
                 </div>
