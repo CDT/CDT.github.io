@@ -37,50 +37,16 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 
 ---
 
-## Projects
-
-### **Hospital Smart Service Grading Evaluation** | *2022*
-**Project Manager** | Computer Center, Tongji Hospital of Huazhong University of Science and Technology
-- Interpreted evaluation standards and led technical team
-- Improved hospital information systems to meet high rating standards
-
-### **Standardized Maturity Evaluation of Hospital Information Interconnection** | *2021*
-**Backend Developer** | Institute of Information Medicine, Huazhong University of Science and Technology
-- Refactored backend code using Spring + Hibernate framework
-- Developed China National Health Commission's platform for inter-hospital communication evaluation
-
-### **Evaluation of Application of Electronic Medical Record System** | *2020*
-**Project Manager** | Computer Center, Tongji Hospital of Huazhong University of Science and Technology
-- Interpreted evaluation standards and led technical team
-- Enhanced electronic medical record system to meet high-level requirements
-
-### **"Baidu Unlimited" Information Search Competition Website** | *2015*
-**Backend Developer** | "Baidu Unlimited" National University Information Search Competition
-- Built online test system with random question selection from Baidu's question bank
-
-### **Evaluation System for Undergraduate Teaching Work** | *2014-2015*
-**Backend Developer** | Wuhan University
-- Developed system to display and manage university undergraduate teaching evaluation information
-- Generated evaluation reports for Ministry of Education assessment
-
-### **Hospital Wireless Calling System** | *2013*
-**Backend Developer** | Shiyan Taihe Hospital
-- Developed calling system with PC host and multiple Android terminals
-- Enabled patient queries, calling functionality, and multimedia messaging
-
----
-
 ## Technical skills
 
-- **Web Development**
-- **SQL**
-- **Java**
-- **C++**
-- **Spring Framework** (Spring MVC, Spring Boot)
-- **Hibernate**
-- **Hadoop**
-- **Bootstrap**
-- **jQuery**
+- **Software testing** - Functional, integration, and performance testing
+- **AI-assisted software development** - Requirements-driven implementation, code review, debugging, and test generation
+- **Node.js**
+- **Vue.js**
+- **JavaScript**
+- **REST API development and integration**
+- **SQL and relational databases**
+- **Git and GitHub**
 
 ---
 
@@ -92,11 +58,8 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 
 ---
 
-## Awards and certifications
+## Certifications
 
-- **2022** - Second-level Construction Engineer Qualification
-- **2021** - Japanese Language Proficiency Test N1
-- **2015** - Wuhan University Master's Degree Scholarship Second-class Academic Scholarship
-- **2014** - Banking Qualification Certificate
-- **2014** - Wuhan University Master's Degree Scholarship First-class Academic Scholarship
-- **2010** - National College English Contest Second Prize
+- [IELTS Academic - Overall Band 7.5 (2023)](certifications/ielts.png)
+- [Duolingo English Test - Overall Score 145 (2022)](certifications/duolingo.png)
+- [Japanese-Language Proficiency Test N1 (2021)](certifications/jlpt-n1.png)

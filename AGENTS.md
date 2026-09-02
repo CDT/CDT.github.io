@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository is a small, dependency-free GitHub Pages site. `index.html` is the projects landing page, while `resume.html` contains the web resume. Shared presentation rules live in `style.css`, and `theme.js` manages light/dark theme selection and persistence. Root-level assets include `favicon.ico` and `CNAME`. The `files/` directory contains downloadable resume versions (`Resume.pdf`, `Resume.docx`, `Resume.md`, and `Resume.txt`).
+This repository is a small, dependency-free GitHub Pages site. `index.html` is the projects landing page, while `resume.html` contains the web resume. Shared presentation rules live in `style.css`, and `theme.js` manages light/dark theme selection and persistence. Root-level assets include `favicon.ico` and `CNAME`. The `files/` directory contains downloadable resume versions (`Resume.pdf`, `Resume.md`, and `Resume.txt`).
 
 Keep page-specific markup in its HTML file and reusable visual rules in `style.css`. If adding assets, use descriptive lowercase names and group related files in a clearly named directory rather than crowding the repository root.
 
