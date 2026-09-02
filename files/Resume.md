@@ -1,13 +1,13 @@
 # Chen Dongtian
-**Software Developer**
+Software developer focused on healthcare systems, integration work, backend delivery, and long-term system maintenance.
 
-📍 Wuhan, Hubei, China  
-📞 (+86) 189 8614 5582  
-📧 cdt86915998@gmail.com
+Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998@gmail.com](mailto:cdt86915998@gmail.com)
+
+[Download PDF](Resume.pdf)
 
 ---
 
-## 🚀 Experience
+## Experience
 
 ### **Tongji Hospital of Huazhong University of Science and Technology** | Wuhan, Hubei, China
 **Senior Software Developer** | *Jan 2024 - Present*  
@@ -28,7 +28,7 @@
 
 ---
 
-## 🎓 Education
+## Education
 
 ### **Wuhan University** | Wuhan, Hubei, China
 **Master of Engineering** in Computer Technology | *Sept 2014 - June 2016*
@@ -37,7 +37,7 @@
 
 ---
 
-## 💼 Key Projects
+## Projects
 
 ### **Hospital Smart Service Grading Evaluation** | *2022*
 **Project Manager** | Computer Center, Tongji Hospital of Huazhong University of Science and Technology
@@ -70,7 +70,7 @@
 
 ---
 
-## 🛠️ Technical Skills
+## Technical skills
 
 - **Web Development**
 - **SQL**
@@ -84,7 +84,7 @@
 
 ---
 
-## 🌐 Languages
+## Languages
 
 - **Chinese** - Native
 - **English** - Proficient (IELTS Academic 7.5, Duolingo 145)
@@ -92,7 +92,7 @@
 
 ---
 
-## 🏆 Awards & Certifications
+## Awards and certifications
 
 - **2022** - Second-level Construction Engineer Qualification
 - **2021** - Japanese Language Proficiency Test N1
