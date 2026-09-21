@@ -9,7 +9,7 @@ const siteHost = readFileSync(join(repositoryRoot, "CNAME"), "utf8").trim();
 
 const resumes = [
     { markdown: "Resume.md", pdf: "Resume.pdf", title: "Chen Dongtian | Resume" },
-    { markdown: "resume-zh.md", pdf: "resume-zh.pdf", title: "陈冬天 | 个人简历" },
+    { markdown: "resume-zh.md", pdf: "resume-zh.pdf", title: "陈洞天 | 个人简历" },
 ];
 
 const findChrome = () => {
