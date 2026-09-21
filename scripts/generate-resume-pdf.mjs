@@ -55,12 +55,12 @@ for (const resume of resumes) {
         writeFileSync(temporaryMarkdownPath, markdown);
         writeFileSync(headerPath, `
 <style>
-    @page { size: A4; margin: 13mm 15mm; }
-    html { color: #1f2328; font: 10pt/1.35 "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif; }
+    @page { size: A4; margin: 12mm 15mm; }
+    html { color: #1f2328; font: 9.25pt/1.28 "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif; }
     body { margin: 0; }
     h1 { font-size: 22pt; margin: 0 0 4pt; }
-    h2 { border-bottom: 1px solid #d0d7de; font-size: 14pt; margin: 13pt 0 7pt; padding-bottom: 3pt; }
-    h3 { font-size: 11pt; margin: 8pt 0 2pt; }
+    h2 { border-bottom: 1px solid #d0d7de; font-size: 14pt; margin: 10pt 0 6pt; padding-bottom: 3pt; }
+    h3 { font-size: 11pt; margin: 6pt 0 2pt; }
     p { margin: 3pt 0; }
     ul { margin: 3pt 0 6pt; padding-left: 18pt; }
     li { margin: 1pt 0; }

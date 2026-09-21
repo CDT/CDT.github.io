@@ -12,11 +12,10 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 ### **Tongji Hospital of Huazhong University of Science and Technology** | Wuhan, Hubei, China
 **Senior Software Developer** | *Jan 2024 - Present*  
 **Software Developer** | *July 2016 - Dec 2023*
-- Maintain electronic medical record systems and conduct requirements analysis
-- Build data-reporting and third-party healthcare systems across clinical, medical-record, and hospital operations data
-- Developed a clinician-facing AI assistant using DeepSeek and OpenAI-compatible APIs, with server-side tool calling over patient data, streamed responses, usage controls, and automated tests
-- Prototyped a retrieval-grounded hospital knowledge assistant with source citations, structured answers, safety boundaries, auditability, and human confirmation for system actions
-- Lead technical improvements to meet healthcare information standards
+- Maintain electronic medical record and related clinical systems, covering requirements analysis, troubleshooting, data-interface integration, and continuous improvement
+- Build clinical search, reporting, internal management, and third-party healthcare integrations with Node.js, Vue.js, Oracle, SQL Server, Redis, and S3
+- Developed a clinician-facing AI assistant on DeepSeek/OpenAI-compatible APIs, using server-side tool calls over medical records, orders, laboratory results, and examination reports, with SSE streaming, context controls, usage management, and API tests
+- Designed a retrieval-grounded institutional knowledge assistant with document search, source citations, structured answers, explicit refusal paths, audit records, and human confirmation
 
 ### **China Southern Asset Management Co., Ltd.** | Shenzhen, Guangdong, China
 **Software Developer Intern** | *July 2015 - Aug 2015*
@@ -27,6 +26,13 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 **Test Engineer** | *Sept 2013 - Aug 2014*
 - Conducted performance tests on banking information systems and wrote comprehensive test reports
 - Developed transactions for banking business systems
+
+---
+
+## Selected personal projects
+
+- Built [Newsbot](https://github.com/CDT/newsbot) with Cloudflare Workers, Pages, D1, Gemini, and Resend for scheduled ingestion, AI summarization, and email delivery
+- Develop [music-learning](https://github.com/CDT/music), [quiz and flashcard](https://github.com/CDT/lckfx), [study-content](https://github.com/CDT/tk), and [digital-reading](https://github.com/CDT/books) applications with React, TypeScript, Vite, Supabase/PostgreSQL, Edge Functions, PWA capabilities, and GitHub Actions CI/CD
 
 ---
 
