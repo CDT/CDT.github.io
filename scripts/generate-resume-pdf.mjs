@@ -77,7 +77,7 @@ for (const resume of resumes) {
             "--standalone",
             `--include-in-header=${headerPath}`,
             `--output=${temporaryHtmlPath}`,
-            `--metadata=title:${resume.title}`,
+            `--metadata=pagetitle:${resume.title}`,
         ], { stdio: "inherit" });
 
         execFileSync(chrome, [

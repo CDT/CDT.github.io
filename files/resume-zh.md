@@ -27,15 +27,6 @@
 - 执行银行信息系统性能测试并编写综合测试报告
 - 开发银行业务系统交易功能
 
----
-
-## 个人项目
-
-- 使用 Cloudflare Workers、Pages、D1、Gemini 和 Resend 构建支持定时任务、AI 摘要及邮件推送的 [Newsbot](https://github.com/CDT/newsbot)
-- 使用 React、TypeScript、Vite、Supabase/PostgreSQL、Edge Functions 和 PWA 技术开发[音乐学习](https://github.com/CDT/music)、[题库与记忆卡](https://github.com/CDT/lckfx)、[学习内容管理](https://github.com/CDT/tk)及[电子阅读](https://github.com/CDT/books)应用，并通过 GitHub Actions 自动测试和部署
-
----
-
 ## 教育经历
 
 ### **武汉大学** | 中国湖北武汉

@@ -48,9 +48,6 @@ The system’s purpose is to display and manage the evaluation information of th
 2013 - Hospital Wireless Calling System — Backend Developer
 Shiyan Taihe Hospital
 Developing a calling system with one PC host and many Android terminals. The host can manage hospital information and receive terminal requests. Patients can query hospital information through the Android tablet terminal and call the duty room phone or the duty staff's Android phone. Hospitals can push reminders and promotional messages to patients in multimedia format.
-SELECTED PERSONAL PROJECTS
-* Built Newsbot with Cloudflare Workers, Pages, D1, Gemini, and Resend for scheduled ingestion, AI summarization, and email delivery
-* Develop music-learning, quiz and flashcard, study-content, and digital-reading applications with React, TypeScript, Vite, Supabase/PostgreSQL, Edge Functions, PWA capabilities, and GitHub Actions CI/CD
 SKILLS
 * Generative AI and LLM applications: prompt design, structured outputs, multi-turn orchestration, and server-side function/tool calling
 * Retrieval-grounded AI: document retrieval, source citation, grounded-answer enforcement, and explicit refusal/fallback flows

@@ -27,15 +27,6 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 - Conducted performance tests on banking information systems and wrote comprehensive test reports
 - Developed transactions for banking business systems
 
----
-
-## Selected personal projects
-
-- Built [Newsbot](https://github.com/CDT/newsbot) with Cloudflare Workers, Pages, D1, Gemini, and Resend for scheduled ingestion, AI summarization, and email delivery
-- Develop [music-learning](https://github.com/CDT/music), [quiz and flashcard](https://github.com/CDT/lckfx), [study-content](https://github.com/CDT/tk), and [digital-reading](https://github.com/CDT/books) applications with React, TypeScript, Vite, Supabase/PostgreSQL, Edge Functions, PWA capabilities, and GitHub Actions CI/CD
-
----
-
 ## Education
 
 ### **Wuhan University** | Wuhan, Hubei, China
