@@ -1,5 +1,5 @@
 # Chen Dongtian
-Software developer focused on healthcare systems, integration work, backend delivery, and long-term system maintenance.
+Software developer focused on healthcare systems, applied AI, backend delivery, systems integration, and long-term system maintenance.
 
 Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998@gmail.com](mailto:cdt86915998@gmail.com)
 
@@ -12,9 +12,11 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 ### **Tongji Hospital of Huazhong University of Science and Technology** | Wuhan, Hubei, China
 **Senior Software Developer** | *Jan 2024 - Present*  
 **Software Developer** | *July 2016 - Dec 2023*
-- Responsible for system maintenance and demand research of electronic medical record systems
-- Writing data statistical reports and developing third-party systems
-- Leading technical improvements to meet healthcare information standards
+- Maintain electronic medical record systems and conduct requirements analysis
+- Build data-reporting and third-party healthcare systems across clinical, medical-record, and hospital operations data
+- Developed a clinician-facing AI assistant using DeepSeek and OpenAI-compatible APIs, with server-side tool calling over patient data, streamed responses, usage controls, and automated tests
+- Prototyped a retrieval-grounded hospital knowledge assistant with source citations, structured answers, safety boundaries, auditability, and human confirmation for system actions
+- Lead technical improvements to meet healthcare information standards
 
 ### **China Southern Asset Management Co., Ltd.** | Shenzhen, Guangdong, China
 **Software Developer Intern** | *July 2015 - Aug 2015*
@@ -39,13 +41,16 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 
 ## Technical skills
 
-- **Software testing** - Functional, integration, and performance testing
-- **AI-assisted software development** - Requirements-driven implementation, code review, debugging, and test generation
-- **Node.js**
-- **Vue.js**
-- **JavaScript**
+- **Generative AI and LLM applications** - Prompt design, structured outputs, multi-turn orchestration, and server-side function/tool calling
+- **Retrieval-grounded AI** - Document retrieval, source citation, grounded-answer enforcement, and explicit refusal/fallback flows
+- **AI platform integration** - DeepSeek and OpenAI-compatible chat APIs, SSE streaming, context and token management, and usage quotas
+- **AI safety and quality** - Prompt-injection filtering, patient-scoped data access, human-in-the-loop workflows, audit logging, and mocked integration tests
+- **AI-assisted software development** - Requirements-driven implementation, code review, debugging, refactoring, and test generation
+- **Software testing** - Functional, integration, performance, and API testing
+- **Node.js, JavaScript, and TypeScript**
+- **Vue.js and React**
 - **REST API development and integration**
-- **SQL and relational databases**
+- **SQL, Oracle, SQL Server, and Redis**
 - **Git and GitHub**
 
 ---

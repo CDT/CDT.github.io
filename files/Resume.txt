@@ -1,5 +1,5 @@
 ﻿Chen Dongtian
-Software Developer
+Healthcare Software and Applied AI Developer
 	Yulong Bay 3-2-301
 Wuhan, Hubei, China
 (+86) 189 8614 5582
@@ -8,7 +8,9 @@ cdt86915998@gmail.com
 Tongji Hospital of Huazhong University of Science and Technology, Wuhan, Hubei, China — Software Developer
 Jan 2024  - Present, Senior  Software Developer
 July 2016 - Dec 2023, Software Developer
-Responsible for the system maintenance and demand research of the electronic medical record system, writing data statistical reports, and developing third-party systems.
+Maintain electronic medical record systems, conduct requirements analysis, and build data-reporting and third-party healthcare systems.
+Developed a clinician-facing AI assistant using DeepSeek and OpenAI-compatible APIs, with server-side tool calling over patient data, streamed responses, usage controls, and automated tests.
+Prototyped a retrieval-grounded hospital knowledge assistant with source citations, structured answers, safety boundaries, auditability, and human confirmation for system actions.
 China Southern Asset Management Co., Ltd., LoShenzhen, Guangdong, China — Software Developer Intern
 July 2015 - Aug 2015
 Building an API management system with a REST API backend based on Spring Web MVC + Hibernate + Hadoop and a frontend based on Bootstrap + JQuery.
@@ -45,11 +47,17 @@ The system’s purpose is to display and manage the evaluation information of th
 2013 - Hospital Wireless Calling System — Backend Developer
 Shiyan Taihe Hospital
 Developing a calling system with one PC host and many Android terminals. The host can manage hospital information and receive terminal requests. Patients can query hospital information through the Android tablet terminal and call the duty room phone or the duty staff's Android phone. Hospitals can push reminders and promotional messages to patients in multimedia format.
-	SKILLS
-* Web Development
-* SQL
-* Java
-* C++
+SKILLS
+* Generative AI and LLM applications: prompt design, structured outputs, multi-turn orchestration, and server-side function/tool calling
+* Retrieval-grounded AI: document retrieval, source citation, grounded-answer enforcement, and explicit refusal/fallback flows
+* AI platform integration: DeepSeek and OpenAI-compatible chat APIs, SSE streaming, context and token management, and usage quotas
+* AI safety and quality: prompt-injection filtering, patient-scoped data access, human-in-the-loop workflows, audit logging, and mocked integration tests
+* AI-assisted software development: requirements-driven implementation, code review, debugging, refactoring, and test generation
+* Software testing: functional, integration, performance, and API testing
+* Node.js, JavaScript, TypeScript, Vue.js, and React
+* REST API development and integration
+* SQL, Oracle, SQL Server, and Redis
+* Git and GitHub
 LANGUAGES
 Chinese(Native)
 English(Proficient, IELTS Academic 7.5, Duolingo 145)
