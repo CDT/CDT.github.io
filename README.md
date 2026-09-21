@@ -1,15 +1,17 @@
 # Chen Dongtian
 **Software Developer**
 
-The website renders `files/Resume.md` directly. Run the following command after
-editing that file to regenerate the downloadable PDF locally:
+The website renders the English `files/Resume.md` and Chinese
+`files/resume-zh.md` directly. Run the following command after editing either
+file to regenerate both downloadable PDFs locally:
 
 ```powershell
 node scripts/generate-resume-pdf.mjs
 ```
 
 The `Sync resume PDF` GitHub Actions workflow also regenerates and commits
-`files/Resume.pdf` whenever the Markdown source changes on `main`.
+`files/Resume.pdf` and `files/resume-zh.pdf` whenever either Markdown source
+changes on `main`.
 
 📍 Wuhan, Hubei, China  
 📞 (+86) 189 8614 5582  

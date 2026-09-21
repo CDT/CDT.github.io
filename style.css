@@ -5,6 +5,13 @@
     padding: 45px;
 }
 
+.language-switcher {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 767px) {
     .markdown-body {
         padding: 15px;

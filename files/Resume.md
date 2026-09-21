@@ -3,7 +3,7 @@ Software developer focused on healthcare systems, applied AI, backend delivery, 
 
 Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998@gmail.com](mailto:cdt86915998@gmail.com)
 
-[Download PDF](Resume.pdf)
+[Download PDF](Resume.pdf) · [Download plain text](Resume.txt)
 
 ---
 
