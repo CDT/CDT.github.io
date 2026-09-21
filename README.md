@@ -11,8 +11,8 @@ node scripts/generate-resume-pdf.mjs
 ```
 
 The `Sync resume PDF` GitHub Actions workflow also regenerates and commits
-`files/Resume.pdf`, `files/resume-zh.pdf`, and `files/resume-ja.pdf` whenever a
-Markdown source changes on `main`.
+`files/Chen-Dongtian-Resume.pdf`, `files/陈洞天-个人简历.pdf`, and
+`files/Chen-Dongtian-履歴書.pdf` whenever a Markdown source changes on `main`.
 
 📍 Wuhan, Hubei, China  
 📞 (+86) 189 8614 5582  

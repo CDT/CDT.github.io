@@ -3,7 +3,7 @@
 
 中国 湖北省武漢市 · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998@gmail.com](mailto:cdt86915998@gmail.com)
 
-[PDFをダウンロード](resume-ja.pdf) · [テキスト版をダウンロード](resume-ja.txt)
+[PDFをダウンロード](Chen-Dongtian-履歴書.pdf) · [テキスト版をダウンロード](resume-ja.txt)
 
 ---
 

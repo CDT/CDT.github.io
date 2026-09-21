@@ -8,9 +8,9 @@ const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const siteHost = readFileSync(join(repositoryRoot, "CNAME"), "utf8").trim();
 
 const resumes = [
-    { markdown: "Resume.md", pdf: "Resume.pdf", title: "Chen Dongtian | Resume" },
-    { markdown: "resume-zh.md", pdf: "resume-zh.pdf", title: "陈洞天 | 个人简历" },
-    { markdown: "resume-ja.md", pdf: "resume-ja.pdf", title: "Chen Dongtian | 履歴書" },
+    { markdown: "Resume.md", pdf: "Chen-Dongtian-Resume.pdf", title: "Chen Dongtian | Resume" },
+    { markdown: "resume-zh.md", pdf: "陈洞天-个人简历.pdf", title: "陈洞天 | 个人简历" },
+    { markdown: "resume-ja.md", pdf: "Chen-Dongtian-履歴書.pdf", title: "Chen Dongtian | 履歴書" },
 ];
 
 const findChrome = () => {

@@ -3,7 +3,7 @@
 
 中国湖北武汉 · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998@gmail.com](mailto:cdt86915998@gmail.com)
 
-[下载 PDF](resume-zh.pdf) · [下载纯文本](resume-zh.txt)
+[下载 PDF](陈洞天-个人简历.pdf) · [下载纯文本](resume-zh.txt)
 
 ---
 
