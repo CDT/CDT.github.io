@@ -1,16 +1,24 @@
 # Chen Dongtian
 **Software Developer**
 
-The website renders the English `files/Resume.md`, Chinese
-`files/resume-zh.md`, and Japanese `files/resume-ja.md` directly. Run the
-following command after editing any of these files to regenerate all
-downloadable PDFs locally:
+The website includes static HTML generated from the English `files/Resume.md`,
+Chinese `files/resume-zh.md`, and Japanese `files/resume-ja.md`. These Markdown
+files are the source of truth. After editing any of them, run both commands
+to regenerate the four HTML pages and all downloadable PDFs locally:
 
 ```powershell
+node scripts/generate-resume-html.mjs
 node scripts/generate-resume-pdf.mjs
 ```
 
+Both scripts require Node.js and Pandoc and use Pandoc's GFM reader and HTML5
+writer. PDF generation also requires Chrome or Chromium. The HTML generator
+replaces only the generated marker region inside each page's
+`<main data-markdown-content>` and resolves relative links from `files/`.
+Do not edit the generated content by hand.
+
 The `Sync resume PDF` GitHub Actions workflow also regenerates and commits
+`index.html`, `resume.html`, `resume-zh.html`, `resume-ja.html`,
 `files/Chen-Dongtian-Resume.pdf`, `files/陈洞天-个人简历.pdf`, and
 `files/Chen-Dongtian-履歴書.pdf` whenever a Markdown source changes on `main`.
 

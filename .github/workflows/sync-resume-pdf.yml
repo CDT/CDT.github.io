@@ -9,6 +9,7 @@ on:
             - files/resume-zh.md
             - files/resume-ja.md
             - scripts/generate-resume-pdf.mjs
+            - scripts/generate-resume-html.mjs
             - .github/workflows/sync-resume-pdf.yml
     workflow_dispatch:
 
@@ -26,16 +27,18 @@ jobs:
             - name: Install Pandoc and Chinese fonts
               run: sudo apt-get update && sudo apt-get install --yes pandoc fonts-noto-cjk
 
-            - name: Generate PDF from Markdown
-              run: node scripts/generate-resume-pdf.mjs
-
-            - name: Commit synchronized PDF
+            - name: Generate HTML and PDF from Markdown
               run: |
-                  git add -A -- files
+                  node scripts/generate-resume-html.mjs
+                  node scripts/generate-resume-pdf.mjs
+
+            - name: Commit synchronized HTML and PDF
+              run: |
+                  git add -A -- files index.html resume.html resume-zh.html resume-ja.html
                   if git diff --cached --quiet; then
                       exit 0
                   fi
                   git config user.name "github-actions[bot]"
                   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                  git commit -m "Sync resume PDF"
+                  git commit -m "Sync resume HTML and PDF"
                   git push
