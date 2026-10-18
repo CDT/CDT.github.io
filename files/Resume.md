@@ -16,6 +16,7 @@ Wuhan, Hubei, China · [(+86) 189 8614 5582](tel:+8618986145582) · [cdt86915998
 - Build clinical search, reporting, internal management, and third-party healthcare integrations with Node.js, Vue.js, Oracle, SQL Server, Redis, and S3
 - Developed a clinician-facing AI assistant on DeepSeek/OpenAI-compatible APIs, using server-side tool calls over medical records, orders, laboratory results, and examination reports, with SSE streaming, context controls, usage management, and API tests
 - Designed a retrieval-grounded institutional knowledge assistant with document search, source citations, structured answers, explicit refusal paths, audit records, and human confirmation
+- Designing internal AI agents built on the Model Context Protocol (MCP), covering natural-language data queries, Oracle/PostgreSQL/GaussDB performance diagnosis, and IT helpdesk support, with read-only data access, cited answers, role-based permissions, and audit logs (in development)
 
 ### **China Southern Asset Management Co., Ltd.** | Shenzhen, Guangdong, China
 **Software Developer Intern** | *July 2015 - Aug 2015*
