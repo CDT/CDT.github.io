@@ -1,0 +1,336 @@
+:root {
+  color-scheme: light;
+  --ink: #182345;
+  --muted: #465678;
+  --blue: #253dc0;
+  --blue-deep: #192b91;
+  --line: #dce3f6;
+  --paper: #fbfcff;
+  font: 1rem/1.5 "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: #e9eeff;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; min-width: 0; }
+a { color: var(--blue-deep); text-underline-offset: 0.2em; }
+button, select, input { font: inherit; }
+button, select { cursor: pointer; }
+:focus-visible { outline: 3px solid #4059e5; outline-offset: 3px; }
+
+.masthead {
+  background: var(--paper);
+  border-bottom: 1px solid #cfd9f6;
+}
+
+.masthead-inner, .library {
+  width: min(100% - 3rem, 75rem);
+  margin-inline: auto;
+}
+
+.masthead-inner {
+  min-height: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 750;
+  text-decoration: none;
+  line-height: 1.15;
+}
+
+.deck-mark {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.6rem;
+  background: var(--blue);
+}
+
+.deck-mark::before {
+  content: "";
+  width: 0.82rem;
+  height: 1.1rem;
+  border: 2px solid white;
+  border-radius: 0.16rem;
+  transform: rotate(-14deg) translateX(-1px);
+  box-shadow: 4px 2px 0 -1px #aebcff;
+}
+
+.download {
+  border: 1px solid #bfc9ed;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.download:hover, .reader-controls button:not(:disabled):hover { background: #e5ebff; }
+
+.library { padding-block: 2.6rem 3.5rem; }
+
+.library-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.library-heading h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 3.85rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.library-heading p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.sidebar, .reader {
+  background: var(--paper);
+  border: 1px solid #cfd9f6;
+  border-radius: 0.875rem;
+  box-shadow: 0 0.5rem 1.4rem #2237830b;
+}
+
+.sidebar { padding: 1.1rem; }
+.sidebar label { display: block; font-size: 0.875rem; font-weight: 700; margin-bottom: 0.4rem; }
+.sidebar label[for="category"] { margin-top: 0.9rem; }
+
+.sidebar input, .sidebar select {
+  display: block;
+  width: 100%;
+  min-height: 2.65rem;
+  color: var(--ink);
+  background: white;
+  border: 1px solid #bfc9e8;
+  border-radius: 0.45rem;
+  padding: 0.45rem 0.65rem;
+}
+
+.sidebar input::placeholder { color: #58688f; }
+.select-wrap { position: relative; }
+.sidebar select { appearance: none; padding-right: 1.7rem; }
+
+.select-wrap::after {
+  content: "";
+  position: absolute;
+  height: 0.45rem;
+  width: 0.45rem;
+  right: 0.85rem;
+  top: 0.95rem;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+#card-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+#card-list:empty { display: none; }
+#card-list li + li { margin-top: 0.25rem; }
+
+#card-list button {
+  width: 100%;
+  text-align: left;
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.65rem;
+}
+
+#card-list button:hover { background: #edf1ff; }
+#card-list button[aria-current] { background: #e2e9ff; border-color: #c7d2ff; color: var(--blue-deep); font-weight: 700; }
+
+.reader-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.reader-controls { display: flex; gap: 0.4rem; }
+.reader-controls button {
+  border: 1px solid #bfc9ed;
+  border-radius: 0.45rem;
+  background: white;
+  color: var(--blue-deep);
+  padding: 0.35rem 0.65rem;
+  font-weight: 650;
+}
+
+.reader-controls button:disabled {
+  color: #5b6786;
+  background: #f1f4fc;
+  border-color: var(--line);
+  cursor: default;
+}
+
+#message { margin: 0; padding: 2rem 1.25rem; color: var(--muted); }
+
+.card-content {
+  padding: clamp(1.15rem, 4vw, 2.3rem);
+  font: clamp(1rem, 1.8vw, 1.2rem)/1.6 Georgia, "Times New Roman", serif;
+  overflow-wrap: anywhere;
+}
+
+.card-content .label, .card-content h3, .card-content .phonetics, .card-content footer {
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.card-content p { margin: 0.45rem 0 0; }
+.card-content .label, .card-content h3 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-size: 0.875rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.card-content .card-title {
+  margin: 0.12em 0 0.15em;
+  font-size: clamp(2.45rem, 6.7vw, 5.1rem);
+  line-height: 0.97;
+  letter-spacing: -0.054em;
+}
+
+.card-content .phonetics { color: var(--muted); font-size: 1rem; }
+.card-content .phonetics span { color: var(--blue-deep); font-size: 0.875rem; font-weight: 750; }
+.card-content .phonetics span + span { margin-left: 0.7rem; }
+.card-content .definition { margin-top: 0.7rem; }
+.card-content .definition em { margin-right: 0.4rem; color: var(--muted); }
+
+.card-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.55rem;
+}
+
+.card-content .illustration {
+  margin-top: 1.25rem;
+  width: 100%;
+  aspect-ratio: 2.35;
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+.card-hero {
+  position: relative;
+  isolation: isolate;
+  margin: 0.75rem 0 0;
+  border-radius: 0.65rem;
+  overflow: hidden;
+  color: white;
+  background: var(--ink);
+}
+
+.card-content .card-hero .illustration {
+  margin-top: 0;
+  aspect-ratio: 1.95;
+  object-position: center 46%;
+  border-radius: 0;
+}
+
+.card-hero figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2.2rem clamp(0.85rem, 3vw, 1.7rem) 1.1rem;
+  background: linear-gradient(transparent, #101a34ed 45%, #101a34 100%);
+}
+
+.card-content .card-hero .card-title {
+  margin: 0;
+  font-size: clamp(2rem, 6.3vw, 4.5rem);
+  text-shadow: 0 2px 12px #101a34;
+}
+
+.card-content .card-hero .definition { margin-top: 0.35rem; }
+.card-content .card-hero .definition em { color: #dce5ff; }
+.card-content .card-hero + .phonetics { margin-top: 0.7rem; }
+
+.card-content .word-in-image .illustration { aspect-ratio: auto; }
+.card-content .word-in-image figcaption { padding: 0.65rem 1rem 0.55rem; }
+.card-content .word-in-image .definition { margin: 0; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.word-parts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin: 0.5rem 0;
+}
+
+.word-parts > div {
+  background: #eef2ff;
+  border-radius: 0.4rem;
+  padding: 0.35rem 0.55rem;
+}
+
+.word-parts dt {
+  color: var(--blue-deep);
+  font: 700 0.875rem/1.4 "Segoe UI", system-ui, sans-serif;
+}
+
+.word-parts dd { margin: 0; }
+.word-parts strong { white-space: nowrap; }
+
+.card-content section { margin-top: 1.35rem; }
+.card-content ul { margin: 0.4rem 0 0; padding-left: 1.35em; }
+.card-content li + li { margin-top: 0.15em; }
+.card-content footer { margin-top: 1.35rem; padding-top: 0.75rem; border-top: 1px solid var(--line); font-size: 0.875rem; }
+
+@media (max-width: 47rem) {
+  .masthead-inner, .library { width: calc(100% - 1.5rem); }
+  .library { padding-top: 1.7rem; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+  .sidebar { padding: 0.85rem; }
+  .card-content .illustration { aspect-ratio: auto; }
+  .card-hero figcaption { padding-top: 1.25rem; }
+}
+
+@media (max-width: 25rem) {
+  .word-parts strong { display: block; }
+  .card-content .word-in-image .illustration { aspect-ratio: 1.45; }
+  .card-content .word-in-image figcaption { padding: 0.35rem 0.55rem; font-size: 0.875rem; }
+}

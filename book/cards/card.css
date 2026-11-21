@@ -1,0 +1,123 @@
+html, body {
+  width: 528px;
+  height: 792px;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 22px 24px;
+  background: #fff;
+  color: #111;
+  font: 25px/1.28 Arial, "Hiragino Sans", "Noto Sans CJK SC", sans-serif;
+}
+
+main {
+  overflow-wrap: break-word;
+}
+
+h1, h2, p, ul, dl {
+  margin: 0;
+}
+
+.label, h2, .word-parts dt {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 5px 0 6px;
+  font-size: 46px;
+  line-height: 1.12;
+}
+
+.phonetics {
+  font-size: 20px;
+}
+
+.phonetics span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.phonetics span + span {
+  margin-left: 12px;
+}
+
+.definition {
+  margin-top: 8px;
+}
+
+.definition em {
+  margin-right: 6px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.illustration {
+  display: block;
+  width: 100%;
+  max-height: 150px;
+  margin-top: 12px;
+  object-fit: contain;
+}
+
+section {
+  margin-top: 12px;
+}
+
+.etymology {
+  padding: 8px 12px;
+  border: 1px solid #666;
+}
+
+h2 {
+  margin-bottom: 4px;
+}
+
+.word-parts {
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+.word-parts > div {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.word-parts dd {
+  margin: 0;
+}
+
+ul {
+  padding-left: 25px;
+}
+
+li + li {
+  margin-top: 3px;
+}
+
+footer {
+  margin-top: 10px;
+  padding-top: 6px;
+  border-top: 1px solid #666;
+  font-size: 19px;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Compact vocabulary card, mirroring the X3 reading order. */
+.compact { font-size: 23px; line-height: 1.2; }
+.compact h1 { font-size: 43px; margin: 2px 0 4px; }
+.compact .phonetics { font-size: 20px; margin-bottom: 5px; }
+.compact .definition { font-size: 25px; margin-bottom: 6px; }
+.compact .illustration { width: 100%; max-height: 185px; margin: 6px 0; object-fit: contain; }
+.compact section { margin-top: 6px; }
+.compact section h2 { font-size: 17px; margin-bottom: 2px; }
+.compact section p { font-size: 22px; margin: 0; }

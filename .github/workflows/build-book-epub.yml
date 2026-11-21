@@ -1,0 +1,41 @@
+name: Build Knowledge Cards EPUB
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "book/cards/**"
+      - "book/build_epub.py"
+      - "book/render_card.py"
+      - "book/requirements.txt"
+      - ".github/workflows/build-book-epub.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: book/requirements.txt
+      - run: python -m pip install -r book/requirements.txt
+      - name: Render one-page X3 EPUB
+        working-directory: book
+        run: python build_epub.py --seed 42
+      - name: Commit generated EPUB file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f book/book.epub
+          if ! git diff --cached --quiet; then
+            git commit -m "Build X3 EPUB for published cards"
+            git push
+          fi
